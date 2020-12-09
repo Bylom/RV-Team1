@@ -51,7 +51,12 @@ public class FPController : MonoBehaviour {
         _isGrounded = Physics.CheckSphere(_groundCheck.position, _groundDistance, _groundMask);
 
         if (_isGrounded && _velocity.y < 0f)
+        {
             _velocity.y = -2f;
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.LeftShift)) _speed = 2f;
+            if (Input.GetKeyUp(KeyCode.LeftShift)) _speed = 1f;
+
+        }
 
         float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
@@ -95,7 +100,7 @@ public class FPController : MonoBehaviour {
 
     private void UpdateAnimations() {
         _animator.SetFloat("speed", _inputSpeed);
-        _animator.SetBool("run", Input.GetKey(KeyCode.Q));
+        _animator.SetBool("run", Input.GetKey(KeyCode.LeftShift));
         _animator.SetBool("jump", Input.GetKey(KeyCode.Space));
     }
 
