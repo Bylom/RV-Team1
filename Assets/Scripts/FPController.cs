@@ -10,7 +10,7 @@ public class FPController : MonoBehaviour {
     [SerializeField] 
     private float _speed = 1f;
     [SerializeField] 
-    private float _mouseSensitivity = 100f;
+    private float _mouseSensitivity = 90f;
 
     [SerializeField] 
     private float _gravity = -1.63f;
@@ -38,8 +38,6 @@ public class FPController : MonoBehaviour {
     private Vector3 _velocity;
     private bool _isGrounded;
 
-    //    private float _counter = 0f;
-    //    private float _waitTime = 10f;
 
     void Start() {
         _characterController = GetComponent<CharacterController>();
@@ -73,9 +71,6 @@ public class FPController : MonoBehaviour {
         _inputSpeed = Mathf.Clamp(_inputVector.magnitude, 0f, 1f);
 
 
-        //JUMPING
-        //        if (Input.GetKey(KeyCode.Space) && _isGrounded && _isJumping == false && _isRunning == false)
-        //            StartCoroutine(waiter());
 
         if (Input.GetKey(KeyCode.LeftShift)) {
             _speed = 3f;
@@ -86,12 +81,9 @@ public class FPController : MonoBehaviour {
         }
 
 
-        if (Input.GetKey(KeyCode.Space) && _isGrounded && (_isJumping == true || _isRunning == true))
+        if (Input.GetKey(KeyCode.Space) && _isGrounded && _isJumping == false)
             _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
 
-
-        //          while (_counter <= _waitTime)
-        //            _counter += Time.deltaTime;   
 
         //FALLING
         _velocity.y += _gravity * Time.deltaTime;
@@ -107,17 +99,4 @@ public class FPController : MonoBehaviour {
         _animator.SetBool("jump", Input.GetKey(KeyCode.Space));
     }
 
-
-    IEnumerator waiter() {
-        yield return new WaitForSecondsRealtime(1);
-        _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
-        //    _animator.SetTrigger("jump");      
-        //
-        //    // Wait for the current animation to finish
-        //    while (_animator.IsInTransition(0))
-        //    {
-        //        yield return new WaitForSecondsRealtime(10);
-        //    } 
-
-    }
 }
