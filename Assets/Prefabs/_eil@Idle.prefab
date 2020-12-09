@@ -1334,7 +1334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   _cameraT: {fileID: 0}
-  _speed: 1
+  _speed: 5
   _mouseSensitivity: 100
   _gravity: -1.63
   _groundCheck: {fileID: 0}
