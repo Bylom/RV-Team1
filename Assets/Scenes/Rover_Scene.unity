@@ -358,6 +358,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8846097495941077688, guid: 1c996253fdc4a4d62bcda6b2e404e2c7, type: 3}
+      propertyPath: m_Topspeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846097495941077688, guid: 1c996253fdc4a4d62bcda6b2e404e2c7, type: 3}
+      propertyPath: m_SpeedType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8846097495950996296, guid: 1c996253fdc4a4d62bcda6b2e404e2c7, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -441,6 +449,26 @@ PrefabInstance:
     - target: {fileID: 8846097495951290160, guid: 1c996253fdc4a4d62bcda6b2e404e2c7, type: 3}
       propertyPath: m_Name
       value: Rover
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846097495954732714, guid: 1c996253fdc4a4d62bcda6b2e404e2c7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846097495954732720, guid: 1c996253fdc4a4d62bcda6b2e404e2c7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846097495954732724, guid: 1c996253fdc4a4d62bcda6b2e404e2c7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846097495954732726, guid: 1c996253fdc4a4d62bcda6b2e404e2c7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846097495956507706, guid: 1c996253fdc4a4d62bcda6b2e404e2c7, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9027781771944621448, guid: 1c996253fdc4a4d62bcda6b2e404e2c7, type: 3}
       propertyPath: m_LocalScale.x
