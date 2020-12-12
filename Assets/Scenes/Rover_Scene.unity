@@ -421,6 +421,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9075724802100423011, guid: a9be7943afb764df9a24b90a6e3c80da, type: 3}
+      propertyPath: m_Topspeed
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 9075724802106957035, guid: a9be7943afb764df9a24b90a6e3c80da, type: 3}
       propertyPath: m_Name
       value: Rover
