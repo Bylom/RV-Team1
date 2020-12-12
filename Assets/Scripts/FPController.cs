@@ -61,12 +61,14 @@ public class FPController : MonoBehaviour {
         float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
 
-        //Compute direction According to Camera Orientation
-        transform.Rotate(Vector3.up, mouseX);
-        cameraXRotation -= mouseY;
-        cameraXRotation = Mathf.Clamp(cameraXRotation, -90f, 90f);
-        _cameraT.localRotation = Quaternion.Euler(cameraXRotation, 0f, 0f);
-
+        if (_isGrounded)
+        {
+            //Compute direction According to Camera Orientation
+            transform.Rotate(Vector3.up, mouseX);
+            cameraXRotation -= mouseY;
+            cameraXRotation = Mathf.Clamp(cameraXRotation, -90f, 90f);
+            _cameraT.localRotation = Quaternion.Euler(cameraXRotation, 0f, 0f);
+        }
 
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
