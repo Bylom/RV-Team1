@@ -58,3 +58,34 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+/Assets/Animations/Rover.fbx.meta
+/Assets/Textures/Rover.meta
+/Assets/Textures/Rover/Coperte_NM.png.meta
+/Assets/Textures/Rover/Metallo1_A.jpg.meta
+/Assets/Textures/Rover/Metallo1_NM.png.meta
+/Assets/Textures/Rover/Metallo2_A.jpg.meta
+/Assets/Textures/Rover/Metallo4_A.jpg.meta
+/Assets/Textures/Rover/Metallo4_NM.png.meta
+/Assets/Textures/Rover/MetalloRuote_A.jpg.meta
+/Assets/Textures/Rover/MetalloRuote_NM.png.meta
+/Assets/Textures/Rover/Pannello_A.jpg.meta
+/Assets/Textures/Rover/Pannello_NM.png.meta
+/Assets/Textures/Rover/Paraurti_A.png.meta
+/Assets/Textures/Rover/Paraurti_NM.png.meta
+/Assets/Textures/Rover/Poggiapiedi_A.png.meta
+/Assets/Textures/Rover/Poggiapiedi_NM.png.meta
+/Assets/Textures/Rover/Rivestimento Gomma_NM.png.meta
+/Assets/Textures/Rover/Rivestimento_Gomma_A.tif.meta
+/Assets/Textures/Rover/Rivestimento_Metallo_A.png.meta
+/Assets/Textures/Rover/Rivestimento_NM.png.meta
+/Assets/Textures/Rover/Ruote_A.png.meta
+/Assets/Textures/Rover/Ruote_NM.png.meta
+/Assets/Textures/Rover/Sedili_A.jpg.meta
+/Packages/packages-lock.json
+/.gitignore
+/Packages/packages-lock.json
+
+.idea
+
+#Market assets directories
+Assets/TextMesh Pro/
