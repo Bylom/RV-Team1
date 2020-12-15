@@ -31,8 +31,6 @@ public class FPController : MonoBehaviour {
     private float _inputSpeed;
     private Vector3 _targetDirection;
     private bool _isJumping = false;
-    private bool _isRunning = false;
-
 
     private float cameraXRotation = 0f;
     private Vector3 _velocity;
@@ -66,18 +64,25 @@ public class FPController : MonoBehaviour {
             //Compute direction According to Camera Orientation
             transform.Rotate(Vector3.up, mouseX);
             cameraXRotation -= mouseY;
-            cameraXRotation = Mathf.Clamp(cameraXRotation, -90f, 90f);
+            cameraXRotation = Mathf.Clamp(cameraXRotation, -40f, 20f);
             _cameraT.localRotation = Quaternion.Euler(cameraXRotation, 0f, 0f);
+            _isJumping = false;
+
+
         }
 
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-        Vector3 move = (transform.right * h + transform.forward * v).normalized;
-        _characterController.Move(move * _speed * Time.deltaTime);
-        _inputVector = new Vector3(h, 0, v);
-        _inputSpeed = Mathf.Clamp(_inputVector.magnitude, 0f, 1f);
+        if (_isJumping == false ||
+             (_isJumping == true &&
+             Input.GetKey(KeyCode.W)))
+        {
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
+            Vector3 move = (transform.right * h + transform.forward * v).normalized;
+            _characterController.Move(move * _speed * Time.deltaTime);
+            _inputVector = new Vector3(h, 0, v);
+            _inputSpeed = Mathf.Clamp(_inputVector.magnitude, 0f, 1f);
 
-
+        }
 
         if (Input.GetKey(KeyCode.LeftShift)) {
             _speed = 3f;
@@ -87,9 +92,14 @@ public class FPController : MonoBehaviour {
             _speed = 1f;
         }
 
-
         if (Input.GetKey(KeyCode.Space) && _isGrounded && _isJumping == false)
+        {
             _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
+            _isJumping = true;
+        }
+
+        if (_isJumping == true) { _speed = 2f; }
+        else { _speed = 1f; }
 
 
         //FALLING
