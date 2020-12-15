@@ -21,9 +21,14 @@ public class Compass : MonoBehaviour
 		float headingAngle = Quaternion.LookRotation(forward).eulerAngles.y;
 		headingAngle = 5 * (Mathf.RoundToInt(headingAngle / 5.0f));
 
+		if (headingAngle > 180 && headingAngle < 360)
+			headingAngle = headingAngle - 360;
+
 		//Convert float to int for switch
 		int displayangle;
 		displayangle = Mathf.RoundToInt(headingAngle);
+
+
 
 		//Set the text of Compass Degree Text to the clamped value, but change it to the letter if it is a True direction
 		switch (displayangle)
