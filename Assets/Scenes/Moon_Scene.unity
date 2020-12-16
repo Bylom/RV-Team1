@@ -288,6 +288,10 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 4516938038807319182, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
+      propertyPath: m_Text
+      value: 'Selenographic coordinates '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516938038807319182, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
@@ -303,6 +307,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 4516938038807319182, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
 --- !u!4 &603220901 stripped
