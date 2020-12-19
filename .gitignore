@@ -58,3 +58,11 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+#idea ide files
+.idea
+
+#market asset
+Assets/TextMesh Pro
+Assets/TextMesh Pro.meta
+
+
