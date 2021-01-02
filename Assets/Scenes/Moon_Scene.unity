@@ -628,6 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NearInventory: 0
   InventoryPanelUI: {fileID: 219911073}
+  press: {fileID: 62843658}
 --- !u!114 &398946140
 MonoBehaviour:
   m_ObjectHideFlags: 0

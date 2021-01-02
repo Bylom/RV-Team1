@@ -162,8 +162,7 @@ public class FPController : MonoBehaviour
             Debug.Log("Vicino alla Palla");
 
             IInventoryItem item = collision.GetComponent<IInventoryItem>();
-            press.text = "Press E to interact";
-            press.gameObject.SetActive(true);
+            
 
             if (item != null)
             {
@@ -174,6 +173,7 @@ public class FPController : MonoBehaviour
 
         if (collision.gameObject.tag == "Modulo")
         {
+            
             Debug.Log("Ciao Cristian");
             //GetComponent<InventorySlot>().NearInventory = true;
             Canvas.GetComponent<InventorySlot>().NearInventory = true;
@@ -184,7 +184,6 @@ public class FPController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Modulo")
         {
-            press.gameObject.SetActive(false);
             NearObject = false;
             Canvas.GetComponent<InventorySlot>().NearInventory = false;
         }

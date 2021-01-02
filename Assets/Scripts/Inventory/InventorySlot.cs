@@ -13,12 +13,19 @@ public class InventorySlot : MonoBehaviour
     public bool NearInventory = false;
 
     public GameObject InventoryPanelUI;
+    public Text press;
     // Update is called once per frame
+
     void Update()
     {
 
+        press.gameObject.SetActive(false);
+
         if (NearInventory)
         {
+            press.text = "Press I to open Inventory";
+            press.gameObject.SetActive(true);
+
             if (Input.GetKeyDown(KeyCode.I))
             {
                 if (GameIsPaused)
