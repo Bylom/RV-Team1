@@ -1,26 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class FPController : MonoBehaviour {
+public class FPController : MonoBehaviour
+{
     public GameObject Player;
 
-    [SerializeField] 
+    [SerializeField]
     private Transform _cameraT;
-    [SerializeField] 
+    [SerializeField]
     private float _speed = 1f;
-    [SerializeField] 
+    [SerializeField]
     private float _mouseSensitivity = 90f;
 
-    [SerializeField] 
+    [SerializeField]
     private float _gravity = -1.63f;
-    [SerializeField] 
+    [SerializeField]
     private Transform _groundCheck;
-    [SerializeField] 
+    [SerializeField]
     private float _groundDistance = 0.4f;
-    [SerializeField] 
+    [SerializeField]
     private LayerMask _groundMask;
-    [SerializeField] 
+    [SerializeField]
     private float _jumpHeight = 3f;
 
 
@@ -37,14 +40,46 @@ public class FPController : MonoBehaviour {
     private bool _isGrounded;
 
 
-    void Start() {
+    public Inventory inventory;
+    public GameObject Hand;
+    public bool NearObject = false;
+    public GameObject Canvas;
+    public Text press;
+
+
+    void Start()
+    {
         _characterController = GetComponent<CharacterController>();
         _animator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
+        inventory.ItemUsed += Inventory_ItemUsed;
+        inventory.ItemRemoved += Inventory_ItemRemoved;
     }
 
+    private void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
+    {
+        IInventoryItem item = e.Item;
 
-    void Update() {
+        GameObject goItem = (item as MonoBehaviour).gameObject;
+
+        goItem.SetActive(true);
+
+        goItem.transform.parent = null;
+    }
+
+    private void Inventory_ItemUsed(object sender, InventoryEventArgs e)
+    {
+        IInventoryItem item = e.Item;
+
+        GameObject goItem = (item as MonoBehaviour).gameObject;
+
+        goItem.SetActive(true);
+
+        goItem.transform.parent = Hand.transform;
+    }
+
+    void Update()
+    {
         //Ground Check
         _isGrounded = Physics.CheckSphere(_groundCheck.position, _groundDistance, _groundMask);
 
@@ -84,11 +119,13 @@ public class FPController : MonoBehaviour {
 
         }
 
-        if (Input.GetKey(KeyCode.LeftShift)) {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
             _speed = 3f;
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftShift)) {
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
             _speed = 1f;
         }
 
@@ -110,10 +147,47 @@ public class FPController : MonoBehaviour {
     }
 
 
-    private void UpdateAnimations() {
+    private void UpdateAnimations()
+    {
         _animator.SetFloat("speed", _inputSpeed);
         _animator.SetBool("run", Input.GetKey(KeyCode.LeftShift));
         _animator.SetBool("jump", Input.GetKey(KeyCode.Space));
+    }
+
+
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Palla")
+        {
+            Debug.Log("Vicino alla Palla");
+
+            IInventoryItem item = collision.GetComponent<IInventoryItem>();
+            press.text = "Press E to interact";
+            press.gameObject.SetActive(true);
+
+            if (item != null)
+            {
+                NearObject = true;
+                inventory.AddItem(item);
+            }
+        }
+
+        if (collision.gameObject.tag == "Modulo")
+        {
+            Debug.Log("Ciao Cristian");
+            //GetComponent<InventorySlot>().NearInventory = true;
+            Canvas.GetComponent<InventorySlot>().NearInventory = true;
+        }
+    }
+
+    void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.tag == "Modulo")
+        {
+            press.gameObject.SetActive(false);
+            NearObject = false;
+            Canvas.GetComponent<InventorySlot>().NearInventory = false;
+        }
     }
 
 }
