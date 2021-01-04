@@ -51,7 +51,7 @@ public class FPController : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _animator = GetComponent<Animator>();
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         inventory.ItemUsed += Inventory_ItemUsed;
         inventory.ItemRemoved += Inventory_ItemRemoved;
     }
