@@ -1259,7 +1259,7 @@ GameObject:
   - component: {fileID: 8825403333104829112}
   - component: {fileID: 8825403333104829111}
   m_Layer: 0
-  m_Name: _eil@Idle
+  m_Name: Neil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1332,14 +1332,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56080f81d41cd490b8ff72f0d1a4cf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  _cameraT: {fileID: 0}
-  _speed: 5
-  _mouseSensitivity: 100
-  _gravity: -1.63
-  _groundCheck: {fileID: 0}
-  _groundDistance: 0.4
-  _groundMask:
+  player: {fileID: 0}
+  cameraT: {fileID: 0}
+  speed: 5
+  mouseSensitivity: 100
+  gravity: -1.63
+  groundCheck: {fileID: 0}
+  groundDistance: 0.4
+  groundMask:
     serializedVersion: 2
     m_Bits: 0
-  _jumpHeight: 3
+  jumpHeight: 1
+  inventory: {fileID: 0}
+  hand: {fileID: 0}
+  nearObject: 0
+  canvas: {fileID: 0}
+  press: {fileID: 0}

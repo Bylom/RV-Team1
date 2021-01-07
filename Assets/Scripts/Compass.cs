@@ -1,18 +1,21 @@
-﻿using UnityEngine.UI;
+﻿using System.Globalization;
+using UnityEngine.UI;
 using UnityEngine;
+
+
 public class Compass : MonoBehaviour
 {
-	public RawImage CompassImage;
-	public Transform Player;
-	public Text CompassDirectionText;
+	public RawImage compassImage;
+	public Transform player;
+	public Text compassDirectionText;
 
 	public void Update()
 	{
 		//Get a handle on the Image's uvRect
-		CompassImage.uvRect = new Rect(Player.localEulerAngles.y / 360, 0, 1, 1);
+		compassImage.uvRect = new Rect(player.localEulerAngles.y / 360, 0, 1, 1);
 
 		// Get a copy of your forward vector
-		Vector3 forward = Player.transform.forward;
+		Vector3 forward = player.transform.forward;
 
 		// Zero out the y component of your forward vector to only get the direction in the X,Z plane
 		forward.y = 0;
@@ -21,7 +24,7 @@ public class Compass : MonoBehaviour
 		float headingAngle = Quaternion.LookRotation(forward).eulerAngles.y;
 		headingAngle = 5 * (Mathf.RoundToInt(headingAngle / 5.0f));
 
-		if (headingAngle > 180 && headingAngle < 360)
+		if (headingAngle > 180 && headingAngle <= 360)
 			headingAngle = headingAngle - 360;
 
 		//Convert float to int for switch
@@ -34,39 +37,31 @@ public class Compass : MonoBehaviour
 		switch (displayangle)
 		{
 		case 0:
-			//Do this
-			CompassDirectionText.text = "N";
-			break;
-		case 360:
-			//Do this
-			CompassDirectionText.text = "N";
+			compassDirectionText.text = "N";
 			break;
 		case 45:
-			//Do this
-			CompassDirectionText.text = "NE";
+			compassDirectionText.text = "NE";
 			break;
 		case 90:
-			//Do this
-			CompassDirectionText.text = "E";
+			compassDirectionText.text = "E";
 			break;
-		case 130:
-			//Do this
-			CompassDirectionText.text = "SE";
+		case 135:
+			compassDirectionText.text = "SE";
 			break;
 		case 180:
-			//Do this
-			CompassDirectionText.text = "S";
+			compassDirectionText.text = "S";
 			break;
-		case 225:
-			//Do this
-			CompassDirectionText.text = "SW";
+		case -135:
+			compassDirectionText.text = "SW";
 			break;
-		case 270:
-			//Do this
-			CompassDirectionText.text = "W";
+		case -90:
+			compassDirectionText.text = "W";
+			break;
+		case -45:
+			compassDirectionText.text = "NW";
 			break;
 		default:
-			CompassDirectionText.text = headingAngle.ToString ();
+			compassDirectionText.text = headingAngle.ToString(CultureInfo.InvariantCulture);
 			break;
 		}
 	}

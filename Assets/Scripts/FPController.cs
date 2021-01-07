@@ -1,57 +1,57 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class FPController : MonoBehaviour
+public class FpController : MonoBehaviour
 {
-    public GameObject Player;
+    public GameObject player;
 
-    [SerializeField]
-    private Transform _cameraT;
-    [SerializeField]
-    private float _speed = 1f;
-    [SerializeField]
-    private float _mouseSensitivity = 90f;
+    [SerializeField] private Transform cameraT;
 
-    [SerializeField]
-    private float _gravity = -1.63f;
-    [SerializeField]
-    private Transform _groundCheck;
-    [SerializeField]
-    private float _groundDistance = 0.4f;
-    [SerializeField]
-    private LayerMask _groundMask;
-    [SerializeField]
-    private float _jumpHeight = 3f;
+    [SerializeField] private float speed = 1f;
 
+    [SerializeField] private float mouseSensitivity = 90f;
 
-    private Animator _animator;
-    private CharacterController _characterController;
+    [SerializeField] private float gravity = -1.63f;
 
-    private Vector3 _inputVector;
-    private float _inputSpeed;
-    private Vector3 _targetDirection;
-    private bool _isJumping = false;
+    [SerializeField] private Transform groundCheck;
 
-    private float cameraXRotation = 0f;
-    private Vector3 _velocity;
-    private bool _isGrounded;
+    [SerializeField] private float groundDistance = 0.4f;
+
+    [SerializeField] private LayerMask groundMask;
+
+    [SerializeField] private float jumpHeight = 2f;
+
+    private Animator m_Animator;
+    private CharacterController m_CharacterController;
+
+    private Vector3 m_InputVector;
+    private float m_InputSpeed;
+    private Vector3 m_TargetDirection;
+    private bool m_IsJumping;
+
+    private float m_CameraXRotation;
+    private Vector3 m_Velocity;
+    private bool m_IsGrounded;
+    private Vector3 m_Inertia;
 
 
     public Inventory inventory;
-    public GameObject Hand;
-    public bool NearObject = false;
-    public GameObject Canvas;
+    [FormerlySerializedAs("Hand")] public GameObject hand;
+    [FormerlySerializedAs("NearObject")] public bool nearObject = false;
+    [FormerlySerializedAs("Canvas")] public GameObject canvas;
     public Text press;
+    private static readonly int Speed = Animator.StringToHash("speed");
+    private static readonly int Run = Animator.StringToHash("run");
+    private static readonly int Jump = Animator.StringToHash("jump");
 
 
     void Start()
     {
-        _characterController = GetComponent<CharacterController>();
-        _animator = GetComponent<Animator>();
-        //Cursor.lockState = CursorLockMode.Locked;
+        m_CharacterController = GetComponent<CharacterController>();
+        m_Animator = GetComponent<Animator>();
+        Cursor.lockState = CursorLockMode.Locked;
         inventory.ItemUsed += Inventory_ItemUsed;
         inventory.ItemRemoved += Inventory_ItemRemoved;
     }
@@ -60,88 +60,91 @@ public class FPController : MonoBehaviour
     {
         IInventoryItem item = e.Item;
 
-        GameObject goItem = (item as MonoBehaviour).gameObject;
+        GameObject goItem = (item as MonoBehaviour)?.gameObject;
 
-        goItem.SetActive(true);
+        if (!(goItem is null))
+        {
+            goItem.SetActive(true);
 
-        goItem.transform.parent = null;
+            goItem.transform.parent = null;
+        }
     }
 
     private void Inventory_ItemUsed(object sender, InventoryEventArgs e)
     {
         IInventoryItem item = e.Item;
 
-        GameObject goItem = (item as MonoBehaviour).gameObject;
+        GameObject goItem = (item as MonoBehaviour)?.gameObject;
 
-        goItem.SetActive(true);
+        if (!(goItem is null))
+        {
+            goItem.SetActive(true);
 
-        goItem.transform.parent = Hand.transform;
+            goItem.transform.parent = hand.transform;
+        }
     }
 
     void Update()
     {
         //Ground Check
-        _isGrounded = Physics.CheckSphere(_groundCheck.position, _groundDistance, _groundMask);
+        m_IsGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (_isGrounded && _velocity.y < 0f)
+        if (m_IsGrounded && m_Velocity.y < 0f)
         {
-            _velocity.y = -2f;
-            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.LeftShift)) _speed = 2f;
-            if (Input.GetKeyUp(KeyCode.LeftShift)) _speed = 1f;
-
+            m_Velocity.y = -2f;
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.LeftShift)) speed = 2f;
+            if (Input.GetKeyUp(KeyCode.LeftShift)) speed = 1f;
         }
 
-        float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        if (_isGrounded)
+        //Compute direction According to Camera Orientation
+        transform.Rotate(Vector3.up, mouseX);
+        m_CameraXRotation -= mouseY;
+        m_CameraXRotation = Mathf.Clamp(m_CameraXRotation, -60f, 30f);
+        cameraT.localRotation = Quaternion.Euler(m_CameraXRotation, 0f, 0f);
+
+        if (m_IsGrounded)
         {
-            //Compute direction According to Camera Orientation
-            transform.Rotate(Vector3.up, mouseX);
-            cameraXRotation -= mouseY;
-            cameraXRotation = Mathf.Clamp(cameraXRotation, -40f, 20f);
-            _cameraT.localRotation = Quaternion.Euler(cameraXRotation, 0f, 0f);
-            _isJumping = false;
-
-
+            m_IsJumping = false;
         }
 
-        if (_isJumping == false ||
-             (_isJumping == true &&
-             Input.GetKey(KeyCode.W)))
+
+        if (Input.GetKey(KeyCode.LeftShift) && m_IsGrounded)
+        {
+            speed = 3f;
+        } else if(m_IsGrounded && Math.Abs(speed - 1f) > 0.01f)
+        {
+            speed = 1f;
+        }
+
+        if (!m_IsJumping)
         {
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
-            Vector3 move = (transform.right * h + transform.forward * v).normalized;
-            _characterController.Move(move * _speed * Time.deltaTime);
-            _inputVector = new Vector3(h, 0, v);
-            _inputSpeed = Mathf.Clamp(_inputVector.magnitude, 0f, 1f);
+            var transform1 = transform;
+            m_Inertia = (transform1.right * h + transform1.forward * v).normalized;
 
+            m_CharacterController.Move(m_Inertia * (speed * Time.deltaTime));
+            m_InputVector = new Vector3(h, 0, v);
+            m_InputSpeed = Mathf.Clamp(m_InputVector.magnitude, 0f, 1f);
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.Space) && m_IsGrounded && m_IsJumping == false)
         {
-            _speed = 3f;
+            m_Velocity.y = jumpHeight;
+            m_IsJumping = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            _speed = 1f;
-        }
+        if (m_IsJumping)
+            m_CharacterController.Move(m_Inertia * (speed * Time.deltaTime));
 
-        if (Input.GetKey(KeyCode.Space) && _isGrounded && _isJumping == false)
-        {
-            _velocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravity);
-            _isJumping = true;
-        }
-
-        if (_isJumping == true) { _speed = 2f; }
-        else { _speed = 1f; }
 
 
         //FALLING
-        _velocity.y += _gravity * Time.deltaTime;
-        _characterController.Move(_velocity * Time.deltaTime);
+        m_Velocity.y += gravity * Time.deltaTime;
+        m_CharacterController.Move(m_Velocity * Time.deltaTime);
 
         UpdateAnimations();
     }
@@ -149,44 +152,42 @@ public class FPController : MonoBehaviour
 
     private void UpdateAnimations()
     {
-        _animator.SetFloat("speed", _inputSpeed);
-        _animator.SetBool("run", Input.GetKey(KeyCode.LeftShift));
-        _animator.SetBool("jump", Input.GetKey(KeyCode.Space));
+        m_Animator.SetFloat(Speed, !m_IsJumping ? m_InputSpeed : 0f);
+        m_Animator.SetBool(Run, Input.GetKey(KeyCode.LeftShift) && !m_IsJumping && m_InputSpeed != 0);
+        m_Animator.SetBool(Jump, m_IsJumping);
     }
 
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Palla")
+        if (collision.gameObject.CompareTag("Palla"))
         {
             Debug.Log("Vicino alla Palla");
 
             IInventoryItem item = collision.GetComponent<IInventoryItem>();
-            
+
 
             if (item != null)
             {
-                NearObject = true;
+                nearObject = true;
                 inventory.AddItem(item);
             }
         }
 
-        if (collision.gameObject.tag == "Modulo")
+        if (collision.gameObject.CompareTag("Modulo"))
         {
-            
             Debug.Log("Ciao Cristian");
             //GetComponent<InventorySlot>().NearInventory = true;
-            Canvas.GetComponent<InventorySlot>().NearInventory = true;
+            canvas.GetComponent<InventorySlot>().NearInventory = true;
         }
     }
 
     void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.tag == "Modulo")
+        if (collision.gameObject.CompareTag("Modulo"))
         {
-            NearObject = false;
-            Canvas.GetComponent<InventorySlot>().NearInventory = false;
+            nearObject = false;
+            canvas.GetComponent<InventorySlot>().NearInventory = false;
         }
     }
-
 }
