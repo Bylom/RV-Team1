@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class FpController : MonoBehaviour
+public class FPController : MonoBehaviour
 {
     public GameObject player;
 
