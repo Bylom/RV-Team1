@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Palla
   - Modulo
+  - Box
   layers:
   - Default
   - TransparentFX

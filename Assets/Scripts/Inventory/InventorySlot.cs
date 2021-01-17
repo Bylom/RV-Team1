@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class InventorySlot : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static bool GameIsPaused = false;
+    public bool GameIsPaused = false;
 
     public bool NearInventory = false;
 
@@ -50,9 +50,15 @@ public class InventorySlot : MonoBehaviour
 
     public void Pause()
     {
+        StartCoroutine("WaitForSec");
+        
+    }
+
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(3);
         InventoryPanelUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
-
 }

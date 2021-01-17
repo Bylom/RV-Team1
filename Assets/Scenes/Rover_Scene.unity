@@ -273,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4516938037157561090, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -194
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4516938037207654903, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_Texture
@@ -370,6 +370,14 @@ PrefabInstance:
     - target: {fileID: 4516938037873608902, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516938037873608902, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516938037873608902, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 4516938037873608904, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_Name
