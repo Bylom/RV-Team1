@@ -155,14 +155,14 @@ public class FPController : MonoBehaviour
     private void UpdateAnimations()
     {
         m_Animator.SetFloat(Speed, !m_IsJumping ? m_InputSpeed : 0f);
-        m_Animator.SetBool(Run, Input.GetKey(KeyCode.LeftShift) && !m_IsJumping && m_InputSpeed != 0);
+        m_Animator.SetBool(Run, Input.GetKey(KeyCode.LeftShift) && !m_IsJumping && Math.Abs(m_InputSpeed) > 0.01f);
         m_Animator.SetBool(Jump, m_IsJumping);
     }
 
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Palla")
+        if (collision.gameObject.CompareTag("Palla"))
         {
             Debug.Log("Vicino alla Palla");
 
@@ -176,7 +176,7 @@ public class FPController : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "Box")
+        if (collision.gameObject.CompareTag("Box"))
         {
 
             Debug.Log("Ciao Cristian");
@@ -187,7 +187,7 @@ public class FPController : MonoBehaviour
 
     void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.tag == "Box")
+        if (collision.gameObject.CompareTag("Box"))
         {
             nearObject = false;
             canvas.GetComponent<InventorySlot>().NearInventory = false;
