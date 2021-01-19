@@ -1,0 +1,294 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2082192916372301694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2251027563109566997}
+  - component: {fileID: 2275706994070809191}
+  - component: {fileID: 6591716629314848964}
+  m_Layer: 0
+  m_Name: Rover.002
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2251027563109566997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082192916372301694}
+  m_LocalRotation: {x: 0.6974656, y: 0.10869829, z: 0.70129484, w: 0.099558875}
+  m_LocalPosition: {x: 0.026295546, y: 0.10785025, z: -4.042395}
+  m_LocalScale: {x: 123.20581, y: 123.2058, z: 107.16581}
+  m_Children: []
+  m_Father: {fileID: 7842628032642565801}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2275706994070809191
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082192916372301694}
+  m_Mesh: {fileID: 6669356064301043776, guid: a77ade0b6c17a8f46aa6109e114313af, type: 3}
+--- !u!23 &6591716629314848964
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082192916372301694}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 45b41145939c32c4fa24c62d580b0b4c, type: 2}
+  - {fileID: 2100000, guid: 2c99b837f30b17940be427ccc9000773, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6698506663438336492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4849974750819149}
+  - component: {fileID: 1506488157578595020}
+  - component: {fileID: 6206210900390956376}
+  m_Layer: 0
+  m_Name: Rover.003
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4849974750819149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6698506663438336492}
+  m_LocalRotation: {x: 0.6974656, y: 0.10869829, z: 0.70129484, w: 0.099558875}
+  m_LocalPosition: {x: 0.025213074, y: 0.10890806, z: 2.450702}
+  m_LocalScale: {x: 123.20581, y: 123.2058, z: 107.16581}
+  m_Children: []
+  m_Father: {fileID: 7842628032642565801}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1506488157578595020
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6698506663438336492}
+  m_Mesh: {fileID: 3488612910000206872, guid: a77ade0b6c17a8f46aa6109e114313af, type: 3}
+--- !u!23 &6206210900390956376
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6698506663438336492}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 45b41145939c32c4fa24c62d580b0b4c, type: 2}
+  - {fileID: 2100000, guid: 2c99b837f30b17940be427ccc9000773, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7030778129047974021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1273205840763102091}
+  - component: {fileID: 5819957174821973476}
+  - component: {fileID: 813610883512155174}
+  m_Layer: 0
+  m_Name: Rover.001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1273205840763102091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030778129047974021}
+  m_LocalRotation: {x: 0.49323273, y: 0.50992304, z: 0.48974532, w: 0.5068032}
+  m_LocalPosition: {x: -0.011459112, y: 0.79351765, z: -0.38760376}
+  m_LocalScale: {x: 123.20581, y: 123.20581, z: 107.16582}
+  m_Children: []
+  m_Father: {fileID: 7842628032642565801}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5819957174821973476
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030778129047974021}
+  m_Mesh: {fileID: 6327818585569161404, guid: a77ade0b6c17a8f46aa6109e114313af, type: 3}
+--- !u!23 &813610883512155174
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030778129047974021}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1c7e61d3a771b2c438e10c1e04ae7288, type: 2}
+  - {fileID: 2100000, guid: 09b3658ddf91e0b43a38875fec871217, type: 2}
+  - {fileID: 2100000, guid: 264f314cdffb9e54aad372edf70b1640, type: 2}
+  - {fileID: 2100000, guid: 412bc89a2182cdd45a1b61bb60cfaaf0, type: 2}
+  - {fileID: 2100000, guid: d4b645780661e984ea6eb1cf50d7bcf8, type: 2}
+  - {fileID: 2100000, guid: 41305da579ec35841ac5031c9350bf8f, type: 2}
+  - {fileID: 2100000, guid: 29d361faa507b9b4f81b39af19c41494, type: 2}
+  - {fileID: 2100000, guid: 623c7564988ec5c4caaae05496a87a66, type: 2}
+  - {fileID: 2100000, guid: 5ead77ad38eaeb24d83a709a1ea7baeb, type: 2}
+  - {fileID: 2100000, guid: 45f0967f189430d4b8c5f5dc315501de, type: 2}
+  - {fileID: 2100000, guid: b923c05c42e66d048b1536d16076fa5e, type: 2}
+  - {fileID: 2100000, guid: 9b0a90f502a5ffd48b0d99766dff51c2, type: 2}
+  - {fileID: 2100000, guid: 008dab702425de6459dd6a92b72a6571, type: 2}
+  - {fileID: 2100000, guid: d28f4013d663c0b4e9bbc88d4306983e, type: 2}
+  - {fileID: 2100000, guid: 9b4271349b056b641bcd812f283294cf, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7466207356064242707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7842628032642565801}
+  m_Layer: 0
+  m_Name: Rover fermo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7842628032642565801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7466207356064242707}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9597872, y: 14.421817, z: 3.799099}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1273205840763102091}
+  - {fileID: 2251027563109566997}
+  - {fileID: 4849974750819149}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -1,12 +1,42 @@
 fileFormatVersion: 2
-guid: ddfe3fbdc5da5964d93140b5d3dbbf81
+guid: f6703b44ca63ccf4595947d0f2629a2f
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: -623603649343465320
-    second: Box_Open
-  externalObjects: {}
+    second: Scene
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_1
+    second: {fileID: 2100000, guid: fdc0e0a5d38ab5641ba535d2e0f9e065, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_2
+    second: {fileID: -801394618424180709, guid: ddfe3fbdc5da5964d93140b5d3dbbf81, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_3
+    second: {fileID: 2100000, guid: 31b351dbbd9785041995690be7c4eb05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic
+    second: {fileID: 2100000, guid: f35cef55926bd0645b646d6f4cb9e54f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_1
+    second: {fileID: 2100000, guid: 99bdf6c2bf8859d4f9eb5dd6fcbb1bc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: interno
+    second: {fileID: 2100000, guid: 94c1b191651c68b4ab4a14f303045072, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -33,36 +63,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Box_Open
-      takeName: Scene
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 50
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
