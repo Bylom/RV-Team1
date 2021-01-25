@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class ItemDropHandler : MonoBehaviour, IDropHandler
 {
 
-    public Inventory _Inventory;
+    public Inventory.Inventory _Inventory;
 
     public void OnDrop(PointerEventData eventData)
     {

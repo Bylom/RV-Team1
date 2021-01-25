@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ItemClickHandler : MonoBehaviour
 {
 
-    public Inventory _Inventory;
+    public Inventory.Inventory _Inventory;
     public InventorySlot Slot;
 
     public void OnItemClicked()

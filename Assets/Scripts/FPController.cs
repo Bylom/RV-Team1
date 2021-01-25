@@ -37,7 +37,7 @@ public class FPController : MonoBehaviour
     private Vector3 m_Inertia;
 
 
-    public Inventory inventory;
+    public Inventory.Inventory inventory;
     [FormerlySerializedAs("Hand")] public GameObject hand;
     [FormerlySerializedAs("NearObject")] public bool nearObject = false;
     [FormerlySerializedAs("Canvas")] public GameObject canvas;

@@ -1,70 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
+using General;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace GeneralUI
 {
-	public class DialogueManager : MonoBehaviour {
+    public class DialogueManager : MonoBehaviour
+    {
+        public Text nameText;
+        public Text dialogueText;
 
-		public Text nameText;
-		public Text dialogueText;
+        public Animator animator;
+        [SerializeField] private bool mouseNeeded;
+        [SerializeField] private bool pauseNeeded;
 
-		public Animator animator;
+        [SerializeField] private GameState gameState;
+        private Queue<string> _sentences;
+        private static readonly int IsOpen = Animator.StringToHash("IsOpen");
 
-		private Queue<string> m_Sentences;
-		private static readonly int IsOpen = Animator.StringToHash("IsOpen");
+        // Use this for initialization
+        void Start()
+        {
+            _sentences = new Queue<string>();
+        }
 
-		// Use this for initialization
-		void Start () {
-			m_Sentences = new Queue<string>();
-		}
+        public void StartDialogue(Dialogue dialogue)
+        {
+            gameState.SetPaused(true);
+            animator.SetBool(IsOpen, true);
+            nameText.text = dialogue.name;
 
-		public void StartDialogue (Dialogue dialogue)
-		{
-			animator.SetBool(IsOpen, true);
+            _sentences.Clear();
 
-			nameText.text = dialogue.name;
+            foreach (string sentence in dialogue.sentences)
+            {
+                _sentences.Enqueue(sentence);
+            }
 
-			m_Sentences.Clear();
+            if (mouseNeeded)
+                Cursor.lockState = CursorLockMode.None;
+            DisplayNextSentence();
+        }
 
-			foreach (string sentence in dialogue.sentences)
-			{
-				m_Sentences.Enqueue(sentence);
-			}
+        public void DisplayNextSentence()
+        {
+            if (_sentences.Count == 0)
+            {
+                EndDialogue();
+                return;
+            }
 
-			DisplayNextSentence();
-		}
+            string sentence = _sentences.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
 
-		public void DisplayNextSentence ()
-		{
-			
-			if (m_Sentences.Count == 0)
-			{
-				EndDialogue();
-				return;
-			}
+        IEnumerator TypeSentence(string sentence)
+        {
+            dialogueText.text = "";
+            foreach (char letter in sentence)
+            {
+                dialogueText.text += letter;
+                yield return null;
+            }
+        }
 
-			string sentence = m_Sentences.Dequeue();
-			Debug.Log(sentence);
-			StopAllCoroutines();
-			StartCoroutine(TypeSentence(sentence));
-		}
+        void EndDialogue()
+        {
+            animator.SetBool(IsOpen, false);
 
-		IEnumerator TypeSentence (string sentence)
-		{
-			dialogueText.text = "";
-			foreach (char letter in sentence)
-			{
-				dialogueText.text += letter;
-				yield return null;
-			}
-		}
-
-		void EndDialogue()
-		{
-			animator.SetBool(IsOpen, false);
-		}
-
-	}
+            gameState.SetPaused(false);
+            if (mouseNeeded)
+                Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
 }

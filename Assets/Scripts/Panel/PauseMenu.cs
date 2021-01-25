@@ -1,24 +1,24 @@
-﻿using UnityEngine;
+﻿using General;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace Panel
 {
     public class PauseMenu : MonoBehaviour
     {
         // Start is called before the first frame update
-        private static bool _gameIsPaused = false;
+        private static bool _gameIsPaused;
 
         public GameObject pauseMenuUI;
-        [FormerlySerializedAs("Inst")] public GameObject inst;
-
+        public GameObject inst;
+     [SerializeField] private GameState gameState;
 
 
         // Update is called once per frame
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && !gameState.GetPaused())
             {
                 if (_gameIsPaused)
                 {

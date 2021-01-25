@@ -1,19 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
-public class Camera_Movement : MonoBehaviour
+public class CameraMovement : MonoBehaviour
 {
 
-    Animator animator;
+    Animator _animator;
     public Inventory_Opener mov;
+    private static readonly int Down = Animator.StringToHash("Down");
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,7 +20,7 @@ public class Camera_Movement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.I))
             {
-                animator.SetBool("Down", true);
+                _animator.SetBool(Down, true);
                 Debug.Log("Testa Scende");
             }
         }
@@ -31,7 +28,7 @@ public class Camera_Movement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.I))
             {
-                animator.SetBool("Down", false);
+                _animator.SetBool(Down, false);
                 Debug.Log("Testa Sale");
             }
         }

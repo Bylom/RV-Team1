@@ -6,6 +6,6 @@ public class CameraTargetEye : MonoBehaviour
 {
     void Start()
     {
-        Camera.main.stereoTargetEye = StereoTargetEyeMask.Both;
+        if (!(Camera.main is null)) Camera.main.stereoTargetEye = StereoTargetEyeMask.Both;
     }
 }

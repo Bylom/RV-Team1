@@ -1,10 +1,16 @@
-﻿using UnityEngine;
+﻿using General;
+using UnityEngine;
 
 namespace Golf
 {
     public class CameraController : MonoBehaviour
     {
+        [SerializeField] private GameState gameState;
+        public GameObject ballPrefab;
         public Transform target;
+        public PowerBarController powerBar;
+        public Rigidbody ballRigidBody;
+        public GameObject ball;
         private Vector3 _targetPosition;
         public float distance = 5.0f;
         public float xSpeed = 120.0f;
@@ -16,7 +22,10 @@ namespace Golf
         public float distanceMin = .5f;
         public float distanceMax = 15f;
         public float sensitivity = 90f;
+
         private Rigidbody _rigidbody;
+        private float _powerValue;
+        public float barIncrement = 1;
 
         private float _x;
         private float _y;
@@ -27,7 +36,6 @@ namespace Golf
             if (target)
             {
                 _targetPosition = target.position;
-                _targetPosition.y += 0.3f;
             }
 
             Cursor.lockState = CursorLockMode.Locked;
@@ -44,9 +52,46 @@ namespace Golf
             }
         }
 
+        private void Update()
+        {
+            if (powerBar is null) return;
+            var value = Input.GetAxisRaw("Vertical");
+            if (value < 0)
+            {
+                _powerValue -= barIncrement * Time.deltaTime;
+                if (_powerValue < 0)
+                    _powerValue = 0;
+            }
+            else if (value > 0)
+            {
+                _powerValue += barIncrement * Time.deltaTime;
+                if (_powerValue > 1)
+                    _powerValue = 1;
+            }
+
+            powerBar.setValue(_powerValue);
+            if (Input.GetButtonUp("Fire1") && !(ballRigidBody is null) && _powerValue > 0)
+            {
+                ballRigidBody.isKinematic = false;
+                Vector3 forceDirection = transform.forward;
+                forceDirection.y = 1;
+                ballRigidBody.AddForce(forceDirection * (_powerValue * 40), ForceMode.Impulse);
+                ballRigidBody = null;
+                Destroy(ball, 40);
+                ball = null;
+            }
+            if (Input.GetButtonUp("Fire2") && (ballRigidBody is null))
+            {
+                ball = Instantiate(ballPrefab, _targetPosition, Quaternion.identity);
+                ballRigidBody = ball.GetComponent<Rigidbody>();
+            }
+        }
+
+       
+
         void LateUpdate()
         {
-            if (!target) return;
+            if (!target || gameState.GetPaused()) return;
 
             _x += Input.GetAxis("Mouse X") * xSpeed * Time.deltaTime * sensitivity;
             _y -= Input.GetAxis("Mouse Y") * ySpeed * Time.deltaTime * sensitivity;
@@ -60,9 +105,14 @@ namespace Golf
             Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
             Vector3 position = rotation * negDistance + _targetPosition;
 
-            if (Physics.Linecast(_targetPosition, position, out _) ||
-                Physics.Linecast(transform.position, position, out _))
-                return;
+            var destinationCollisionVec = new Vector3(position.x, position.y - 1, position.z);
+
+            //Adjustment of y to not collide with ground 
+            while (Physics.Linecast(_targetPosition, destinationCollisionVec, out _))
+            {
+                destinationCollisionVec.y += 0.01f;
+                position.y += 0.01f;
+            }
 
             var transform1 = transform;
             transform1.rotation = rotation;
