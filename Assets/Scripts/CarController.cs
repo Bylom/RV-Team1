@@ -13,6 +13,7 @@ public class CarController : MonoBehaviour
     private float currentSteerAngle;
     private float currentbreakForce;
     private bool isBreaking;
+    private bool m_IsMoving = false;
 
     [SerializeField] private float motorForce;
     [SerializeField] private float breakForce;
@@ -28,6 +29,10 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform rearLeftWheelTransform;
     [SerializeField] private Transform rearRightWheelTransform;
 
+    private Animator m_Animator;
+
+    private static readonly int Moving = Animator.StringToHash("moving");
+
     private void FixedUpdate()
     {
         GetInput();
@@ -40,8 +45,12 @@ public class CarController : MonoBehaviour
     private void GetInput()
     {
         horizontalInput = Input.GetAxis(HORIZONTAL);
+        if (Input.GetKeyDown(KeyCode.W)) m_IsMoving=true;
+        if (Input.GetKeyUp(KeyCode.W)) m_IsMoving = false;
         verticalInput = Input.GetAxis(VERTICAL);
         isBreaking = Input.GetKey(KeyCode.Space);
+
+        UpdateAnimations();
     }
 
     private void HandleMotor()
@@ -83,4 +92,10 @@ public class CarController : MonoBehaviour
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
     }
+
+    private void UpdateAnimations()
+    {
+        m_Animator.SetBool(Moving, m_IsMoving);
+    }
+
 }
