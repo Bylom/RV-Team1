@@ -1,4 +1,5 @@
 ﻿using General;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace Golf
@@ -23,7 +24,7 @@ namespace Golf
         public float distanceMax = 15f;
         public float sensitivity = 90f;
 
-        private Rigidbody _rigidbody;
+        private Rigidbody _rigidBody;
         private float _powerValue;
         public float barIncrement = 1;
 
@@ -43,17 +44,18 @@ namespace Golf
             _x = angles.y;
             _y = angles.x;
 
-            _rigidbody = GetComponent<Rigidbody>();
+            _rigidBody = GetComponent<Rigidbody>();
 
             // Make the rigid body not change rotation
-            if (_rigidbody != null)
+            if (_rigidBody != null)
             {
-                _rigidbody.freezeRotation = true;
+                _rigidBody.freezeRotation = true;
             }
         }
 
         private void Update()
         {
+            if (gameState.GetPaused()) return;
             if (powerBar is null) return;
             var value = Input.GetAxisRaw("Vertical");
             if (value < 0)
@@ -74,7 +76,10 @@ namespace Golf
             {
                 ballRigidBody.isKinematic = false;
                 Vector3 forceDirection = transform.forward;
+                forceDirection.y = 0;
+                forceDirection = Vector3.Normalize(forceDirection);
                 forceDirection.y = 1;
+                forceDirection = Vector3.Normalize(forceDirection);
                 ballRigidBody.AddForce(forceDirection * (_powerValue * 40), ForceMode.Impulse);
                 ballRigidBody = null;
                 Destroy(ball, 40);

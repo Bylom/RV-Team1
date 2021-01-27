@@ -1,28 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CameraXRover : MonoBehaviour
+namespace CameraController
 {
-    public GameObject player;
+    public class CameraXRover : MonoBehaviour
+    {
+        public GameObject player;
 
-    [SerializeField] private Transform cameraT;
-    [SerializeField] private float mouseSensitivity = 90f;
+        [SerializeField] private Transform cameraT;
+        [SerializeField] private float mouseSensitivity = 90f;
 
-    private float m_CameraXRotation;
+        private float _mCameraXRotation;
+        private float _mCameraYRotation;
 
-    void Start() { }
+        private void Start()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 
         void Update()
-    {
+        {
 
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
-        transform.Rotate(Vector3.up, mouseX);
-        m_CameraXRotation -= mouseY;
-        m_CameraXRotation = Mathf.Clamp(m_CameraXRotation, -60f, 30f);
-        cameraT.localRotation = Quaternion.Euler(m_CameraXRotation, 0f, 0f);
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+            
+            transform.Rotate(Vector3.up, mouseX);
+            _mCameraXRotation -= mouseY;
+            _mCameraYRotation += mouseX;
+            _mCameraXRotation = Mathf.Clamp(_mCameraXRotation, -60f, 30f);
+            _mCameraYRotation = Mathf.Clamp(_mCameraYRotation, -60f, 60f);
+            cameraT.localRotation = Quaternion.Euler(_mCameraXRotation, _mCameraYRotation, 0f);
+        }
     }
 }
 
