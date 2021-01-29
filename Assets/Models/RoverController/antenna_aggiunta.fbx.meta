@@ -1,57 +1,9 @@
 fileFormatVersion: 2
-guid: 7799bcd32612f49598810668827eee3f
+guid: 6976f7bfb4e8f57499cc829a77492d71
 ModelImporter:
   serializedVersion: 20101
-  internalIDToNameTable:
-  - first:
-      74: -623603649343465320
-    second: Scene
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CLAY_NORMAL_MAP_2
-    second: {fileID: 2100000, guid: 5997f3d481129c54db3a4b302fb501b5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ROSSO
-    second: {fileID: 2100000, guid: d4851a797ad0f7f40bfb64ca90037546, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Stivali
-    second: {fileID: 2100000, guid: c1bf7a8e4580f38448e04c0ae34a8cba, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: casco
-    second: {fileID: 2100000, guid: ff8d548f8833ed44ea8a949dd79de5ca, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: cintura
-    second: {fileID: 2100000, guid: 1770cd2be729aa240bd33b3d884fd18a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: guanti
-    second: {fileID: 2100000, guid: 0d0a18250faeaa240add998ca4518706, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tuta
-    second: {fileID: 2100000, guid: d395d01f88e0cdc4cbfc4451d3e85f3e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: vetro
-    second: {fileID: 2100000, guid: e8d9e00a87ba2384189b6a8dde8b4221, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: zaino
-    second: {fileID: 2100000, guid: 5efbea93856a9534a8522c62be2ede11, type: 2}
+  internalIDToNameTable: []
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0

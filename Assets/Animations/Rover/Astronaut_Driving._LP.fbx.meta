@@ -6,7 +6,112 @@ ModelImporter:
   - first:
       74: -623603649343465320
     second: Scene
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Antenna
+    second: {fileID: 2100000, guid: 68d7ac7fdc47f8f47aaf3d6eab9cdee2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_1
+    second: {fileID: 2100000, guid: 8acb528e3888b1d418d59804341be2c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_2
+    second: {fileID: 2100000, guid: 4794d48e75362154a929afd0a44e9949, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_3
+    second: {fileID: 2100000, guid: 9f3d2636c3d1ec24a83e9f0f8b579864, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_4
+    second: {fileID: 2100000, guid: 59690f1b974124f42882c404369e835c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_Ruote
+    second: {fileID: 2100000, guid: 7a1f981f59592a640abd80e514f5d7ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pannello
+    second: {fileID: 2100000, guid: a4bbd9dfeac82ad4aa1a4ed06860bd6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pelle_Sedili
+    second: {fileID: 2100000, guid: 4552dec8159479d49896c7a405694b8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastica
+    second: {fileID: 2100000, guid: 60a6acfec8da32b44957bd4df2720adc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Poggiapiedi
+    second: {fileID: 2100000, guid: 8a475557ec634e04fb028ebff63eb88b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rivestimento
+    second: {fileID: 2100000, guid: 3e9c8cddcf215f0479547042529dd218, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rivestimento_Gomma
+    second: {fileID: 2100000, guid: 378a3fd257353244297dca128accef47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Robe_Coperte
+    second: {fileID: 2100000, guid: 05a6730775943d64a9fe7b75a0939c7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ruote
+    second: {fileID: 2100000, guid: 8a7ddc889528c804089e67e73ef5e361, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stivali
+    second: {fileID: 2100000, guid: f1a0f3e0f21ed2e4da21a535a315e7f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: casco
+    second: {fileID: 2100000, guid: 8c412c0d959a8f444b36bec750526844, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: guanti
+    second: {fileID: 2100000, guid: 7718fd974aeaf8a4a8e399218967f39f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metallo paraurti
+    second: {fileID: 2100000, guid: 3320552871d4f0542a35ba2c332a1ef9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tuta
+    second: {fileID: 2100000, guid: f7b3f55cd928fb340aba9b731a8d429a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vetro
+    second: {fileID: 2100000, guid: a3151a37ab2b419449733e679fbef40b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zaino
+    second: {fileID: 2100000, guid: a4e7623db2ccf4042a734f0883f8d26f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
