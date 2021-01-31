@@ -472,7 +472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5441065176575329060, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.162
+      value: 12.153
       objectReference: {fileID: 0}
     - target: {fileID: 5441065176575329060, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1662,6 +1662,11 @@ Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5246779533758986254, guid: 4f7d0f7f22376a144b47cec5b20dabcd, type: 3}
   m_PrefabInstance: {fileID: 5246779533104552979}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1018384982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4668362955064416670, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
+  m_PrefabInstance: {fileID: 113930009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1118299879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,6 +2813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: {fileID: 1195505454}
   ballPrefab: {fileID: 4904745441334347099, guid: 4f7d0f7f22376a144b47cec5b20dabcd, type: 3}
+  astronaut: {fileID: 1018384982}
   target: {fileID: 1331629772}
   powerBar: {fileID: 1518533578}
   ballRigidBody: {fileID: 956490781}

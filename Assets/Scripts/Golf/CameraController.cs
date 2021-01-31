@@ -8,6 +8,7 @@ namespace Golf
     {
         [SerializeField] private GameState gameState;
         public GameObject ballPrefab;
+        public GameObject astronaut;
         public Transform target;
         public PowerBarController powerBar;
         public Rigidbody ballRigidBody;
@@ -30,6 +31,7 @@ namespace Golf
 
         private float _x;
         private float _y;
+        private float _astronautDistance;
 
         // Use this for initialization
         void Start()
@@ -38,6 +40,7 @@ namespace Golf
             {
                 _targetPosition = target.position;
             }
+            _astronautDistance = Vector3.Distance(astronaut.transform.position, _targetPosition);
 
             Cursor.lockState = CursorLockMode.Locked;
             Vector3 angles = transform.eulerAngles;
@@ -104,11 +107,14 @@ namespace Golf
             _y = ClampAngle(_y, yMinLimit, yMaxLimit);
 
             Quaternion rotation = Quaternion.Euler(_y, _x, 0);
-
+            Quaternion astronautRotation = Quaternion.Euler(0, _x + 90, 0);
             distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
-
-            Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
-            Vector3 position = rotation * negDistance + _targetPosition;
+            
+            var negDistance = new Vector3(0.0f, 0.0f, -distance);
+            var astronautNegDistance = new Vector3(0.0f, 0.0f, -_astronautDistance);
+            
+            var position = rotation * negDistance + _targetPosition;
+            var astronautPosition = astronautRotation * astronautNegDistance + _targetPosition;
 
             var destinationCollisionVec = new Vector3(position.x, position.y - 1, position.z);
 
@@ -119,9 +125,23 @@ namespace Golf
                 position.y += 0.01f;
             }
 
+            var tmpVec = new Vector3(astronautPosition.x, astronautPosition.y, astronautPosition.z ); 
+            while (!Physics.Linecast(astronautPosition, tmpVec, out _))
+            {
+                tmpVec.y -= 0.01f;
+            }
+            tmpVec.y += 0.01f;
+            astronautPosition = tmpVec;
+            
             var transform1 = transform;
             transform1.rotation = rotation;
             transform1.position = position;
+
+            var transformAstronaut = astronaut.transform;
+            transformAstronaut.rotation = astronautRotation;
+            transformAstronaut.position = astronautPosition;
+            
+            Debug.DrawLine(_targetPosition, transformAstronaut.position, Color.red, 3f);
         }
 
         private static float ClampAngle(float angle, float min, float max)
