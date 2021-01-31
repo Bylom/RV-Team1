@@ -454,6 +454,14 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
+    - target: {fileID: 2117438563933526366, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ab8887682cd8343409e8835669ea57fb, type: 2}
+    - target: {fileID: 2117438563933526366, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2323235526031132890, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2823,7 +2831,7 @@ MonoBehaviour:
   ySpeed: 120
   yMinLimit: 0
   yMaxLimit: 80
-  distanceMin: 0.5
+  distanceMin: 5
   distanceMax: 8
   sensitivity: 90
   barIncrement: 1

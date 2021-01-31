@@ -7,31 +7,33 @@ namespace Golf
     public class CameraController : MonoBehaviour
     {
         [SerializeField] private GameState gameState;
-        public GameObject ballPrefab;
-        public GameObject astronaut;
-        public Transform target;
-        public PowerBarController powerBar;
-        public Rigidbody ballRigidBody;
-        public GameObject ball;
+        [SerializeField] private  GameObject ballPrefab;
+        [SerializeField] private  GameObject astronaut;
+        [SerializeField] private  Transform target;
+        [SerializeField] private  PowerBarController powerBar;
+        [SerializeField] private  Rigidbody ballRigidBody;
+        [SerializeField] private  GameObject ball;
+        [SerializeField] private  Animator astronautAnimator;
+        [SerializeField] private  float distance = 5.0f;
+        [SerializeField] private  float xSpeed = 120.0f;
+        [SerializeField] private  float ySpeed = 120.0f;
         private Vector3 _targetPosition;
-        public float distance = 5.0f;
-        public float xSpeed = 120.0f;
-        public float ySpeed = 120.0f;
 
-        public float yMinLimit = -20f;
-        public float yMaxLimit = 80f;
+        [SerializeField] private  float yMinLimit = -20f;
+        [SerializeField] private  float yMaxLimit = 80f;
 
-        public float distanceMin = .5f;
-        public float distanceMax = 15f;
-        public float sensitivity = 90f;
+        [SerializeField] private  float distanceMin = .5f;
+        [SerializeField] private  float distanceMax = 15f;
+        [SerializeField] private  float sensitivity = 90f;
 
         private Rigidbody _rigidBody;
         private float _powerValue;
-        public float barIncrement = 1;
+        [SerializeField] private  float barIncrement = 1;
 
         private float _x;
         private float _y;
         private float _astronautDistance;
+        private static readonly int Hit = Animator.StringToHash("Hit");
 
         // Use this for initialization
         void Start()
@@ -87,9 +89,11 @@ namespace Golf
                 ballRigidBody = null;
                 Destroy(ball, 40);
                 ball = null;
+                astronautAnimator.SetBool(Hit, true);
             }
             if (Input.GetButtonUp("Fire2") && (ballRigidBody is null))
             {
+                astronautAnimator.SetBool(Hit, false);
                 ball = Instantiate(ballPrefab, _targetPosition, Quaternion.identity);
                 ballRigidBody = ball.GetComponent<Rigidbody>();
             }
