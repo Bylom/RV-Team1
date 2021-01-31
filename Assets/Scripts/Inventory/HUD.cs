@@ -1,68 +1,67 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace Inventory
+public class HUD : MonoBehaviour
 {
-    public class Hud : MonoBehaviour
+
+    public Inventory Inventory;
+
+
+    void Start()
+    {
+        Inventory.ItemAdded += InventoryScript_ItemAdded;
+        Inventory.ItemRemoved += Inventory_ItemRemoved;
+    }
+
+
+    private void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
     {
 
-        public global::Inventory.Inventory Inventory;
-
-
-        void Start()
+        Transform inventorySlot = transform.Find("InventorySlot");
+        foreach (Transform slot in inventorySlot)
         {
-            Inventory.ItemAdded += InventoryScript_ItemAdded;
-            Inventory.ItemRemoved += Inventory_ItemRemoved;
-        }
+            Transform imageTransform = slot.GetChild(0).GetChild(0);
+            Image image = imageTransform.GetComponent<Image>();
+            ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
 
-
-        private void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
-        {
-
-            Transform inventorySlot = transform.Find("InventorySlot");
-            foreach (Transform slot in inventorySlot)
+            if (!image.enabled)
             {
-                Transform imageTransform = slot.GetChild(0).GetChild(0);
-                Image image = imageTransform.GetComponent<Image>();
-                ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
+                image.enabled = true;
+                image.sprite = e.Item.Image;
 
-                if (!image.enabled)
-                {
-                    image.enabled = true;
-                    image.sprite = e.Item.Image;
+                itemDragHandler.Item = e.Item;
 
-                    itemDragHandler.Item = e.Item;
-
-                    break;
-                }
+                break;
             }
         }
-
-        private void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
-        {
-            Transform inventorySlot = transform.Find("InventorySLot");
-
-            //int index = -1;
-            foreach (Transform slot in inventorySlot)
-            {
-                //index++;
-
-                Transform imageTransform = slot.GetChild(0).GetChild(0);
-                Image image = imageTransform.GetComponent<Image>();
-                ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
-
-                // We found the item in the UI
-
-                if (itemDragHandler.Item.Equals(e.Item))
-                {
-                    image.enabled = false;
-                    image.sprite = null;
-                    itemDragHandler.Item = null;
-                    break;
-                }
-
-            }
-        }
-
     }
+
+    private void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
+    {
+        Transform inventorySlot = transform.Find("InventorySlot");
+
+        //int index = -1;
+        foreach (Transform slot in inventorySlot)
+        {
+            //index++;
+
+            Transform imageTransform = slot.GetChild(0).GetChild(0);
+            Image image = imageTransform.GetComponent<Image>();
+            ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
+
+            // We found the item in the UI
+
+            if (itemDragHandler.Item.Equals(e.Item))
+            {
+                image.enabled = false;
+                image.sprite = null;
+                itemDragHandler.Item = null;
+                break;
+            }
+
+        }
+    }
+
 }

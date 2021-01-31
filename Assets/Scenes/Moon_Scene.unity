@@ -1213,6 +1213,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536288389}
   m_CullTransparentMesh: 0
+--- !u!1 &541974729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1693546492923637869, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
+  m_PrefabInstance: {fileID: 696421932}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &652766754 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4516938037207654903, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
@@ -2521,10 +2526,10 @@ MonoBehaviour:
     m_Bits: 256
   jumpHeight: 6
   inventory: {fileID: 1494098469}
-  hand: {fileID: 0}
+  hand: {fileID: 541974729}
   nearObject: 0
-  canvas: {fileID: 0}
-  press: {fileID: 0}
+  canvas: {fileID: 398946137}
+  press: {fileID: 62843658}
 --- !u!143 &1701096499
 CharacterController:
   m_ObjectHideFlags: 0

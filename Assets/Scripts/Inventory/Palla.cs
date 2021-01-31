@@ -5,6 +5,13 @@ using UnityEngine;
 public class Palla : InventoyItemBase
 {
 
+    public Rigidbody Golf;
+
+    private void Start()
+    {
+        Golf = GetComponent<Rigidbody>();
+    }
+
     public override string Name
     {
         get

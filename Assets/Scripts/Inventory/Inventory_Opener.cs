@@ -31,6 +31,8 @@ public class Inventory_Opener : MonoBehaviour
                 {
                     animator.SetBool("Open", true);
                     StartCoroutine("WaitForSec");
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                 }
             }
             if (open)
@@ -40,6 +42,7 @@ public class Inventory_Opener : MonoBehaviour
                 {
                     animator.SetBool("Open", false);
                     StartCoroutine("WaitForSec2");
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
             }
         }

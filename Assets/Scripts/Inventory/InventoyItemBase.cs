@@ -32,6 +32,7 @@ public class InventoyItemBase : MonoBehaviour, IInventoryItem
     public virtual void OnDrop()
     {
         Debug.Log("Cazzo2");
+        /*
         RaycastHit hit = new RaycastHit();
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 1000))
@@ -41,6 +42,7 @@ public class InventoyItemBase : MonoBehaviour, IInventoryItem
             gameObject.transform.eulerAngles = DropRotation;
             Debug.Log("Cazzo2");
         }
+        */
     }
 
     public virtual void OnUse()

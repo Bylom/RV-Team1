@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class ItemClickHandler : MonoBehaviour
 {
 
-    public Inventory.Inventory _Inventory;
-    public InventorySlot Slot;
+    public Inventory _Inventory;
 
     public void OnItemClicked()
     {
@@ -21,9 +20,6 @@ public class ItemClickHandler : MonoBehaviour
 
         item.OnUse();
 
-        //Slot.InventoryPanelUI.SetActive(false);
-        //Slot.GameIsPaused = false;
-        //Time.timeScale = 1f;
     }
 
 }

@@ -1,61 +1,65 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Inventory
+public class Inventory : MonoBehaviour
 {
-    public class Inventory : MonoBehaviour
+
+    private const int SLOTS = 6;
+    private List<IInventoryItem> mItems = new List<IInventoryItem>();
+
+    public event EventHandler<InventoryEventArgs> ItemAdded;
+
+    public event EventHandler<InventoryEventArgs> ItemRemoved;
+
+    public event EventHandler<InventoryEventArgs> ItemUsed;
+
+    public void AddItem(IInventoryItem item)
     {
-
-        private const int Slots = 6;
-        private List<IInventoryItem> mItems = new List<IInventoryItem>();
-
-        public event EventHandler<InventoryEventArgs> ItemAdded;
-
-        public event EventHandler<InventoryEventArgs> ItemRemoved;
-
-        public event EventHandler<InventoryEventArgs> ItemUsed;
-
-        public void AddItem(IInventoryItem item)
+        if (mItems.Count < SLOTS)
         {
-            if (mItems.Count < Slots)
+            Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
+            if (collider.enabled)
             {
-                Collider itemCollider = (item as MonoBehaviour)?.GetComponent<Collider>();
-                if (!(itemCollider is null) && itemCollider.enabled)
+                collider.enabled = false;
+                mItems.Add(item);
+                item.OnPickup();
+
+                if (ItemAdded != null)
                 {
-                    itemCollider.enabled = false;
-                    mItems.Add(item);
-                    item.OnPickup();
-
-                    ItemAdded?.Invoke(this, new InventoryEventArgs(item));
+                    ItemAdded(this, new InventoryEventArgs(item));
                 }
-            }
-        }
-
-        internal void UseItem(IInventoryItem item)
-        {
-            if (ItemUsed != null)
-            {
-                ItemUsed(this, new InventoryEventArgs(item));
-            }
-        }
-
-        public void RemoveItem(IInventoryItem item)
-        {
-            if (mItems.Contains(item))
-            {
-                mItems.Remove(item);
-                item.OnDrop();
-
-                Collider itemCollider = (item as MonoBehaviour)?.GetComponent<Collider>();
-                if (itemCollider != null)
-                {
-                    Debug.Log("Niente");
-                    itemCollider.enabled = true;
-                }
-
-                ItemRemoved?.Invoke(this, new InventoryEventArgs(item));
             }
         }
     }
+
+    internal void UseItem(IInventoryItem item)
+    {
+        if (ItemUsed != null)
+        {
+            ItemUsed(this, new InventoryEventArgs(item));
+        }
+    }
+
+    public void RemoveItem(IInventoryItem item)
+    {
+        if (mItems.Contains(item))
+        {
+            mItems.Remove(item);
+            item.OnDrop();
+
+            Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
+            if (collider != null)
+            {
+                Debug.Log("Niente");
+                collider.enabled = true;
+            }
+            if (ItemRemoved != null)
+            {
+                ItemRemoved(this, new InventoryEventArgs(item));
+            }
+        }
+    }
+
 }

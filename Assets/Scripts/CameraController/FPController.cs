@@ -7,7 +7,7 @@ public class FPController : MonoBehaviour
 {
     public GameObject player;
 
-    [SerializeField] private Transform cameraT;
+    [SerializeField] private Transform cameraT; 
 
     [SerializeField] private float speed = 1f;
 
@@ -37,7 +37,7 @@ public class FPController : MonoBehaviour
     private Vector3 m_Inertia;
 
 
-    public Inventory.Inventory inventory;
+    public Inventory inventory;
     [FormerlySerializedAs("Hand")] public GameObject hand;
     [FormerlySerializedAs("NearObject")] public bool nearObject = false;
     [FormerlySerializedAs("Canvas")] public GameObject canvas;
@@ -46,6 +46,7 @@ public class FPController : MonoBehaviour
     private static readonly int Run = Animator.StringToHash("run");
     private static readonly int Jump = Animator.StringToHash("jump");
 
+    public GameObject Palla;
 
     void Start()
     {
@@ -54,6 +55,7 @@ public class FPController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         inventory.ItemUsed += Inventory_ItemUsed;
         inventory.ItemRemoved += Inventory_ItemRemoved;
+        Palla.GetComponent<Palla>().Golf.isKinematic = true;
     }
 
     private void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
@@ -81,6 +83,47 @@ public class FPController : MonoBehaviour
             goItem.SetActive(true);
 
             goItem.transform.parent = hand.transform;
+        }
+
+        mCurrentItem = e.Item;
+    }
+
+    private IInventoryItem mCurrentItem = null;
+
+    private bool mLockPickup = false;
+
+    private void DropCurrentItem()
+    {
+        mLockPickup = true;
+
+        m_Animator.SetBool("Flag", true);
+
+        GameObject goItem = (mCurrentItem as MonoBehaviour).gameObject;
+
+        inventory.RemoveItem(mCurrentItem);
+
+        
+        Palla.GetComponent<Palla>().Golf.AddForce(transform.forward * 2.0f, ForceMode.Impulse);
+        Debug.Log("Lascia");
+        Palla.GetComponent<Palla>().Golf.isKinematic = false;
+
+        Invoke("DoDropItem", 0.25f);
+    }
+
+    public void DoDropItem()
+    {
+        mLockPickup = false;
+
+        //Destroy((mCurrentItem as MonoBehaviour).GetComponent<Rigidbody>());
+
+        mCurrentItem = null;
+    }
+
+    void FixedUpdate()
+    {
+        if (mCurrentItem != null && Input.GetKey(KeyCode.E))
+        {
+            DropCurrentItem();
         }
     }
 
@@ -149,8 +192,9 @@ public class FPController : MonoBehaviour
         m_CharacterController.Move(m_Velocity * Time.deltaTime);
 
         UpdateAnimations();
-    }
 
+        
+    }
 
     private void UpdateAnimations()
     {
@@ -162,6 +206,7 @@ public class FPController : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
+        /*
         if (collision.gameObject.CompareTag("Palla"))
         {
             Debug.Log("Vicino alla Palla");
@@ -174,7 +219,7 @@ public class FPController : MonoBehaviour
                 nearObject = true;
                 inventory.AddItem(item);
             }
-        }
+        }*/
 
         if (collision.gameObject.CompareTag("Box"))
         {
@@ -194,4 +239,17 @@ public class FPController : MonoBehaviour
         }
     }
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (mLockPickup)
+            return;
+
+        IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
+        if(item != null)
+        {
+            nearObject = true;
+            inventory.AddItem(item);
+            item.OnPickup();
+        }
+    }
 }

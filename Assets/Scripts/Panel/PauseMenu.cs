@@ -18,7 +18,7 @@ namespace Panel
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && !gameState.GetPaused())
+            if (Input.GetKeyDown(KeyCode.Escape) )
             {
                 if (_gameIsPaused)
                 {
