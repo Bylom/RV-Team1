@@ -47,6 +47,7 @@ public class FPController : MonoBehaviour
     private static readonly int Jump = Animator.StringToHash("jump");
 
     public GameObject Palla;
+    public GameObject Flag;
 
     void Start()
     {
@@ -206,21 +207,6 @@ public class FPController : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        /*
-        if (collision.gameObject.CompareTag("Palla"))
-        {
-            Debug.Log("Vicino alla Palla");
-
-            IInventoryItem item = collision.GetComponent<IInventoryItem>();
-
-
-            if (item != null)
-            {
-                nearObject = true;
-                inventory.AddItem(item);
-            }
-        }*/
-
         if (collision.gameObject.CompareTag("Box"))
         {
 
@@ -228,6 +214,7 @@ public class FPController : MonoBehaviour
             //GetComponent<InventorySlot>().NearInventory = true;
             canvas.GetComponent<InventorySlot>().NearInventory = true;
         }
+
     }
 
     void OnTriggerExit(Collider collision)
