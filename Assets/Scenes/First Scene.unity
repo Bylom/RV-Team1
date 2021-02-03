@@ -2653,6 +2653,7 @@ MonoBehaviour:
   testo: {fileID: 420774227}
   isFlag: 0
   putFlag: 0
+  bandiera: {fileID: 1031016675}
 --- !u!1001 &1493083622
 PrefabInstance:
   m_ObjectHideFlags: 0

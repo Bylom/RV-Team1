@@ -9,6 +9,7 @@ public class Flag : MonoBehaviour
     Animator animator;
     public bool isFlag = false;
     public bool putFlag = false;
+    public Rigidbody bandiera;
 
     void Start()
     {
@@ -23,6 +24,9 @@ public class Flag : MonoBehaviour
             {
                 animator.SetBool("Flag", true);
                 putFlag = true;
+                bandiera.GetComponent<Bandiera>().Band.isKinematic = false;
+                isFlag = false;
+                testo.gameObject.SetActive(false);
             }
         }
     }

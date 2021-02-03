@@ -105,7 +105,6 @@ public class FPController : MonoBehaviour
 
         
         Palla.GetComponent<Palla>().Golf.AddForce(transform.forward * 2.0f, ForceMode.Impulse);
-        Debug.Log("Lascia");
         Palla.GetComponent<Palla>().Golf.isKinematic = false;
 
         Invoke("DoDropItem", 0.25f);

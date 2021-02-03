@@ -31,17 +31,20 @@ public class Bandiera : MonoBehaviour
         if (isF.GetComponent<Flag>().putFlag == true)
         {
             Debug.Log("stop");
-            //Band.isKinematic = false;
-            coll.isTrigger = false;
+            
             Flag.transform.localRotation = Quaternion.Euler(Vector3.zero);
             Flag.transform.forward = Vector3.zero;
             Flag.transform.parent = null;
+            //Band.AddForce(transform.forward * 2.0f, ForceMode.Impulse);
+            StartCoroutine("WaitForSec");
         }
         if (NearFlag)
         {
             if (Input.GetKey(KeyCode.E))
             {
                 Debug.Log("Player");
+                
+                coll.isTrigger = false;
                 Flag.transform.parent = hand.transform;
                 Flag.transform.localPosition = hand.transform.localPosition;
                 Flag.transform.localRotation = hand.transform.localRotation;
@@ -67,5 +70,11 @@ public class Bandiera : MonoBehaviour
             NearFlag = false;
             press.gameObject.SetActive(false);
         }
+    }
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(1);
+        Debug.Log("1 secondo");
+        Band.isKinematic = true;
     }
 }
