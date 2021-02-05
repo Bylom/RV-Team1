@@ -476,7 +476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5441065176575329060, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.278
+      value: 11.639
       objectReference: {fileID: 0}
     - target: {fileID: 5441065176575329060, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2855,6 +2855,7 @@ MonoBehaviour:
   distanceMax: 8
   sensitivity: 90
   barIncrement: 1
+  strength: 50
 --- !u!1 &1876233460
 GameObject:
   m_ObjectHideFlags: 0
