@@ -79,6 +79,7 @@ namespace Golf
             powerBar.setValue(_powerValue);
             if (Input.GetButtonUp("Fire1") && !(ballRigidBody is null) && _powerValue > 0)
             {
+                astronautAnimator.SetBool(Hit, true);
                 ballRigidBody.isKinematic = false;
                 Vector3 forceDirection = transform.forward;
                 forceDirection.y = 0;
@@ -89,7 +90,6 @@ namespace Golf
                 ballRigidBody = null;
                 Destroy(ball, 40);
                 ball = null;
-                astronautAnimator.SetBool(Hit, true);
             }
             if (Input.GetButtonUp("Fire2") && (ballRigidBody is null))
             {

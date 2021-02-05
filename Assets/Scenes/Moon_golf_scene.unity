@@ -457,10 +457,16 @@ PrefabInstance:
     - target: {fileID: 2117438563933526366, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: ab8887682cd8343409e8835669ea57fb, type: 2}
+      objectReference: {fileID: 9100000, guid: f45b555468fd4d94ca76a3fe3806b615, type: 2}
     - target: {fileID: 2117438563933526366, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:RightFoot'\n\tTransform
+        'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftHand'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
+        'mixamorig:Spine1'\n\tTransform 'mixamorig:Spine2'\n\tTransform 'mixamorig:LeftHandPinky3'\n\tTransform
+        'mixamorig:LeftHandThumb1'\n\tTransform 'mixamorig:RightHandPinky3'\n\tand
+        more ...\n\tFrom animation clip 'Golf'"
       objectReference: {fileID: 0}
     - target: {fileID: 2323235526031132890, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1675,6 +1681,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4668362955064416670, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
   m_PrefabInstance: {fileID: 113930009}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1018384983 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2117438563933526366, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
+  m_PrefabInstance: {fileID: 113930009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1118299879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,7 +1919,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Inventory: {fileID: 1494098469}
-  Slot: {fileID: 398946139}
 --- !u!114 &1160120338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2826,6 +2836,7 @@ MonoBehaviour:
   powerBar: {fileID: 1518533578}
   ballRigidBody: {fileID: 956490781}
   ball: {fileID: 919132149038176584}
+  astronautAnimator: {fileID: 1018384983}
   distance: 8
   xSpeed: 120
   ySpeed: 120
