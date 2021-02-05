@@ -4,16 +4,19 @@ namespace General
 {
     public class GameState : MonoBehaviour
     {
-        private bool _paused;
+        private int _paused;
 
         public bool GetPaused()
         {
-            return _paused;
+            return _paused > 0;
         }
 
         public void SetPaused(bool paused)
         {
-            _paused = paused;
+            if (paused)
+                _paused += 1;
+            else if (_paused > 0)
+                _paused -= 1;
         }
     }
 }

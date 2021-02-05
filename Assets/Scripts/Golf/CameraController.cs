@@ -1,5 +1,4 @@
 ﻿using General;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace Golf
@@ -29,11 +28,13 @@ namespace Golf
         private Rigidbody _rigidBody;
         private float _powerValue;
         [SerializeField] private  float barIncrement = 1;
-
+        [SerializeField] private float strength = 50;
+        
         private float _x;
         private float _y;
         private float _astronautDistance;
         private static readonly int Hit = Animator.StringToHash("Hit");
+        private static readonly int Multiplier = Animator.StringToHash("Multiplier");
 
         // Use this for initialization
         void Start()
@@ -80,26 +81,28 @@ namespace Golf
             if (Input.GetButtonUp("Fire1") && !(ballRigidBody is null) && _powerValue > 0)
             {
                 astronautAnimator.SetBool(Hit, true);
-                ballRigidBody.isKinematic = false;
-                Vector3 forceDirection = transform.forward;
-                forceDirection.y = 0;
-                forceDirection = Vector3.Normalize(forceDirection);
-                forceDirection.y = 1;
-                forceDirection = Vector3.Normalize(forceDirection);
-                ballRigidBody.AddForce(forceDirection * (_powerValue * 40), ForceMode.Impulse);
-                ballRigidBody = null;
-                Destroy(ball, 40);
-                ball = null;
+                gameState.SetPaused(true);
             }
             if (Input.GetButtonUp("Fire2") && (ballRigidBody is null))
             {
-                astronautAnimator.SetBool(Hit, false);
                 ball = Instantiate(ballPrefab, _targetPosition, Quaternion.identity);
                 ballRigidBody = ball.GetComponent<Rigidbody>();
             }
         }
 
-       
+        public void HitBall()
+        {
+            ballRigidBody.isKinematic = false;
+            Vector3 forceDirection = transform.forward;
+            forceDirection.y = 0;
+            forceDirection = Vector3.Normalize(forceDirection);
+            forceDirection.y = 1;
+            forceDirection = Vector3.Normalize(forceDirection);
+            ballRigidBody.AddForce(forceDirection * (_powerValue * strength), ForceMode.Impulse);
+            ballRigidBody = null;
+            Destroy(ball, 40);
+            ball = null;
+        }
 
         void LateUpdate()
         {

@@ -460,13 +460,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: f45b555468fd4d94ca76a3fe3806b615, type: 2}
     - target: {fileID: 2117438563933526366, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:RightFoot'\n\tTransform
-        'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftHand'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:Spine2'\n\tTransform 'mixamorig:LeftHandPinky3'\n\tTransform
-        'mixamorig:LeftHandThumb1'\n\tTransform 'mixamorig:RightHandPinky3'\n\tand
-        more ...\n\tFrom animation clip 'Golf'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2323235526031132890, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -486,7 +480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5441065176575329060, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.153
+      value: 9.697
       objectReference: {fileID: 0}
     - target: {fileID: 5441065176575329060, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1686,6 +1680,21 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 2117438563933526366, guid: 7cbc316f27724d342a43aa9478b5a8fa, type: 3}
   m_PrefabInstance: {fileID: 113930009}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1018384985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018384982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f161e583e45d04bb04c2f9a4ed73c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraController: {fileID: 1853777392}
+  anim: {fileID: 1018384983}
+  state: {fileID: 1195505454}
 --- !u!1 &1118299879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2237,7 +2246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331629771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.78, y: 12.276, z: -0.09999992}
+  m_LocalPosition: {x: 12.78, y: 9.82, z: -0.09999992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3619,7 +3628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1651504368863510263, guid: 5dc49f36b5751d34d9c5c956f7bb4f71, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.9
+      value: 9.9
       objectReference: {fileID: 0}
     - target: {fileID: 1651504368863510263, guid: 5dc49f36b5751d34d9c5c956f7bb4f71, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3737,7 +3746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5718154610787688417, guid: 4f7d0f7f22376a144b47cec5b20dabcd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.153
+      value: 9.697
       objectReference: {fileID: 0}
     - target: {fileID: 5718154610787688417, guid: 4f7d0f7f22376a144b47cec5b20dabcd, type: 3}
       propertyPath: m_LocalPosition.z
