@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 
 public class Bandiera : MonoBehaviour
@@ -11,10 +12,13 @@ public class Bandiera : MonoBehaviour
     [FormerlySerializedAs("Hand")] public GameObject hand;
 
     public GameObject Flag;
+    public GameObject isF;
     public Rigidbody Band;
     public float dropForwardForce, dropUpwardForce;
     public Transform player;
     public BoxCollider coll;
+    public Text press;
+    public bool NearFlag = false;
 
     public void Start()
     {
@@ -24,31 +28,53 @@ public class Bandiera : MonoBehaviour
     public void Update()
     {
 
-
-        if (Input.GetKey(KeyCode.Z))
+        if (isF.GetComponent<Flag>().putFlag == true)
         {
-            //Band.isKinematic = false;
-            coll.isTrigger = false;
-            Debug.Log("Eccomi qua");
+            Debug.Log("stop");
+            
             Flag.transform.localRotation = Quaternion.Euler(Vector3.zero);
-            //Flag.transform.localPosition = Vector3.zero;
+            Flag.transform.forward = Vector3.zero;
             Flag.transform.parent = null;
             //Band.AddForce(transform.forward * 2.0f, ForceMode.Impulse);
-            //Band.AddForce(player.forward * dropForwardForce, ForceMode.Impulse);
-            //Band.AddForce(player.up * dropUpwardForce, ForceMode.Impulse);
-
+            StartCoroutine("WaitForSec");
         }
-    }
-    
-    void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        if (NearFlag)
         {
-            Flag.transform.parent = hand.transform;
-            Flag.transform.localPosition = hand.transform.localPosition;
-            Flag.transform.localRotation = hand.transform.localRotation;
-
+            if (Input.GetKey(KeyCode.E))
+            {
+                Debug.Log("Player");
+                
+                coll.isTrigger = false;
+                Flag.transform.parent = hand.transform;
+                Flag.transform.localPosition = hand.transform.localPosition;
+                Flag.transform.localRotation = hand.transform.localRotation;
+            }
         }
     }
     
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Player");
+            press.text = "Press E to interact";
+            press.gameObject.SetActive(true);
+            NearFlag = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            NearFlag = false;
+            press.gameObject.SetActive(false);
+        }
+    }
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(1);
+        Debug.Log("1 secondo");
+        Band.isKinematic = true;
+    }
 }

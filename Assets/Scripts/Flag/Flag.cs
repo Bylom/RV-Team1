@@ -5,41 +5,35 @@ using UnityEngine.UI;
 
 public class Flag : MonoBehaviour
 {
-
     public Text testo;
     Animator animator;
     public bool isFlag = false;
+    public bool putFlag = false;
+    public Rigidbody bandiera;
 
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    private void DropCurrentItem()
-    {
-        animator.SetBool("Flag", true);
-    }
-
     private void Update()
     {
-        /*
-        if(isFlag == true)
+        if (isFlag == true)
         {
             if (Input.GetKey(KeyCode.E))
             {
                 animator.SetBool("Flag", true);
+                putFlag = true;
+                bandiera.GetComponent<Bandiera>().Band.isKinematic = false;
+                isFlag = false;
+                testo.gameObject.SetActive(false);
             }
-        }
-        */
-        if (Input.GetKey(KeyCode.E))
-        {
-            DropCurrentItem();
         }
     }
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Flag"))
+        if (collision.gameObject.tag == "Flag")
         {
             Debug.Log("Puoi piantare la bandiera");
             testo.text = "Press E per piantare la bandiera";
@@ -51,10 +45,10 @@ public class Flag : MonoBehaviour
 
     void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Flag"))
+        if (collision.gameObject.tag == "Flag")
         {
             Debug.Log("Ciao Cristian");
-            testo.gameObject.SetActive(true);
+            testo.gameObject.SetActive(false);
         }
     }
 }

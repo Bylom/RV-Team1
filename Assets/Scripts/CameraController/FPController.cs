@@ -47,6 +47,7 @@ public class FPController : MonoBehaviour
     private static readonly int Jump = Animator.StringToHash("jump");
 
     public GameObject Palla;
+    public GameObject Flag;
 
     void Start()
     {
@@ -104,7 +105,6 @@ public class FPController : MonoBehaviour
 
         
         Palla.GetComponent<Palla>().Golf.AddForce(transform.forward * 2.0f, ForceMode.Impulse);
-        Debug.Log("Lascia");
         Palla.GetComponent<Palla>().Golf.isKinematic = false;
 
         Invoke("DoDropItem", 0.25f);
@@ -206,21 +206,6 @@ public class FPController : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        /*
-        if (collision.gameObject.CompareTag("Palla"))
-        {
-            Debug.Log("Vicino alla Palla");
-
-            IInventoryItem item = collision.GetComponent<IInventoryItem>();
-
-
-            if (item != null)
-            {
-                nearObject = true;
-                inventory.AddItem(item);
-            }
-        }*/
-
         if (collision.gameObject.CompareTag("Box"))
         {
 
@@ -228,6 +213,7 @@ public class FPController : MonoBehaviour
             //GetComponent<InventorySlot>().NearInventory = true;
             canvas.GetComponent<InventorySlot>().NearInventory = true;
         }
+
     }
 
     void OnTriggerExit(Collider collision)

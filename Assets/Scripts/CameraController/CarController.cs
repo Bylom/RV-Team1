@@ -38,8 +38,8 @@ namespace CameraController
 
         private void GetInput()
         {
-            horizontalInput = Input.GetAxis(HORIZONTAL);
-            verticalInput = Input.GetAxis(VERTICAL);
+            horizontalInput = Input.GetAxis(HORIZONTAL)/2;
+            verticalInput = Input.GetAxis(VERTICAL)/2;
             isBreaking = Input.GetKey(KeyCode.Space);
         }
 
