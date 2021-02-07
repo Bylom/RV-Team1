@@ -29,7 +29,7 @@ namespace Golf
         private float _powerValue;
         [SerializeField] private float barIncrement = 1;
         [SerializeField] private float strength = 50;
-
+        private int _collisionIterationLimit = 200;
         private float _x;
         private float _y;
         private float _astronautDistance;
@@ -124,11 +124,12 @@ namespace Golf
             var position = rotation * negDistance + _targetPosition;
             var astronautPosition = astronautRotation * astronautNegDistance + _targetPosition;
 
-            var destinationCollisionVec = new Vector3(position.x, position.y - 1, position.z);
+            var destinationCollisionVec = new Vector3(position.x, position.y -1, position.z);
 
             var limit = 0;
             //Adjustment of y to not collide with ground 
-            while (Physics.Linecast(_targetPosition, destinationCollisionVec, out _) && limit < 25)
+            // var tmpTargetPosition = new Vector3(_targetPosition.x, _targetPosition.y + 0.2f, _targetPosition.z);
+            while (Physics.Linecast(_targetPosition, destinationCollisionVec, out _)  && limit < _collisionIterationLimit)
             {
                 destinationCollisionVec.y += 0.01f;
                 position.y += 0.01f;
@@ -137,22 +138,22 @@ namespace Golf
 
             var tmpVec = new Vector3(astronautPosition.x, astronautPosition.y, astronautPosition.z);
             limit = 0;
-            while (!Physics.Linecast(astronautPosition, tmpVec, out _) && limit < 25)
+            while (!Physics.Linecast(astronautPosition, tmpVec, out _) && limit < _collisionIterationLimit)
             {
                 tmpVec.y -= 0.01f;
                 limit += 1;
             }
-            if (limit == 25)
+            if (limit == _collisionIterationLimit)
             {
                 limit = 0;
                 tmpVec = new Vector3(astronautPosition.x, astronautPosition.y, astronautPosition.z);
-                while (!Physics.Linecast(astronautPosition, tmpVec, out _) && limit < 25)
+                while (!Physics.Linecast(astronautPosition, tmpVec, out _) && limit < _collisionIterationLimit)
                 {
                     tmpVec.y += 0.01f;
                     limit += 1;
                 }
 
-                if (limit == 25)
+                if (limit == _collisionIterationLimit)
                     tmpVec.y = astronautPosition.y;
             }
 
