@@ -16,8 +16,10 @@ namespace GeneralUI
         [SerializeField] private bool pauseNeeded;
 
         [SerializeField] private GameState gameState;
+        
         private Queue<string> _sentences;
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
+        private bool _runningDialogue = false;
 
         // Use this for initialization
         void Start()
@@ -27,9 +29,12 @@ namespace GeneralUI
 
         public void StartDialogue(Dialogue dialogue)
         {
-            gameState.SetPaused(true);
+            if (_runningDialogue) return;
+            if(pauseNeeded)
+                gameState.SetPaused(true);
             animator.SetBool(IsOpen, true);
             nameText.text = dialogue.name;
+            _runningDialogue = true;
 
             _sentences.Clear();
 
@@ -68,9 +73,10 @@ namespace GeneralUI
 
         void EndDialogue()
         {
+            _runningDialogue = false;
             animator.SetBool(IsOpen, false);
-
-            gameState.SetPaused(false);
+            if(pauseNeeded)
+                gameState.SetPaused(false);
             if (mouseNeeded)
                 Cursor.lockState = CursorLockMode.Locked;
         }
