@@ -13,7 +13,14 @@ namespace CameraController
         private float currentbreakForce;
         private bool isBreaking;
 
-        [SerializeField] private float motorForce;
+        public Rigidbody target;
+        private float speed = 0.0f;
+
+        [SerializeField] private float prima;
+        [SerializeField] private float seconda;
+        [SerializeField] private float terza;
+
+        private float motorForce;
         [SerializeField] private float breakForce;
         [SerializeField] private float maxSteerAngle;
 
@@ -37,18 +44,45 @@ namespace CameraController
 
 
         private void GetInput()
-        {
-            horizontalInput = Input.GetAxis(HORIZONTAL)/2;
-            verticalInput = Input.GetAxis(VERTICAL)/2;
+        {   
+            horizontalInput = Input.GetAxis(HORIZONTAL);
+            verticalInput = Input.GetAxis(VERTICAL);
             isBreaking = Input.GetKey(KeyCode.Space);
+            speed = target.velocity.magnitude;
         }
 
         private void HandleMotor()
         {
+            Debug.Log(speed);
+
+            if(speed < 5)
+            {
+                motorForce = prima;
+                Debug.Log("prima! ");
+            }
+               
+        
+            if (speed > 5 && speed < 13)
+            {
+                motorForce = seconda;
+                Debug.Log("seconda! ");
+            }
+                
+
+            if (speed > 13)
+            {
+                motorForce = terza;
+                Debug.Log("terza! ");
+            }
+               
+
+
             frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
             frontRightWheelCollider.motorTorque = verticalInput * motorForce;
             currentbreakForce = isBreaking ? breakForce : 0f;
-            ApplyBreaking();       
+            ApplyBreaking();
+
+
         }
 
         private void ApplyBreaking()
