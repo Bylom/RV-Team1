@@ -20,6 +20,9 @@ public class Bandiera : MonoBehaviour
     public Text press;
     public bool NearFlag = false;
 
+    public Vector3 PickPosition;
+    public Vector3 PickRotation;
+
     public void Start()
     {
         Band = GetComponent<Rigidbody>();
@@ -32,11 +35,10 @@ public class Bandiera : MonoBehaviour
         {
             Debug.Log("stop");
             
-            Flag.transform.localRotation = Quaternion.Euler(Vector3.zero);
-            Flag.transform.forward = Vector3.zero;
-            Flag.transform.parent = null;
-            //Band.AddForce(transform.forward * 2.0f, ForceMode.Impulse);
-            StartCoroutine("WaitForSec");
+            //Flag.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            //Flag.transform.forward = Vector3.zero;
+            //Flag.transform.parent = null;
+            //StartCoroutine("WaitForSec");
         }
         if (NearFlag)
         {
@@ -46,8 +48,8 @@ public class Bandiera : MonoBehaviour
                 
                 coll.isTrigger = false;
                 Flag.transform.parent = hand.transform;
-                Flag.transform.localPosition = hand.transform.localPosition;
-                Flag.transform.localRotation = hand.transform.localRotation;
+                Flag.transform.localPosition = PickPosition;
+                Flag.transform.localEulerAngles = PickRotation;
             }
         }
     }
@@ -62,6 +64,7 @@ public class Bandiera : MonoBehaviour
             NearFlag = true;
         }
     }
+    
 
     private void OnTriggerExit(Collider other)
     {
@@ -71,10 +74,5 @@ public class Bandiera : MonoBehaviour
             press.gameObject.SetActive(false);
         }
     }
-    IEnumerator WaitForSec()
-    {
-        yield return new WaitForSeconds(1);
-        Debug.Log("1 secondo");
-        Band.isKinematic = true;
-    }
+
 }
