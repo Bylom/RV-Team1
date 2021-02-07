@@ -29,7 +29,7 @@ namespace Golf
         private float _powerValue;
         [SerializeField] private float barIncrement = 1;
         [SerializeField] private float strength = 50;
-        private int _collisionIterationLimit = 200;
+        private readonly int _collisionIterationLimit = 200;
         private float _x;
         private float _y;
         private float _astronautDistance;
