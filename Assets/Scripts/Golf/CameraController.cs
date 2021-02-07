@@ -34,7 +34,6 @@ namespace Golf
         private float _y;
         private float _astronautDistance;
         private static readonly int Hit = Animator.StringToHash("Hit");
-        private static readonly int Multiplier = Animator.StringToHash("Multiplier");
 
         // Use this for initialization
         void Start()
