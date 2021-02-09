@@ -901,6 +901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b9452b3157a344d9e19e7f2f61f59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Inventory: {fileID: 0}
 --- !u!114 &398946141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1348,6 +1349,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ab8887682cd8343409e8835669ea57fb, type: 2}
+    - target: {fileID: 5866666021909216657, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -1755,6 +1760,7 @@ MonoBehaviour:
   PickPosition: {x: 0, y: 0, z: 0}
   PickRotation: {x: 0, y: 0, z: 0}
   DropRotation: {x: 0, y: 0, z: 0}
+  Golf: {fileID: 0}
 --- !u!136 &956490780
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2059,7 +2065,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Inventory: {fileID: 1494098469}
-  Slot: {fileID: 398946139}
 --- !u!114 &1160120338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2530,6 +2535,8 @@ MonoBehaviour:
   nearObject: 0
   canvas: {fileID: 398946137}
   press: {fileID: 62843658}
+  Palla: {fileID: 0}
+  Flag: {fileID: 0}
 --- !u!143 &1701096499
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3340,6 +3347,8 @@ MonoBehaviour:
   nearObject: 0
   canvas: {fileID: 398946137}
   press: {fileID: 0}
+  Palla: {fileID: 0}
+  Flag: {fileID: 0}
 --- !u!81 &2030065729
 AudioListener:
   m_ObjectHideFlags: 0
