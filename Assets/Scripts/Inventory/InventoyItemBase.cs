@@ -31,7 +31,7 @@ public class InventoyItemBase : MonoBehaviour, IInventoryItem
 
     public virtual void OnDrop()
     {
-        Debug.Log("Cazzo2");
+        
         /*
         RaycastHit hit = new RaycastHit();
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -52,8 +52,7 @@ public class InventoyItemBase : MonoBehaviour, IInventoryItem
     }
 
     public Vector3 PickPosition;
-
     public Vector3 PickRotation;
 
-    public Vector3 DropRotation;
+    //public Vector3 DropRotation;
 }

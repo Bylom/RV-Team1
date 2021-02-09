@@ -39,15 +39,19 @@ public class FPController : MonoBehaviour
 
     public Inventory inventory;
     [FormerlySerializedAs("Hand")] public GameObject hand;
+    [FormerlySerializedAs("leftHand")] public GameObject leftHand;
     [FormerlySerializedAs("NearObject")] public bool nearObject = false;
     [FormerlySerializedAs("Canvas")] public GameObject canvas;
+    public bool firstUse = false;
+    public bool Slot1 = false;
     public Text press;
     private static readonly int Speed = Animator.StringToHash("speed");
     private static readonly int Run = Animator.StringToHash("run");
     private static readonly int Jump = Animator.StringToHash("jump");
 
     public GameObject Palla;
-    public GameObject Flag;
+    public GameObject Mazza;
+    //public GameObject Flag;
 
     void Start()
     {
@@ -57,6 +61,7 @@ public class FPController : MonoBehaviour
         inventory.ItemUsed += Inventory_ItemUsed;
         inventory.ItemRemoved += Inventory_ItemRemoved;
         Palla.GetComponent<Palla>().Golf.isKinematic = true;
+        Mazza.GetComponent<Mazza>().Mazza_Golf.isKinematic = true;
     }
 
     private void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
@@ -77,16 +82,29 @@ public class FPController : MonoBehaviour
     {
         IInventoryItem item = e.Item;
 
+        Debug.Log("Hello " + item.Name);
+
         GameObject goItem = (item as MonoBehaviour)?.gameObject;
 
         if (!(goItem is null))
         {
-            goItem.SetActive(true);
-
-            goItem.transform.parent = hand.transform;
+            if (Slot1 == true)
+            {
+                goItem.SetActive(true);
+                goItem.transform.parent = hand.transform;
+                Debug.Log("00:26");
+            }
+            if (Slot1 == false)
+            {
+                goItem.SetActive(true);
+                goItem.transform.parent = leftHand.transform;
+                Slot1 = true;
+            }
         }
+        
 
         mCurrentItem = e.Item;
+
     }
 
     private IInventoryItem mCurrentItem = null;
@@ -106,6 +124,12 @@ public class FPController : MonoBehaviour
         
         Palla.GetComponent<Palla>().Golf.AddForce(transform.forward * 2.0f, ForceMode.Impulse);
         Palla.GetComponent<Palla>().Golf.isKinematic = false;
+        Palla.SetActive(true);
+        //Palla.GetComponent<Palla>().coll_Golf.enabled = true;
+        Mazza.GetComponent<Mazza>().Mazza_Golf.AddForce(transform.forward * 2.0f, ForceMode.Impulse);
+        Mazza.GetComponent<Mazza>().Mazza_Golf.isKinematic = false;
+        Mazza.GetComponent<Mazza>().coll_Mazza.enabled = true;
+        Mazza.SetActive(true);
 
         Invoke("DoDropItem", 0.25f);
     }
