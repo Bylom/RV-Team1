@@ -1,5 +1,4 @@
-﻿using System;
-using GeneralUI;
+﻿using GeneralUI;
 using UnityEngine;
 using UnityEngine.Serialization;
 

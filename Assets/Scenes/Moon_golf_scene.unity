@@ -3597,7 +3597,9 @@ MonoBehaviour:
   dialogue:
     name: Mission control
     sentences:
-    - Pay more attention, your last shot hit the lunar module!
+    - 'Be more careful!
+
+      Your last shot hit the lunar module!'
 --- !u!114 &919132149513307739
 MonoBehaviour:
   m_ObjectHideFlags: 0
