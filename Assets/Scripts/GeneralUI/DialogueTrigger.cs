@@ -12,5 +12,10 @@ namespace GeneralUI
 			FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
 		}
 
+		public void SetDialog(Dialogue dial)
+		{
+			this.dialogue = dial;
+		}
+
 	}
 }
