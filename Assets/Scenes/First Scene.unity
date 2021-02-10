@@ -149,12 +149,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35708498}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.846, z: 0.12}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.8460002, z: 0.11999981}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1453657440}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &35708500
 MonoBehaviour:
@@ -185,7 +185,6 @@ MonoBehaviour:
   canvas: {fileID: 2012018768}
   press: {fileID: 0}
   Palla: {fileID: 0}
-  Flag: {fileID: 0}
 --- !u!81 &35708501
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1483,7 +1482,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1453657440}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &897409950
 PrefabInstance:
@@ -2765,6 +2764,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ab8887682cd8343409e8835669ea57fb, type: 2}
+    - target: {fileID: 5866666021909216657, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7789981938002673349, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.1228001
@@ -2839,7 +2842,6 @@ MonoBehaviour:
   canvas: {fileID: 2012018768}
   press: {fileID: 2086666886}
   Palla: {fileID: 949609325}
-  Flag: {fileID: 1031016672}
 --- !u!143 &1453657444
 CharacterController:
   m_ObjectHideFlags: 0
