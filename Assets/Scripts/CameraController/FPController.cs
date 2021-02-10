@@ -23,6 +23,9 @@ public class FPController : MonoBehaviour
 
     [SerializeField] private float jumpHeight = 2f;
 
+    [SerializeField] private float minX = -60f;
+    [SerializeField] private float maxX = 30f;
+
     private Animator m_Animator;
     private CharacterController m_CharacterController;
 
@@ -169,7 +172,7 @@ public class FPController : MonoBehaviour
         //Compute direction According to Camera Orientation
         transform.Rotate(Vector3.up, mouseX);
         m_CameraXRotation -= mouseY;
-        m_CameraXRotation = Mathf.Clamp(m_CameraXRotation, -60f, 30f);
+        m_CameraXRotation = Mathf.Clamp(m_CameraXRotation, minX, maxX);
         cameraT.localRotation = Quaternion.Euler(m_CameraXRotation, 0f, 0f);
 
         if (m_IsGrounded)
