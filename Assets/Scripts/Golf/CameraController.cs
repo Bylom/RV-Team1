@@ -88,6 +88,7 @@ namespace Golf
             {
                 ball = Instantiate(ballPrefab, _targetPosition, Quaternion.identity);
                 ballRigidBody = ball.GetComponent<Rigidbody>();
+                ball.GetComponent<Ball>().originPoint = _targetPosition;
             }
         }
 
