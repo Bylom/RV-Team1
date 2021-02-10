@@ -3595,10 +3595,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Capo missione
+    name: Mission control
     sentences:
-    - Il tuo ultimo tiro ha colpito il rover, fai attenzione!
-    - "Se lo rompi non avremo pi\xF9 modo di tornare a casa!"
+    - Pay more attention, your last shot hit the lunar module!
 --- !u!114 &919132149513307739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3741,6 +3740,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golf_Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 5246779533758986254, guid: 4f7d0f7f22376a144b47cec5b20dabcd, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246779533758986255, guid: 4f7d0f7f22376a144b47cec5b20dabcd, type: 3}
+      propertyPath: m_Radius
+      value: 0.035
+      objectReference: {fileID: 0}
     - target: {fileID: 5718154610787688417, guid: 4f7d0f7f22376a144b47cec5b20dabcd, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3805,7 +3812,7 @@ PrefabInstance:
     - target: {fileID: 6482733977979520877, guid: 6ab65549af92f40bda8999f6b4a799ab, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 13400000, guid: e52fb17f9b1e7fd48b8955f1391d3688, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6482733977979520879, guid: 6ab65549af92f40bda8999f6b4a799ab, type: 3}
       propertyPath: m_RootOrder
       value: 1

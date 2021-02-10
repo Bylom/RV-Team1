@@ -19,7 +19,7 @@ namespace GeneralUI
         
         private Queue<string> _sentences;
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
-        private bool _runningDialogue = false;
+        private bool _runningDialogue;
 
         // Use this for initialization
         void Start()
@@ -32,6 +32,8 @@ namespace GeneralUI
             if (_runningDialogue) return;
             if(pauseNeeded)
                 gameState.SetPaused(true);
+            if(mouseNeeded)
+                gameState.SetMouseNeeded(true);
             animator.SetBool(IsOpen, true);
             nameText.text = dialogue.name;
             _runningDialogue = true;
@@ -78,7 +80,11 @@ namespace GeneralUI
             if(pauseNeeded)
                 gameState.SetPaused(false);
             if (mouseNeeded)
-                Cursor.lockState = CursorLockMode.Locked;
+                if(mouseNeeded)
+                {
+                    gameState.SetMouseNeeded(false);
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
         }
     }
 }

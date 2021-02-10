@@ -11,19 +11,18 @@ namespace Panel
 
         public GameObject pauseMenuUI;
         public GameObject inst;
-     [SerializeField] private GameState gameState;
+        [SerializeField] private GameState gameState;
 
 
         // Update is called once per frame
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) )
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (_gameIsPaused)
                 {
                     Resume();
-                    Cursor.lockState = CursorLockMode.Locked;
                 }
 
                 else
@@ -33,7 +32,6 @@ namespace Panel
                     Cursor.visible = true;
                 }
             }
-
         }
 
         public void Resume()
@@ -41,7 +39,8 @@ namespace Panel
             pauseMenuUI.SetActive(false);
             Time.timeScale = 1f;
             _gameIsPaused = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            if(gameState is null || !gameState.GetPaused() || (gameState.GetPaused() && !gameState.GetMouseNeeded()))
+                Cursor.lockState = CursorLockMode.Locked;
         }
 
         public void Pause()

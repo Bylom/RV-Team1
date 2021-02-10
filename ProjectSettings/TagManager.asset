@@ -8,6 +8,7 @@ TagManager:
   - Modulo
   - Box
   - Flag
+  - Ground
   layers:
   - Default
   - TransparentFX
