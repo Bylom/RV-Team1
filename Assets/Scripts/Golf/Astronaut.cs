@@ -11,6 +11,10 @@ namespace Golf
 
         private static readonly int Hit1 = Animator.StringToHash("Hit");
 
+        public void Start()
+        {
+            FindObjectOfType<AudioManager>().Play("Golf");
+        }
         // Start is called before the first frame update
         public void Hit()
         {

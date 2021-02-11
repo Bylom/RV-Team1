@@ -34,6 +34,11 @@ namespace CameraController
         [SerializeField] private Transform rearLeftWheelTransform;
         [SerializeField] private Transform rearRightWheelTransform;
 
+
+        private void Start()
+        {
+            FindObjectOfType<AudioManager>().Play("Crater");
+        }
         private void FixedUpdate()
         {
             GetInput();

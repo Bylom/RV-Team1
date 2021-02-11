@@ -179,12 +179,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   jumpHeight: 2
+  minX: -60
+  maxX: 30
   inventory: {fileID: 405971923}
   hand: {fileID: 0}
+  leftHand: {fileID: 0}
   nearObject: 0
   canvas: {fileID: 2012018768}
+  firstUse: 0
+  Slot1: 0
   press: {fileID: 0}
   Palla: {fileID: 0}
+  Mazza: {fileID: 0}
 --- !u!81 &35708501
 AudioListener:
   m_ObjectHideFlags: 0
@@ -236,6 +242,67 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1001 &57783147
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 36080958474512696, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512696, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -164.98943
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512696, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512696, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -232.76035
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512696, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512696, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512696, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512696, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512696, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512696, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512696, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e36e1909f301a0468dff1ad3ea0541c, type: 3}
+    - target: {fileID: 36080958474512702, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
 --- !u!1 &103588337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,8 +1701,8 @@ MonoBehaviour:
   _Image: {fileID: 21300000, guid: a4f81e244d52a1144ae752de19b35c91, type: 3}
   PickPosition: {x: 0, y: 0, z: 0}
   PickRotation: {x: 0, y: 0, z: 0}
-  DropRotation: {x: 0, y: 0, z: 0}
   Golf: {fileID: 949609328}
+  coll_Golf: {fileID: 0}
 --- !u!136 &949609327
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2836,12 +2903,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   jumpHeight: 6
+  minX: -60
+  maxX: 60
   inventory: {fileID: 405971923}
   hand: {fileID: 1453657441}
+  leftHand: {fileID: 0}
   nearObject: 0
   canvas: {fileID: 2012018768}
+  firstUse: 0
+  Slot1: 0
   press: {fileID: 2086666886}
   Palla: {fileID: 949609325}
+  Mazza: {fileID: 0}
 --- !u!143 &1453657444
 CharacterController:
   m_ObjectHideFlags: 0
