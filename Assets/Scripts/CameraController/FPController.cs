@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using System.Collections;
 
 public class FPController : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class FPController : MonoBehaviour
     private float m_InputSpeed;
     private Vector3 m_TargetDirection;
     private bool m_IsJumping;
+    private bool m_isTaking;
 
     private float m_CameraXRotation;
     private Vector3 m_Velocity;
@@ -51,6 +53,7 @@ public class FPController : MonoBehaviour
     private static readonly int Speed = Animator.StringToHash("speed");
     private static readonly int Run = Animator.StringToHash("run");
     private static readonly int Jump = Animator.StringToHash("jump");
+    private static readonly int Take = Animator.StringToHash("take");
 
     public GameObject Palla;
     public GameObject Mazza;
@@ -97,6 +100,7 @@ public class FPController : MonoBehaviour
                 goItem.transform.parent = hand.transform;
                 Debug.Log("00:26");
             }
+
             if (Slot1 == false)
             {
                 goItem.SetActive(true);
@@ -228,6 +232,7 @@ public class FPController : MonoBehaviour
         m_Animator.SetFloat(Speed, !m_IsJumping ? m_InputSpeed : 0f);
         m_Animator.SetBool(Run, Input.GetKey(KeyCode.LeftShift) && !m_IsJumping && Math.Abs(m_InputSpeed) > 0.01f);
         m_Animator.SetBool(Jump, m_IsJumping);
+        m_Animator.SetBool(Take, m_isTaking);
     }
 
 
@@ -235,7 +240,6 @@ public class FPController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Box"))
         {
-
             Debug.Log("Ciao Cristian");
             //GetComponent<InventorySlot>().NearInventory = true;
             canvas.GetComponent<InventorySlot>().NearInventory = true;
@@ -265,4 +269,34 @@ public class FPController : MonoBehaviour
             item.OnPickup();
         }
     }
+
+    void OnTriggerStay(Collider rock)
+    {
+        if (rock.gameObject.CompareTag("Rock"))
+        {
+            Debug.Log("sasso");
+            if (Input.GetKey(KeyCode.E))
+            {
+                Debug.Log("Prendi!!");
+                m_isTaking = true;
+                UpdateAnimations();
+                StartCoroutine(ExampleCoroutine(rock));
+                
+            }
+            else
+                m_isTaking = false;
+        }
+    }
+
+    IEnumerator ExampleCoroutine(Collider rock)
+    {
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        yield return new WaitForSeconds(2);
+        rock.gameObject.SetActive(false);
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+    }
+
+
+
+
 }

@@ -9,6 +9,7 @@ TagManager:
   - Box
   - Flag
   - Ground
+  - Rock
   layers:
   - Default
   - TransparentFX
