@@ -9,8 +9,11 @@ namespace Golf
 
         private void OnCollisionEnter(Collision other)
         {
-            if(other.gameObject.CompareTag("Palla"))
+            if (other.gameObject.CompareTag("Palla"))
+            {
+                FindObjectOfType<AudioManager>().Play("Modulo");
                 dialogueTrigger.TriggerDialogue();
+            }
         }
     }
 }
