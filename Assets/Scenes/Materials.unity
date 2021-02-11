@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.054957286, g: 0.103291504, b: 0.1792453, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318462619}
   m_LocalRotation: {x: 0.7070406, y: -0.009674122, z: 0.009674122, w: 0.7070406}
-  m_LocalPosition: {x: -0.072, y: 1.52, z: 0.383}
+  m_LocalPosition: {x: 0.03, y: 1.52, z: 0.46}
   m_LocalScale: {x: -2.3045, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2027001620}
@@ -804,6 +804,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5671910290767253545, guid: 402a4921aaa92714fa2e55533f394bf1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -5568371526223589888, guid: 402a4921aaa92714fa2e55533f394bf1, type: 3}
       propertyPath: m_Name
       value: rastrello
@@ -848,6 +852,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -89.929016
       objectReference: {fileID: 0}
+    - target: {fileID: -1425960028898104299, guid: 402a4921aaa92714fa2e55533f394bf1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d395d01f88e0cdc4cbfc4451d3e85f3e, type: 2}
     - target: {fileID: 919132149155446097, guid: 402a4921aaa92714fa2e55533f394bf1, type: 3}
       propertyPath: m_Name
       value: Astronaut_almost_collect
@@ -860,6 +868,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a27de4af8d0128c49978e831092222be, type: 2}
+    - target: {fileID: 7202271454713460447, guid: 402a4921aaa92714fa2e55533f394bf1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45b41145939c32c4fa24c62d580b0b4c, type: 2}
+    - target: {fileID: 7202271454713460447, guid: 402a4921aaa92714fa2e55533f394bf1, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c7e61d3a771b2c438e10c1e04ae7288, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 402a4921aaa92714fa2e55533f394bf1, type: 3}
 --- !u!1 &2027001619 stripped
@@ -898,7 +914,7 @@ MonoBehaviour:
   minX: 60
   maxX: 100
   inventory: {fileID: 1083944903}
-  hand: {fileID: 0}
+  hand: {fileID: 2127896413}
   leftHand: {fileID: 0}
   nearObject: 0
   canvas: {fileID: 0}
@@ -936,8 +952,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.32, z: 1}
-  m_Center: {x: -0.19, y: 0.52, z: 0}
+  m_Size: {x: 1, y: 0.88, z: 1}
+  m_Center: {x: -0.07, y: 0.18, z: 0.46}
 --- !u!1 &2082986184
 GameObject:
   m_ObjectHideFlags: 0

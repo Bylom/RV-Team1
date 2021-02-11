@@ -6,7 +6,37 @@ ModelImporter:
   - first:
       74: -623603649343465320
     second: Scene
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CLAY_NORMAL_MAP_2
+    second: {instanceID: 0}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stivali
+    second: {fileID: -3985732496311831664, guid: 235ebc5de98644b478f9a7f72d6667ff, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cinturine gambe
+    second: {fileID: -2623002033668015688, guid: 235ebc5de98644b478f9a7f72d6667ff, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: guanti
+    second: {fileID: 4922330049833661605, guid: 5f64721d6f9ed471aa1a27489a0e523e, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tuta
+    second: {fileID: 2100000, guid: d395d01f88e0cdc4cbfc4451d3e85f3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zaino
+    second: {fileID: 3399770290735904724, guid: 5f64721d6f9ed471aa1a27489a0e523e, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0

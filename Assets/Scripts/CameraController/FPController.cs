@@ -277,11 +277,9 @@ public class FPController : MonoBehaviour
             Debug.Log("sasso");
             if (Input.GetKey(KeyCode.E))
             {
-                Debug.Log("Prendi!!");
                 m_isTaking = true;
                 UpdateAnimations();
-                StartCoroutine(ExampleCoroutine(rock));
-                
+                StartCoroutine(ExampleCoroutine(rock));   
             }
             else
                 m_isTaking = false;
@@ -290,10 +288,8 @@ public class FPController : MonoBehaviour
 
     IEnumerator ExampleCoroutine(Collider rock)
     {
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
         yield return new WaitForSeconds(2);
-        rock.gameObject.SetActive(false);
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+        rock.gameObject.transform.parent = hand.transform;
     }
 
 

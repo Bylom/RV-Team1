@@ -6,7 +6,37 @@ ModelImporter:
   - first:
       74: -623603649343465320
     second: Scene
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Antenna.001
+    second: {fileID: 2100000, guid: 5ead77ad38eaeb24d83a709a1ea7baeb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_1.001
+    second: {fileID: 2100000, guid: fdc0e0a5d38ab5641ba535d2e0f9e065, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_2.001
+    second: {fileID: -801394618424180709, guid: 154b4abfa0e6b4f57bcd1aa569fce35d, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pelle_Sedili.001
+    second: {fileID: -1826585326091069886, guid: 5fb227236d8134a15b100ab86656a029, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rivestimento.001
+    second: {fileID: -5809251360128325413, guid: 5fb227236d8134a15b100ab86656a029, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metallo paraurti.001
+    second: {fileID: 2100000, guid: 09b3658ddf91e0b43a38875fec871217, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
