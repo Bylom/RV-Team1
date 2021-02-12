@@ -15,6 +15,7 @@ namespace CameraController
 
         public Rigidbody target;
         private float speed = 0.0f;
+        private int fermo = 0;
 
         [SerializeField] private float prima;
         [SerializeField] private float seconda;
@@ -49,7 +50,7 @@ namespace CameraController
 
 
         private void GetInput()
-        {   
+        {
             horizontalInput = Input.GetAxis(HORIZONTAL);
             verticalInput = Input.GetAxis(VERTICAL);
             isBreaking = Input.GetKey(KeyCode.Space);
@@ -58,34 +59,45 @@ namespace CameraController
 
         private void HandleMotor()
         {
-            Debug.Log(speed);
+            // Debug.Log(speed);
 
-            if(speed < 5)
+            if (speed < 5)
             {
                 motorForce = prima;
-                Debug.Log("prima! ");
+                // Debug.Log("prima! ");
             }
-               
-        
+
+
             if (speed > 5 && speed < 13)
             {
                 motorForce = seconda;
-                Debug.Log("seconda! ");
+                // Debug.Log("seconda! ");
             }
-                
+
 
             if (speed > 13)
             {
                 motorForce = terza;
-                Debug.Log("terza! ");
+                //  Debug.Log("terza! ");
             }
-               
+
 
 
             frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
             frontRightWheelCollider.motorTorque = verticalInput * motorForce;
             currentbreakForce = isBreaking ? breakForce : 0f;
             ApplyBreaking();
+
+            if (speed < 1.0f && Input.GetKey(KeyCode.W))
+                fermo++;
+
+            if (fermo == 1000)
+            {
+                Debug.Log("SOS!\n");
+                //trigger dialogue!
+                fermo = 0;
+            }
+
 
 
         }
@@ -117,9 +129,12 @@ namespace CameraController
         {
             Vector3 pos;
             Quaternion rot
-                ;       wheelCollider.GetWorldPose(out pos, out rot);
+                ; wheelCollider.GetWorldPose(out pos, out rot);
             wheelTransform.rotation = rot;
             wheelTransform.position = pos;
         }
+
+        
     }
+
 }

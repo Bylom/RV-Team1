@@ -29,5 +29,7 @@ public class Speedometer : MonoBehaviour
         if (arrow != null)
             arrow.localEulerAngles =
                 new Vector3(0, 0, Mathf.Lerp(minSpeedArrowAngle, maxSpeedArrowAngle, speed / maxSpeed));
+
+    
     }
 }
