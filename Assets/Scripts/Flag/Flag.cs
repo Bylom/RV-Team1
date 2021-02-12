@@ -24,10 +24,11 @@ public class Flag : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 animator.SetBool("Flag", true);
-                //putFlag = true;
-                //bandiera.GetComponent<Bandiera>().Band.isKinematic = false;
                 isFlag = false;
                 testo.gameObject.SetActive(false);
+                Event_flag.GetComponent<Bandiera>().coll.enabled = false;
+                Event_flag.GetComponent<Bandiera>().coll.isTrigger = true;
+                StartCoroutine("WaitForSec2");
             }
         }
     }
@@ -36,7 +37,6 @@ public class Flag : MonoBehaviour
     {
         if (collision.gameObject.tag == "Flag")
         {
-            Debug.Log("Puoi piantare la bandiera");
             testo.text = "Press E per piantare la bandiera";
             testo.gameObject.SetActive(true);
             isFlag = true;
@@ -48,24 +48,25 @@ public class Flag : MonoBehaviour
     {
         if (collision.gameObject.tag == "Flag")
         {
-            Debug.Log("Ciao Cristian");
             testo.gameObject.SetActive(false);
         }
     }
 
     public virtual void OnPlantFlag()
     {
-        Debug.Log("La bandiera è stata piantata");
-        //bandiera.GetComponent<Bandiera>().Band.isKinematic = false;
         Event_flag.GetComponent<Bandiera>().Flag.transform.parent = null;
-        Event_flag.GetComponent<Bandiera>().Flag.transform.localRotation = Quaternion.Euler(Vector3.zero);
         StartCoroutine("WaitForSec");
     }
 
     IEnumerator WaitForSec()
     {
         yield return new WaitForSeconds(1);
-        Debug.Log("1 secondo");
         bandiera.GetComponent<Bandiera>().Band.isKinematic = true;
+    }
+    IEnumerator WaitForSec2()
+    {
+        yield return new WaitForSeconds(10);
+        Event_flag.GetComponent<Bandiera>().coll.enabled = true;
+        Event_flag.GetComponent<Bandiera>().coll.isTrigger = false;
     }
 }

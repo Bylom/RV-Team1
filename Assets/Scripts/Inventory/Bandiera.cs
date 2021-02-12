@@ -30,22 +30,10 @@ public class Bandiera : MonoBehaviour
 
     public void Update()
     {
-
-        if (isF.GetComponent<Flag>().putFlag == true)
-        {
-            Debug.Log("stop");
-            
-            //Flag.transform.localRotation = Quaternion.Euler(Vector3.zero);
-            //Flag.transform.forward = Vector3.zero;
-            //Flag.transform.parent = null;
-            //StartCoroutine("WaitForSec");
-        }
         if (NearFlag)
         {
             if (Input.GetKey(KeyCode.E))
-            {
-                Debug.Log("Player");
-                
+            {                
                 coll.isTrigger = false;
                 Flag.transform.parent = hand.transform;
                 Flag.transform.localPosition = PickPosition;
