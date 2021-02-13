@@ -52,7 +52,6 @@ public class Inventory : MonoBehaviour
             Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
             if (collider != null)
             {
-                Debug.Log("Niente");
                 collider.enabled = true;
             }
             if (ItemRemoved != null)

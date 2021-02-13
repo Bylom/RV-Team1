@@ -16,11 +16,6 @@ public class ProvaCamera : MonoBehaviour
     public Inventory_Opener mov;
     public FPController cam;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         if (mov.closed && mov.NearInvent)
@@ -28,9 +23,7 @@ public class ProvaCamera : MonoBehaviour
             if (Input.GetKey(KeyCode.I))
             {
                 cam.enabled = false;
-
                 cameraTarget = cameraTarget3.transform;
-                Debug.Log("Camera");
                 StartCoroutine("WaitForSec");
                 
             }
@@ -39,7 +32,6 @@ public class ProvaCamera : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.I))
             {
-                //animator.SetBool("Down", false);
                 cam.enabled = true;
                 cameraTarget = cameraTarget2.transform;
             }

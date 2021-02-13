@@ -6,10 +6,7 @@ public class Animation_Inventory : MonoBehaviour
 {
     Animator animator;
     public GameObject script_opener;
-    public GameObject camera;
     public GameObject head;
-    
-
 
     // Start is called before the first frame update
     void Start()
