@@ -11,10 +11,14 @@ public class Flag : MonoBehaviour
     public bool putFlag = false;
     public Rigidbody bandiera;
     public GameObject Event_flag;
+    float m_ScaleX, m_ScaleY, m_ScaleZ;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        m_ScaleX = 0.05f;
+        m_ScaleY = 1.5f;
+        m_ScaleZ = 0.05f;
     }
 
     private void Update()
@@ -26,8 +30,9 @@ public class Flag : MonoBehaviour
                 animator.SetBool("Flag", true);
                 isFlag = false;
                 testo.gameObject.SetActive(false);
-                Event_flag.GetComponent<Bandiera>().coll.enabled = false;
-                Event_flag.GetComponent<Bandiera>().coll.isTrigger = true;
+                //Event_flag.GetComponent<Bandiera>().coll.enabled = false;
+                //Event_flag.GetComponent<Bandiera>().coll.isTrigger = true;
+                Event_flag.GetComponent<Bandiera>().coll.size = new Vector3(m_ScaleX, m_ScaleY, m_ScaleZ);
                 StartCoroutine("WaitForSec2");
             }
         }
@@ -66,7 +71,7 @@ public class Flag : MonoBehaviour
     IEnumerator WaitForSec2()
     {
         yield return new WaitForSeconds(10);
-        Event_flag.GetComponent<Bandiera>().coll.enabled = true;
-        Event_flag.GetComponent<Bandiera>().coll.isTrigger = false;
+        //Event_flag.GetComponent<Bandiera>().coll.enabled = true;
+        //Event_flag.GetComponent<Bandiera>().coll.isTrigger = false;
     }
 }

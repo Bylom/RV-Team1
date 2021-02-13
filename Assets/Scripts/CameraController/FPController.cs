@@ -88,8 +88,6 @@ public class FPController : MonoBehaviour
     {
         IInventoryItem item = e.Item;
 
-        Debug.Log("Hello " + item.Name);
-
         GameObject goItem = (item as MonoBehaviour)?.gameObject;
 
         if (!(goItem is null))
@@ -98,23 +96,27 @@ public class FPController : MonoBehaviour
             {
                 goItem.SetActive(true);
                 goItem.transform.parent = hand.transform;
-                Debug.Log("00:26");
+                //mCurrentItem1 = e.Item;
             }
 
             if (Slot1 == false)
             {
                 goItem.SetActive(true);
                 goItem.transform.parent = leftHand.transform;
+                //mCurrentItem = e.Item;
                 Slot1 = true;
             }
         }
-        
 
         mCurrentItem = e.Item;
+
+        Debug.Log("Hello " + mCurrentItem.Name);
+        //Debug.Log("Hellozzzz " + mCurrentItem1.Name);
 
     }
 
     private IInventoryItem mCurrentItem = null;
+    private IInventoryItem mCurrentItem1 = null;
 
     private bool mLockPickup = false;
 
@@ -129,14 +131,14 @@ public class FPController : MonoBehaviour
         inventory.RemoveItem(mCurrentItem);
 
         
-        Palla.GetComponent<Palla>().Golf.AddForce(transform.forward * 2.0f, ForceMode.Impulse);
+        Palla.GetComponent<Palla>().Golf.AddForce(transform.forward * 0.4f, ForceMode.Impulse);
         Palla.GetComponent<Palla>().Golf.isKinematic = false;
-        Palla.SetActive(true);
-        //Palla.GetComponent<Palla>().coll_Golf.enabled = true;
-        Mazza.GetComponent<Mazza>().Mazza_Golf.AddForce(transform.forward * 2.0f, ForceMode.Impulse);
+        Palla.GetComponent<Palla>().coll_Golf.enabled = true;
+        Palla.transform.parent = null;
+        Mazza.GetComponent<Mazza>().Mazza_Golf.AddForce(transform.forward * 0.4f, ForceMode.Impulse);
         Mazza.GetComponent<Mazza>().Mazza_Golf.isKinematic = false;
         Mazza.GetComponent<Mazza>().coll_Mazza.enabled = true;
-        Mazza.SetActive(true);
+        Mazza.transform.parent = null;
 
         Invoke("DoDropItem", 0.25f);
     }
@@ -144,9 +146,6 @@ public class FPController : MonoBehaviour
     public void DoDropItem()
     {
         mLockPickup = false;
-
-        //Destroy((mCurrentItem as MonoBehaviour).GetComponent<Rigidbody>());
-
         mCurrentItem = null;
     }
 

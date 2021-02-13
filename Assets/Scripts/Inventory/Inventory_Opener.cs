@@ -33,8 +33,6 @@ public class Inventory_Opener : MonoBehaviour
                     StartCoroutine("WaitForSec");
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
-                    //Camera.GetComponent<Camera_Movement>().enabled = true;
-                    //Camera.GetComponent<Animator>().enabled = true;
                 }
             }
             if (open)
