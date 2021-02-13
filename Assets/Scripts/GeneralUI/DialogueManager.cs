@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using General;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace GeneralUI
@@ -20,6 +21,8 @@ namespace GeneralUI
         private Queue<string> _sentences;
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
         private bool _runningDialogue;
+
+        public bool endScene;
 
         // Use this for initialization
         void Start()
@@ -85,6 +88,12 @@ namespace GeneralUI
                     gameState.SetMouseNeeded(false);
                     Cursor.lockState = CursorLockMode.Locked;
                 }
+
+            if (endScene)
+            {
+                SceneManager.LoadScene("Scenes/Missioni");
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 }
