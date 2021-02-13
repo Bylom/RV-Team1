@@ -3,7 +3,37 @@ guid: 25f46b73336082440a7576cf4afeaa14
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_1
+    second: {fileID: 6181155759574251760, guid: ddfe3fbdc5da5964d93140b5d3dbbf81, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_2
+    second: {fileID: -801394618424180709, guid: ddfe3fbdc5da5964d93140b5d3dbbf81, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallo_3
+    second: {fileID: -3669883656992106288, guid: ddfe3fbdc5da5964d93140b5d3dbbf81, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic
+    second: {fileID: -389402008792246631, guid: ddfe3fbdc5da5964d93140b5d3dbbf81, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_1
+    second: {fileID: 4621576702481586528, guid: ddfe3fbdc5da5964d93140b5d3dbbf81, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: interno
+    second: {fileID: 8966489337009687774, guid: ddfe3fbdc5da5964d93140b5d3dbbf81, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0

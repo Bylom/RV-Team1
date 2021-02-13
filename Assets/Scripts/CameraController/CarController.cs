@@ -88,7 +88,7 @@ namespace CameraController
             currentbreakForce = isBreaking ? breakForce : 0f;
             ApplyBreaking();
 
-            if (speed < 1.0f && Input.GetKey(KeyCode.W))
+            if (speed < 1.0f && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
                 fermo++;
 
             if (fermo == 1000)
