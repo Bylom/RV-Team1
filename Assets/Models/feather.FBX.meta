@@ -3,7 +3,17 @@ guid: b4d8874c606b141978b4390d8e28d0f8
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: B_Feathers_0_001
+    second: {fileID: 2100000, guid: 66ee31d4e7ab06c4bb916e9357ed8bb4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PSD_to_3DS_1
+    second: {fileID: 2100000, guid: 93b455d8f707b5b4bb8c8a63f3ed8ca7, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
