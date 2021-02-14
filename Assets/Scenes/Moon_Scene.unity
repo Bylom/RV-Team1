@@ -747,7 +747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4516938037873608900, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4516938037873608900, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_AnchorMax.x
@@ -856,7 +856,7 @@ PrefabInstance:
     - target: {fileID: 4516938038807319182, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 4516938038807319182, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_FontData.m_FontStyle
       value: 1
@@ -2199,8 +2199,6 @@ MonoBehaviour:
   open: 0
   closed: 1
   Camera: {fileID: 0}
-  Hammer: {fileID: 0}
-  Feather: {fileID: 0}
 --- !u!65 &1162870714
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2549,7 +2547,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2591,8 +2589,6 @@ MonoBehaviour:
   jumpHeight: 6
   minX: -60
   maxX: 30
-  sasso: {fileID: 0}
-  non_sasso: {fileID: 0}
   inventory: {fileID: 1494098469}
   hand: {fileID: 541974729}
   leftHand: {fileID: 0}
@@ -3410,8 +3406,6 @@ MonoBehaviour:
   jumpHeight: 2
   minX: -60
   maxX: 30
-  sasso: {fileID: 0}
-  non_sasso: {fileID: 0}
   inventory: {fileID: 1494098469}
   hand: {fileID: 0}
   leftHand: {fileID: 0}
