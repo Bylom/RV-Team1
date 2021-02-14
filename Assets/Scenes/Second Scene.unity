@@ -1465,7 +1465,7 @@ PrefabInstance:
     - target: {fileID: 4516938038807319182, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+      objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
     - target: {fileID: 4516938038807319182, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_FontData.m_FontStyle
       value: 1
@@ -2953,6 +2953,8 @@ MonoBehaviour:
   jumpHeight: 6
   minX: -60
   maxX: 30
+  sasso: {fileID: 0}
+  non_sasso: {fileID: 0}
   inventory: {fileID: 1030958479}
   hand: {fileID: 1172153216}
   leftHand: {fileID: 130711717}
