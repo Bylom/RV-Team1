@@ -273,12 +273,12 @@ public class FPController : MonoBehaviour
     {
         if (rock.gameObject.CompareTag("Rock"))
         {
-            Debug.Log("sasso");
+            
             if (Input.GetKey(KeyCode.E))
             {
                 m_isTaking = true;
                 UpdateAnimations();
-                StartCoroutine(ExampleCoroutine(rock));   
+                StartCoroutine(ExampleCoroutine(rock));
             }
             else
                 m_isTaking = false;

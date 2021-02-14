@@ -134,7 +134,12 @@ namespace CameraController
             wheelTransform.position = pos;
         }
 
-        
+        void OnTriggerStay(Collider fine)
+        {
+            if (fine.gameObject.CompareTag("Finish"))
+                Debug.Log("Fineeeee");
+        }
+
     }
 
 }
