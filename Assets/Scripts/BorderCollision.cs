@@ -7,7 +7,7 @@ public class BorderCollision : MonoBehaviour
     {
         [SerializeField] private DialogueTrigger dialogueTrigger;
 
-        private void OnCollisionEnter(Collision other)
+        private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Rover"))
             {
