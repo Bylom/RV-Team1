@@ -19,6 +19,7 @@ public class Bandiera : MonoBehaviour
     public BoxCollider coll;
     public Text press;
     public bool NearFlag = false;
+    public GameObject Area_Flag;
 
     public Vector3 PickPosition;
     public Vector3 PickRotation;
@@ -26,6 +27,7 @@ public class Bandiera : MonoBehaviour
     public void Start()
     {
         Band = GetComponent<Rigidbody>();
+        StartCoroutine("WaitForSec");
     }
 
     public void Update()
@@ -38,6 +40,7 @@ public class Bandiera : MonoBehaviour
                 Flag.transform.parent = hand.transform;
                 Flag.transform.localPosition = PickPosition;
                 Flag.transform.localEulerAngles = PickRotation;
+                Area_Flag.SetActive(true);
             }
         }
     }
@@ -63,4 +66,9 @@ public class Bandiera : MonoBehaviour
         }
     }
 
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(3);
+        FindObjectOfType<AudioManager>().Play("Take_Flag");
+    }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Flag : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class Flag : MonoBehaviour
                 isFlag = false;
                 testo.gameObject.SetActive(false);
                 Event_flag.GetComponent<Bandiera>().coll.size = new Vector3(m_ScaleX, m_ScaleY, m_ScaleZ);
+
                 StartCoroutine("WaitForSec2");
             }
         }
@@ -69,6 +71,7 @@ public class Flag : MonoBehaviour
     IEnumerator WaitForSec2()
     {
         yield return new WaitForSeconds(10);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         //Event_flag.GetComponent<Bandiera>().coll.enabled = true;
         //Event_flag.GetComponent<Bandiera>().coll.isTrigger = false;
     }

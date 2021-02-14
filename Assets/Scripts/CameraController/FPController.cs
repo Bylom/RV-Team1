@@ -67,8 +67,6 @@ public class FPController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         inventory.ItemUsed += Inventory_ItemUsed;
         inventory.ItemRemoved += Inventory_ItemRemoved;
-        Palla.GetComponent<Palla>().Golf.isKinematic = true;
-        Mazza.GetComponent<Mazza>().Mazza_Golf.isKinematic = true;
     }
 
     private void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
