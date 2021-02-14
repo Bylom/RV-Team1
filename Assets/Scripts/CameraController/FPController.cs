@@ -40,7 +40,8 @@ public class FPController : MonoBehaviour
     private Vector3 m_Velocity;
     private bool m_IsGrounded;
     private Vector3 m_Inertia;
-
+    [SerializeField] public GameObject sasso;
+    [SerializeField] public GameObject non_sasso;
 
     public Inventory inventory;
     [FormerlySerializedAs("Hand")] public GameObject hand;
@@ -67,6 +68,8 @@ public class FPController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         inventory.ItemUsed += Inventory_ItemUsed;
         inventory.ItemRemoved += Inventory_ItemRemoved;
+        sasso.SetActive(false);
+        non_sasso.SetActive(false);
     }
 
     private void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
@@ -264,26 +267,36 @@ public class FPController : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider rock)
+    void OnTriggerStay(Collider coll)
     {
-        if (rock.gameObject.CompareTag("Rock"))
+        if (coll.gameObject.CompareTag("Rock") || coll.gameObject.CompareTag("Palla"))
         {
-            
             if (Input.GetKey(KeyCode.E))
             {
                 m_isTaking = true;
                 UpdateAnimations();
-                StartCoroutine(ExampleCoroutine(rock));
+                StartCoroutine(ExampleCoroutine(coll));
             }
             else
                 m_isTaking = false;
         }
+
+
     }
 
     IEnumerator ExampleCoroutine(Collider rock)
     {
         yield return new WaitForSeconds(2);
-        rock.gameObject.transform.parent = hand.transform;
+        if (rock.gameObject.CompareTag("Palla"))
+        {
+            rock.gameObject.SetActive(false);
+            non_sasso.SetActive(true);
+        }
+        else
+        {
+            rock.gameObject.SetActive(false);
+            sasso.SetActive(true);
+        }
     }
 
 

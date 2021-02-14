@@ -5,9 +5,11 @@ using UnityEngine;
 public class RockCount : MonoBehaviour
 {
     private Animator opening;
-
     public int rockCount = 0;
     public int ballCount = 0;
+
+    private int numSassi = 6;
+    public GameObject[] inseriti;
 
     private static readonly int Open = Animator.StringToHash("Open");
 
@@ -16,6 +18,13 @@ public class RockCount : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inseriti = new GameObject[numSassi];
+        for(int i=0; i<numSassi; i++)
+        {
+            inseriti[i] = GameObject.Find("sasso" + i);
+            inseriti[i].SetActive(false);
+        }
+
         opening = GetComponent<Animator>();
     }
 
@@ -33,18 +42,20 @@ public class RockCount : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
-                Debug.Log("presaaaaaa");
                 rock.gameObject.SetActive(false);
+                inseriti[rockCount].SetActive(true);
                 rockCount++;
             }
         }
 
         if (rock.gameObject.CompareTag("Palla"))
         {
+            opening.SetBool("Open", true);
+
             if (Input.GetKey(KeyCode.E))
             {
-                Debug.Log("pallaaaaa");
                 rock.gameObject.SetActive(false);
+                inseriti[5].SetActive(true);
                 ballCount++;
             }
         }
