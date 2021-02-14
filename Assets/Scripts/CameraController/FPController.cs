@@ -57,7 +57,8 @@ public class FPController : MonoBehaviour
 
     public GameObject Palla;
     public GameObject Mazza;
-    //public GameObject Flag;
+
+
 
     void Start()
     {
@@ -110,13 +111,9 @@ public class FPController : MonoBehaviour
 
         mCurrentItem = e.Item;
 
-        Debug.Log("Hello " + mCurrentItem.Name);
-        //Debug.Log("Hellozzzz " + mCurrentItem1.Name);
-
     }
 
     private IInventoryItem mCurrentItem = null;
-    private IInventoryItem mCurrentItem1 = null;
 
     private bool mLockPickup = false;
 
@@ -131,11 +128,11 @@ public class FPController : MonoBehaviour
         inventory.RemoveItem(mCurrentItem);
 
         
-        Palla.GetComponent<Palla>().Golf.AddForce(transform.forward * 0.4f, ForceMode.Impulse);
+        Palla.GetComponent<Palla>().Golf.AddForce(transform.forward * 0.35f, ForceMode.Impulse);
         Palla.GetComponent<Palla>().Golf.isKinematic = false;
         Palla.GetComponent<Palla>().coll_Golf.enabled = true;
         Palla.transform.parent = null;
-        Mazza.GetComponent<Mazza>().Mazza_Golf.AddForce(transform.forward * 0.4f, ForceMode.Impulse);
+        Mazza.GetComponent<Mazza>().Mazza_Golf.AddForce(transform.forward * 0.35f, ForceMode.Impulse);
         Mazza.GetComponent<Mazza>().Mazza_Golf.isKinematic = false;
         Mazza.GetComponent<Mazza>().coll_Mazza.enabled = true;
         Mazza.transform.parent = null;

@@ -26,7 +26,6 @@ public class InventoyItemBase : MonoBehaviour, IInventoryItem
     public virtual void OnPickup()
     {
         gameObject.SetActive(false);
-    
     }
 
     public virtual void OnDrop()
@@ -40,7 +39,6 @@ public class InventoyItemBase : MonoBehaviour, IInventoryItem
             gameObject.SetActive(true);
             gameObject.transform.position = hit.point;
             gameObject.transform.eulerAngles = DropRotation;
-            Debug.Log("Cazzo2");
         }
         */
     }

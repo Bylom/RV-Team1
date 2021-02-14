@@ -16,6 +16,9 @@ public class Inventory_Opener : MonoBehaviour
 
     public GameObject Camera;
 
+    public MeshRenderer Hammer;
+    public MeshRenderer Feather;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -33,6 +36,8 @@ public class Inventory_Opener : MonoBehaviour
                     StartCoroutine("WaitForSec");
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
+                    Hammer.enabled = true;
+                    Feather.enabled = true;
                 }
             }
             if (open)

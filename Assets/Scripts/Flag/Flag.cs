@@ -30,8 +30,6 @@ public class Flag : MonoBehaviour
                 animator.SetBool("Flag", true);
                 isFlag = false;
                 testo.gameObject.SetActive(false);
-                //Event_flag.GetComponent<Bandiera>().coll.enabled = false;
-                //Event_flag.GetComponent<Bandiera>().coll.isTrigger = true;
                 Event_flag.GetComponent<Bandiera>().coll.size = new Vector3(m_ScaleX, m_ScaleY, m_ScaleZ);
                 StartCoroutine("WaitForSec2");
             }
