@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RockCount : MonoBehaviour
 {
+
     private Animator opening;
     public int rockCount = 0;
     public int ballCount = 0;
@@ -36,7 +37,7 @@ public class RockCount : MonoBehaviour
 
     void OnTriggerStay(Collider rock)
     {
-        if (rock.gameObject.CompareTag("Rock"))
+        if (rock!= null && rock.gameObject.CompareTag("Rock"))
         {
             opening.SetBool("Open", true);
 
@@ -48,8 +49,9 @@ public class RockCount : MonoBehaviour
             }
         }
 
-        if (rock.gameObject.CompareTag("Palla"))
+        if (rock!= null && rock.gameObject.CompareTag("Palla"))
         {
+           
             opening.SetBool("Open", true);
 
             if (Input.GetKey(KeyCode.E))

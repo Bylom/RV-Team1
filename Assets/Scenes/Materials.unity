@@ -1858,6 +1858,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5246779533758986255, guid: 4f7d0f7f22376a144b47cec5b20dabcd, type: 3}
+    - {fileID: 3254216572520503671, guid: 4f7d0f7f22376a144b47cec5b20dabcd, type: 3}
+    - {fileID: 5246779533758986248, guid: 4f7d0f7f22376a144b47cec5b20dabcd, type: 3}
+    - {fileID: 5806670251915594344, guid: 4f7d0f7f22376a144b47cec5b20dabcd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4f7d0f7f22376a144b47cec5b20dabcd, type: 3}
 --- !u!1 &1647567754
 GameObject:
@@ -2868,6 +2871,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: -2681573377253399356, guid: 402a4921aaa92714fa2e55533f394bf1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d4851a797ad0f7f40bfb64ca90037546, type: 2}
     - target: {fileID: -2577548232221058511, guid: 402a4921aaa92714fa2e55533f394bf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.034
@@ -2916,6 +2923,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Astronaut_almost_collect
       objectReference: {fileID: 0}
+    - target: {fileID: 2284751186587226640, guid: 402a4921aaa92714fa2e55533f394bf1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c1bf7a8e4580f38448e04c0ae34a8cba, type: 2}
+    - target: {fileID: 4618949838917587369, guid: 402a4921aaa92714fa2e55533f394bf1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0d0a18250faeaa240add998ca4518706, type: 2}
     - target: {fileID: 5746304883883608668, guid: 402a4921aaa92714fa2e55533f394bf1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

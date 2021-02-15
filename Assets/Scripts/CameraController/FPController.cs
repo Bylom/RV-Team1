@@ -70,7 +70,7 @@ public class FPController : MonoBehaviour
         inventory.ItemRemoved += Inventory_ItemRemoved;
         if(!(sasso is null))
             sasso.SetActive(false);
-        if(!(sasso is null))
+        if(!(non_sasso is null))
             non_sasso.SetActive(false);
     }
 
@@ -278,7 +278,7 @@ public class FPController : MonoBehaviour
     {
         if (coll.gameObject.CompareTag("Rock") || coll.gameObject.CompareTag("Palla"))
         {
-            if (Input.GetKey(KeyCode.E))
+            if ((!sasso.activeSelf && !non_sasso.activeSelf) && Input.GetKey(KeyCode.E))
             {
                 m_isTaking = true;
                 UpdateAnimations();
