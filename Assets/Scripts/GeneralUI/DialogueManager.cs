@@ -33,27 +33,38 @@ namespace GeneralUI
         public void StartDialogue(Dialogue dialogue)
         {
             if (_runningDialogue) return;
-            if (pauseNeeded)
+            if(pauseNeeded)
                 gameState.SetPaused(true);
-            if (mouseNeeded)
+            if(mouseNeeded)
                 gameState.SetMouseNeeded(true);
             animator.SetBool(IsOpen, true);
             nameText.text = dialogue.name;
             _runningDialogue = true;
 
-
             _sentences.Clear();
-
 
             foreach (string sentence in dialogue.sentences)
             {
                 _sentences.Enqueue(sentence);
             }
 
-            StartCoroutine("WaitForSec");
+            if (mouseNeeded)
+                Cursor.lockState = CursorLockMode.None;
+            DisplayNextSentence();
         }
 
-           
+        public void DisplayNextSentence()
+        {
+            if (_sentences.Count == 0)
+            {
+                EndDialogue();
+                return;
+            }
+
+            string sentence = _sentences.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
 
         IEnumerator TypeSentence(string sentence)
         {
@@ -84,14 +95,5 @@ namespace GeneralUI
                 Cursor.lockState = CursorLockMode.None;
             }
         }
-
-        IEnumerator WaitForSec()
-        {
-            yield return new WaitForSeconds(5);
-            Debug.Log("ciaooooo");
-            EndDialogue();
-        }
     }
-
-
 }
