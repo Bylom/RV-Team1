@@ -3264,6 +3264,42 @@ MonoBehaviour:
   sensitivity: 90
   barIncrement: 1
   strength: 50
+--- !u!1 &1861362451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2494118372898934819, guid: 072b5ee4b4e994947ae2608dfe7b0f2b, type: 3}
+  m_PrefabInstance: {fileID: 229758627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1861362452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861362451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6788aa0eaf3b57c439ba52ba80dec20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Mission control
+    sentences:
+    - "Are you crazy?\r"
+    - Do you have any idea how much that rover costs?
+    - Be more careful!
+--- !u!114 &1861362453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861362451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6799f6aa1863d484995bf4b7131c4ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 1861362452}
 --- !u!1 &1885573499
 GameObject:
   m_ObjectHideFlags: 0
