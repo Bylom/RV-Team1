@@ -40,8 +40,8 @@ public class FPController : MonoBehaviour
     private Vector3 m_Velocity;
     private bool m_IsGrounded;
     private Vector3 m_Inertia;
-    [SerializeField] public GameObject sasso;
-    [SerializeField] public GameObject non_sasso;
+    [SerializeField] private GameObject sasso;
+    [SerializeField] private GameObject non_sasso;
 
     public Inventory inventory;
     [FormerlySerializedAs("Hand")] public GameObject hand;
@@ -68,8 +68,10 @@ public class FPController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         inventory.ItemUsed += Inventory_ItemUsed;
         inventory.ItemRemoved += Inventory_ItemRemoved;
-        sasso.SetActive(false);
-        non_sasso.SetActive(false);
+        if(!(sasso is null))
+            sasso.SetActive(false);
+        if(!(sasso is null))
+            non_sasso.SetActive(false);
     }
 
     private void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
@@ -116,24 +118,26 @@ public class FPController : MonoBehaviour
 
     private IInventoryItem mCurrentItem = null;
 
-    private bool mLockPickup = false;
+    private bool mLockPickup;
+    private static readonly int Flag = Animator.StringToHash("Flag");
 
     private void DropCurrentItem()
     {
         mLockPickup = true;
 
-        m_Animator.SetBool("Flag", true);
+        m_Animator.SetBool(Flag, true);
 
-        GameObject goItem = (mCurrentItem as MonoBehaviour).gameObject;
+        GameObject goItem = (mCurrentItem as MonoBehaviour)?.gameObject;
 
         inventory.RemoveItem(mCurrentItem);
 
-        
-        Palla.GetComponent<Palla>().Golf.AddForce(transform.forward * 0.35f, ForceMode.Impulse);
+
+        var forward = transform.forward;
+        Palla.GetComponent<Palla>().Golf.AddForce(forward * 0.35f, ForceMode.Impulse);
         Palla.GetComponent<Palla>().Golf.isKinematic = false;
         Palla.GetComponent<Palla>().coll_Golf.enabled = true;
         Palla.transform.parent = null;
-        Mazza.GetComponent<Mazza>().Mazza_Golf.AddForce(transform.forward * 0.35f, ForceMode.Impulse);
+        Mazza.GetComponent<Mazza>().Mazza_Golf.AddForce(forward * 0.35f, ForceMode.Impulse);
         Mazza.GetComponent<Mazza>().Mazza_Golf.isKinematic = false;
         Mazza.GetComponent<Mazza>().coll_Mazza.enabled = true;
         Mazza.transform.parent = null;
@@ -237,9 +241,9 @@ public class FPController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Box"))
         {
-            Debug.Log("Ciao Cristian");
-            //GetComponent<InventorySlot>().NearInventory = true;
-            canvas.GetComponent<InventorySlot>().NearInventory = true;
+            var inventoryVar = canvas.GetComponent<InventorySlot>();
+            if(!(inventoryVar is null))
+                inventoryVar.NearInventory = true;
         }
 
     }
@@ -249,7 +253,10 @@ public class FPController : MonoBehaviour
         if (collision.gameObject.CompareTag("Box"))
         {
             nearObject = false;
-            canvas.GetComponent<InventorySlot>().NearInventory = false;
+            
+            var inventoryVar = canvas.GetComponent<InventorySlot>();
+            if(!(inventoryVar is null))
+                inventoryVar.NearInventory = false;
         }
     }
 

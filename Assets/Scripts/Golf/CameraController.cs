@@ -103,6 +103,8 @@ namespace Golf
             ballRigidBody = null;
             Destroy(ball, 40);
             ball = null;
+            _powerValue = 0;
+            powerBar.setValue(0);
         }
 
         void LateUpdate()
