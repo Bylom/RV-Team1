@@ -8,9 +8,7 @@ namespace GeneralUI
 
 		public void TriggerDialogue ()
 		{
-			Debug.Log(dialogue.name + " start talking");
 			FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-			
 		}
 
 		public void SetDialog(Dialogue dial)

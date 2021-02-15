@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using General;
 
 public class LevelSelector: MonoBehaviour
 {
     public Button[] lvlButtons;
+    private GameValues _gameValues;
     void Start()
     {
         int levelAt = PlayerPrefs.GetInt("levelAt", 2);
-        for(int i=0; i<lvlButtons.Length; i++)
+        for (int i = levelAt; i < lvlButtons.Length; i++)
         {
-            if (i + 3 > levelAt)
-                lvlButtons[i].interactable = false;
+            lvlButtons[i].interactable = false;
         }
     }
 }

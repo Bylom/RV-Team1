@@ -238,6 +238,7 @@ MonoBehaviour:
   mouseNeeded: 1
   pauseNeeded: 1
   gameState: {fileID: 1195505454}
+  currentScene: 4
   endScene: 0
 --- !u!1 &58399575
 GameObject:

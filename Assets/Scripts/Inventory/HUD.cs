@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
+        if (Inventory is null) return;
         Inventory.ItemAdded += InventoryScript_ItemAdded;
         Inventory.ItemRemoved += Inventory_ItemRemoved;
     }

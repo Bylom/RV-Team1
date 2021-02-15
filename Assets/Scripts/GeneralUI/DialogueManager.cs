@@ -17,6 +17,8 @@ namespace GeneralUI
         [SerializeField] private bool pauseNeeded;
 
         [SerializeField] private GameState gameState;
+
+        [SerializeField] private int currentScene;
         
         private Queue<string> _sentences;
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
@@ -91,6 +93,11 @@ namespace GeneralUI
 
             if (endScene)
             {
+                int levelAt = PlayerPrefs.GetInt("levelAt", 0);
+                if (levelAt < currentScene)
+                {
+                    PlayerPrefs.SetInt("levelAt", currentScene);
+                }
                 SceneManager.LoadScene("Scenes/Missioni");
                 Cursor.lockState = CursorLockMode.None;
             }
