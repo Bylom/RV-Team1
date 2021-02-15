@@ -1102,6 +1102,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rover fermo
       objectReference: {fileID: 0}
+    - target: {fileID: 2494118372898934819, guid: 072b5ee4b4e994947ae2608dfe7b0f2b, type: 3}
+      propertyPath: m_TagString
+      value: Rover
+      objectReference: {fileID: 0}
     - target: {fileID: 3014935506386078361, guid: 072b5ee4b4e994947ae2608dfe7b0f2b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1410,6 +1414,10 @@ PrefabInstance:
     - target: {fileID: 4516938037873608904, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516938037873608904, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
+      propertyPath: m_TagString
+      value: Modulo
       objectReference: {fileID: 0}
     - target: {fileID: 4516938038807319182, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_Text
