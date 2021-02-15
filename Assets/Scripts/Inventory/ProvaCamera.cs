@@ -40,6 +40,7 @@ public class ProvaCamera : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (cameraTarget is null) return;
         Vector3 dPos = cameraTarget.position + dist;
         Vector3 sPos = Vector3.Lerp(transform.position, dPos, sSpeed * Time.deltaTime);
         transform.position = sPos;
