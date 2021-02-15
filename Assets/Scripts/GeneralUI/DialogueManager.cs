@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using General;
@@ -53,6 +54,12 @@ namespace GeneralUI
             if (mouseNeeded)
                 Cursor.lockState = CursorLockMode.None;
             DisplayNextSentence();
+        }
+
+        private void Update()
+        {
+            if(_runningDialogue && Input.GetKeyDown(KeyCode.Space))
+                DisplayNextSentence();
         }
 
         public void DisplayNextSentence()

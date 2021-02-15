@@ -5948,7 +5948,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1861362451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6799f6aa1863d484995bf4b7131c4ba7, type: 3}
+  m_Script: {fileID: 11500000, guid: 44555aeb96ecd3042b762e34ec68b1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 1861362452}
