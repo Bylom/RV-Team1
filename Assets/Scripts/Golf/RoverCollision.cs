@@ -10,7 +10,9 @@ namespace Golf
         private void OnCollisionEnter(Collision other)
         {
             if(other.gameObject.CompareTag("Palla"))
+            {
                 dialogueTrigger.TriggerDialogue();
+            }
         }
     }
 }

@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
 
-        if (s == null)
+        if (s is null)
         {
             Debug.LogWarning("Sound " + name + "does NOT exists");
             return; 

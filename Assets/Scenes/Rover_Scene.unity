@@ -796,7 +796,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 364320503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705ae77abb75606499bdd4461ad53e71, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d9694c84e759414d9f37fc2ed2be89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 364320509}
@@ -924,7 +924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 163.2002, y: 158.40015}
+  m_AnchoredPosition: {x: 163.2002, y: 158.3999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &585400567
@@ -1437,7 +1437,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1078055079}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705ae77abb75606499bdd4461ad53e71, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d9694c84e759414d9f37fc2ed2be89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 1078055085}
@@ -1563,7 +1563,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1295331134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705ae77abb75606499bdd4461ad53e71, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d9694c84e759414d9f37fc2ed2be89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 1295331140}
@@ -1690,6 +1690,7 @@ MonoBehaviour:
   mouseNeeded: 0
   pauseNeeded: 0
   gameState: {fileID: 966129070}
+  currentScene: 0
   endScene: 0
 --- !u!95 &1434469608 stripped
 Animator:

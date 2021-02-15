@@ -11,7 +11,6 @@ namespace Golf
         {
             if (other.gameObject.CompareTag("Palla"))
             {
-                FindObjectOfType<AudioManager>().Play("Modulo");
                 dialogueTrigger.TriggerDialogue();
             }
         }

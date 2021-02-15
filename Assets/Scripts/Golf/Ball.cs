@@ -23,6 +23,12 @@ namespace Golf
             if (_firstCollision && Vector3.Distance(_originPoint, transform.position) > 1.5f)
             {
                 _firstCollision = false;
+                if(other.gameObject.CompareTag("Modulo") || other.gameObject.CompareTag("Rover"))
+                {
+                    FindObjectOfType<AudioManager>().Play("Modulo");
+                    return;
+                }
+                
                 if (!other.gameObject.CompareTag("Ground")) return;
                 //
                 _ballCount.IncreaseCount();
