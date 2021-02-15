@@ -20,7 +20,6 @@ namespace Golf
 
         private void OnCollisionEnter(Collision other)
         {
-            Debug.Log(_firstCollision + "  " + (Vector3.Distance(_originPoint, transform.position) > 1.5f) + !other.gameObject.CompareTag("Ground"));
             if (_firstCollision && Vector3.Distance(_originPoint, transform.position) > 1.5f)
             {
                 _firstCollision = false;
