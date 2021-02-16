@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using General;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace CameraController
 {
@@ -34,6 +40,8 @@ namespace CameraController
         [SerializeField] private Transform frontRightWheeTransform;
         [SerializeField] private Transform rearLeftWheelTransform;
         [SerializeField] private Transform rearRightWheelTransform;
+
+        [SerializeField] private int currentScene;
 
 
         private void Start()
@@ -134,11 +142,28 @@ namespace CameraController
             wheelTransform.position = pos;
         }
 
-        void OnTriggerStay(Collider fine)
+        void OnTriggerStay(Collider coll)
         {
-            if (fine.gameObject.CompareTag("Finish"))
-                Debug.Log("Fineeeee");
+            if (coll.gameObject.CompareTag("Finish"))
+            {
+                Debug.Log("ciaoooo");
+                motorForce = 0;
+            }
+
+                if (coll.gameObject.CompareTag("Palla"))
+                {
+                    int levelAt = PlayerPrefs.GetInt("levelAt", 0);
+                    if (levelAt < currentScene)
+                    {
+                        PlayerPrefs.SetInt("levelAt", currentScene);
+                    }
+                    SceneManager.LoadScene("Scenes/Missioni");
+                    Cursor.lockState = CursorLockMode.None;
+                }
+
+            
         }
+
 
     }
 
