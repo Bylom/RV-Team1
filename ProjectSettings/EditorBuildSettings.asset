@@ -11,9 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Introduzione.unity
     guid: ac8502f0920fb854b8483de0c68b2170
-  - enabled: 1
-    path: Assets/Scenes/First_Step.unity
-    guid: 38202052060f39f45a7761ab404f724a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Missioni.unity
     guid: 808417865b3cc814d8387281c59353b5
@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Second Scene.unity
     guid: 2e111745da431d84e9a5c1eba71fbd16
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Moon_Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
