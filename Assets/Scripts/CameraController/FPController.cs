@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FPController : MonoBehaviour
 {
@@ -143,6 +144,14 @@ public class FPController : MonoBehaviour
         Mazza.transform.parent = null;
 
         Invoke("DoDropItem", 0.25f);
+
+        StartCoroutine("WaitForSec");
+    }
+
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void DoDropItem()
@@ -153,7 +162,7 @@ public class FPController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (mCurrentItem != null && Input.GetKey(KeyCode.E))
+        if (mCurrentItem != null && Input.GetKey(KeyCode.Mouse0))
         {
             DropCurrentItem();
         }

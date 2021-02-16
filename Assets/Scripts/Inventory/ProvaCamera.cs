@@ -20,7 +20,7 @@ public class ProvaCamera : MonoBehaviour
     {
         if (mov.closed && mov.NearInvent)
         {
-            if (Input.GetKey(KeyCode.I))
+            if (Input.GetKey(KeyCode.E))
             {
                 cam.enabled = false;
                 cameraTarget = cameraTarget3.transform;
@@ -30,7 +30,7 @@ public class ProvaCamera : MonoBehaviour
         }
         if (mov.open)
         {
-            if (Input.GetKey(KeyCode.I))
+            if (Input.GetKey(KeyCode.E))
             {
                 cam.enabled = true;
                 cameraTarget = cameraTarget2.transform;

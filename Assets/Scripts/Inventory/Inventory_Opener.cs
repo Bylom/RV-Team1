@@ -22,6 +22,7 @@ public class Inventory_Opener : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        StartCoroutine("WaitForSec3");
     }
 
     private void Update()
@@ -30,7 +31,7 @@ public class Inventory_Opener : MonoBehaviour
         {
             if (closed)
             {
-                if (Input.GetKey(KeyCode.I))
+                if (Input.GetKey(KeyCode.E))
                 {
                     animator.SetBool("Open", true);
                     StartCoroutine("WaitForSec");
@@ -43,7 +44,7 @@ public class Inventory_Opener : MonoBehaviour
             if (open)
             {
                 
-                if (Input.GetKey(KeyCode.I))
+                if (Input.GetKey(KeyCode.E))
                 {
                     animator.SetBool("Open", false);
                     StartCoroutine("WaitForSec2");
@@ -57,8 +58,8 @@ public class Inventory_Opener : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            testo.text = "Press I to interact";
-            testo.gameObject.SetActive(true);
+            //testo.text = "Press I to interact";
+            //testo.gameObject.SetActive(true);
             NearInvent = true;
         }
     }
@@ -66,7 +67,7 @@ public class Inventory_Opener : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            testo.gameObject.SetActive(false);
+            //testo.gameObject.SetActive(false);
             NearInvent = false;
         }
 
@@ -84,5 +85,11 @@ public class Inventory_Opener : MonoBehaviour
         yield return new WaitForSeconds(3);
         open = false;
         closed = true;
+    }
+
+    IEnumerator WaitForSec3()
+    {
+        yield return new WaitForSeconds(3);
+        FindObjectOfType<AudioManager>().Play("Audio01");
     }
 }

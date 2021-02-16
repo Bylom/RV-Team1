@@ -23,10 +23,10 @@ public class InventorySlot : MonoBehaviour
 
         if (NearInventory)
         {
-            press.text = "Press I to open Inventory";
-            press.gameObject.SetActive(true);
+            //press.text = "Press I to open Inventory";
+            //press.gameObject.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.I))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (GameIsPaused)
                 {

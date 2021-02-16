@@ -30,7 +30,7 @@ public class Flag : MonoBehaviour
             {
                 animator.SetBool("Flag", true);
                 isFlag = false;
-                testo.gameObject.SetActive(false);
+                //testo.gameObject.SetActive(false);
                 Event_flag.GetComponent<Bandiera>().coll.size = new Vector3(m_ScaleX, m_ScaleY, m_ScaleZ);
 
                 StartCoroutine("WaitForSec2");
@@ -42,8 +42,8 @@ public class Flag : MonoBehaviour
     {
         if (collision.gameObject.tag == "Flag")
         {
-            testo.text = "Press E per piantare la bandiera";
-            testo.gameObject.SetActive(true);
+            //testo.text = "Press E per piantare la bandiera";
+            //testo.gameObject.SetActive(true);
             isFlag = true;
         }
 
