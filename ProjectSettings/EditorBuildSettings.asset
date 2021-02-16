@@ -24,15 +24,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Second Scene.unity
     guid: 2e111745da431d84e9a5c1eba71fbd16
   - enabled: 0
-    path: Assets/Scenes/Moon_Scene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/Materials.unity
-    guid: 09e56ee50ebd0494f83efe098e16a6d1
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Moon_golf_scene.unity
     guid: 9f53e455e3459a440a247fa4e148089c
   - enabled: 1
     path: Assets/Scenes/Rover_Scene.unity
     guid: 13355d5df1f644b5ca9945a825628f93
+  - enabled: 1
+    path: Assets/Scenes/Materials.unity
+    guid: 09e56ee50ebd0494f83efe098e16a6d1
   m_configObjects: {}
