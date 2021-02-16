@@ -7793,7 +7793,9 @@ MonoBehaviour:
     sentences:
     - 'Be more careful!
 
-      Your last shot hit the lunar module!'
+      Your last shot hit the lunar module!
+
+'
 --- !u!114 &919132149513307739
 MonoBehaviour:
   m_ObjectHideFlags: 0
