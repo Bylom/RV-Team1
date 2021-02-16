@@ -42,6 +42,7 @@ namespace CameraController
         [SerializeField] private Transform rearRightWheelTransform;
 
         [SerializeField] private int currentScene;
+        public Image BlackIm;
 
 
         private void Start()
@@ -67,26 +68,20 @@ namespace CameraController
 
         private void HandleMotor()
         {
-            // Debug.Log(speed);
 
             if (speed < 5)
             {
                 motorForce = prima;
-                // Debug.Log("prima! ");
             }
-
 
             if (speed > 5 && speed < 13)
             {
                 motorForce = seconda;
-                // Debug.Log("seconda! ");
             }
-
 
             if (speed > 13)
             {
                 motorForce = terza;
-                //  Debug.Log("terza! ");
             }
 
 
@@ -101,9 +96,9 @@ namespace CameraController
 
             if (fermo == 1000)
             {
-                Debug.Log("SOS!\n");
-                //trigger dialogue!
                 fermo = 0;
+                BlackIm.CrossFadeAlpha(1, 3, false);
+                StartCoroutine(Reload());
             }
 
 
@@ -146,7 +141,6 @@ namespace CameraController
         {
             if (coll.gameObject.CompareTag("Finish"))
             {
-                Debug.Log("ciaoooo");
                 motorForce = 0;
             }
 
@@ -164,6 +158,12 @@ namespace CameraController
             
         }
 
+        IEnumerator Reload()
+        {
+            yield return new WaitForSeconds(4);
+            SceneManager.LoadScene(6);
+
+        }
 
     }
 

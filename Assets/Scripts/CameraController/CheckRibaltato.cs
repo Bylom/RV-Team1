@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CheckRibaltato : MonoBehaviour
 {
+    public Image image;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +24,16 @@ public class CheckRibaltato : MonoBehaviour
         if (collision.GetComponent<Terrain>() != null)
         {
             Debug.Log("ribaltato");
+            image.CrossFadeAlpha(1, 2, false);
+            StartCoroutine(Reload());
         }
+    }
+
+    IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene(6);
+        
     }
 
 }
