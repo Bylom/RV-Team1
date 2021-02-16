@@ -8,7 +8,7 @@ public class LevelSelector: MonoBehaviour
     private GameValues _gameValues;
     void Start()
     {
-        int levelAt = PlayerPrefs.GetInt("levelAt", 2);
+        int levelAt = PlayerPrefs.GetInt("levelAt", 0);
         for (int i = levelAt; i < lvlButtons.Length; i++)
         {
             lvlButtons[i].interactable = false;

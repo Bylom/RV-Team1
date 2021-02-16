@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour
 {
-   public void playGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+   public void PlayGame()
+   {
+       int val = PlayerPrefs.GetInt("levelAt", 1);
+       Debug.Log("Next scene");
+        SceneManager.LoadScene(val + 1);
     }
 }
