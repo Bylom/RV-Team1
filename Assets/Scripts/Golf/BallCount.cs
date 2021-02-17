@@ -18,7 +18,7 @@ namespace Golf
         // Update is called once per frame
         void Update()
         {
-            if (!gameState.GetPaused() && _first && _count == limit)
+            if (!gameState.GetPaused() && _first && _count >= limit)
             {
                 DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
                 dialogueManager.endScene = true;

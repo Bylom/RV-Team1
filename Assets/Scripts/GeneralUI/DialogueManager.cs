@@ -20,7 +20,7 @@ namespace GeneralUI
         [SerializeField] private GameState gameState;
 
         [SerializeField] private int currentScene;
-        
+
         private Queue<string> _sentences;
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
         private bool _runningDialogue;
@@ -36,9 +36,9 @@ namespace GeneralUI
         public void StartDialogue(Dialogue dialogue)
         {
             if (_runningDialogue) return;
-            if(pauseNeeded)
+            if (pauseNeeded)
                 gameState.SetPaused(true);
-            if(mouseNeeded)
+            if (mouseNeeded)
                 gameState.SetMouseNeeded(true);
             animator.SetBool(IsOpen, true);
             nameText.text = dialogue.name;
@@ -58,7 +58,7 @@ namespace GeneralUI
 
         private void Update()
         {
-            if(_runningDialogue && Input.GetKeyDown(KeyCode.Space))
+            if (_runningDialogue && Input.GetKeyDown(KeyCode.Space))
                 DisplayNextSentence();
         }
 
@@ -89,10 +89,10 @@ namespace GeneralUI
         {
             _runningDialogue = false;
             animator.SetBool(IsOpen, false);
-            if(pauseNeeded)
+            if (pauseNeeded)
                 gameState.SetPaused(false);
             if (mouseNeeded)
-                if(mouseNeeded)
+                if (mouseNeeded)
                 {
                     gameState.SetMouseNeeded(false);
                     Cursor.lockState = CursorLockMode.Locked;
@@ -100,11 +100,7 @@ namespace GeneralUI
 
             if (endScene)
             {
-                int levelAt = PlayerPrefs.GetInt("levelAt", 0);
-                if (levelAt < currentScene)
-                {
-                    PlayerPrefs.SetInt("levelAt", currentScene);
-                }
+                PlayerPrefs.SetInt("levelAt", currentScene);
                 SceneManager.LoadScene("Scenes/Missioni");
                 Cursor.lockState = CursorLockMode.None;
             }
