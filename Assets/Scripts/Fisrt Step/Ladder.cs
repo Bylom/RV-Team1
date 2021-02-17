@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GeneralUI;
 
 public class Ladder : MonoBehaviour
 {
@@ -29,9 +30,12 @@ public class Ladder : MonoBehaviour
     private bool m_Wait;
     private bool shouldMove;
     private bool lookDown;
+    private int controllo;
 
     private static readonly int Down = Animator.StringToHash("down");
     private static readonly int Step = Animator.StringToHash("step");
+
+    public Dialogue dialogue;
 
     // Start is called before the first frame update
     void Start()
@@ -95,6 +99,7 @@ public class Ladder : MonoBehaviour
         {
             m_Down = false;
             transform.Translate(0, 0, 0);
+            m_Animator.gameObject.GetComponent<Animator>().enabled = false;
             shouldMove = false;
             MakeFirstStep(coll);
         }
@@ -102,10 +107,15 @@ public class Ladder : MonoBehaviour
 
     private void MakeFirstStep(Collider coll)
     {
-        //trigger dialogue: "you can make the first step!"
+        if (controllo < 500)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            controllo++;
+        }
+       
         //audio manager: surface
 
-       
+
 
         if (Input.GetKey(KeyCode.E) && !Input.GetKey(KeyCode.S))
         {
