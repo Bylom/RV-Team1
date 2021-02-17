@@ -235,7 +235,7 @@ MonoBehaviour:
   nameText: {fileID: 411063767}
   dialogueText: {fileID: 411063766}
   animator: {fileID: 411063768}
-  mouseNeeded: 1
+  mouseNeeded: 0
   pauseNeeded: 1
   gameState: {fileID: 1195505454}
   currentScene: 4
