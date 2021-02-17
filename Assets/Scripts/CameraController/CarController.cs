@@ -153,9 +153,7 @@ namespace CameraController
                     }
                     SceneManager.LoadScene("Scenes/Missioni");
                     Cursor.lockState = CursorLockMode.None;
-                }
-
-            
+                } 
         }
 
         IEnumerator Reload()
