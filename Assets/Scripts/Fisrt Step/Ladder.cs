@@ -107,7 +107,7 @@ public class Ladder : MonoBehaviour
 
        
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && !Input.GetKey(KeyCode.S))
         {
             //camera switch
             lookDown = true;
