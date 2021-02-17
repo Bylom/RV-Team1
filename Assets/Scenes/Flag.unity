@@ -9206,7 +9206,7 @@ MonoBehaviour:
   nameText: {fileID: 611157263}
   dialogueText: {fileID: 611157262}
   animator: {fileID: 611157261}
-  mouseNeeded: 1
+  mouseNeeded: 0
   pauseNeeded: 1
   gameState: {fileID: 1242401825}
   currentScene: 0
