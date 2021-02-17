@@ -16,7 +16,7 @@ public class LoadFirstScene : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
         
     }

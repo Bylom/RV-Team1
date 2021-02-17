@@ -6,17 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 6dd3e51340a1b17488022493723151bc
-  - enabled: 1
-    path: Assets/Scenes/First Scene.unity
-    guid: 94b7186b935276242aa02c764b46d3eb
-  - enabled: 1
-    path: Assets/Scenes/Second Scene.unity
-    guid: 2e111745da431d84e9a5c1eba71fbd16
-  - enabled: 1
     path: Assets/Scenes/Introduzione.unity
     guid: ac8502f0920fb854b8483de0c68b2170
+  - enabled: 1
+    path: Assets/Scenes/First_Step.unity
+    guid: 3cc94f3afcf658f49ba9d8694fe6b6ef
+  - enabled: 1
+    path: Assets/Scenes/Flag.unity
+    guid: 94b7186b935276242aa02c764b46d3eb
+  - enabled: 1
+    path: Assets/Scenes/Experiment.unity
+    guid: 2e111745da431d84e9a5c1eba71fbd16
   - enabled: 1
     path: Assets/Scenes/Moon_golf_scene.unity
     guid: 9f53e455e3459a440a247fa4e148089c
@@ -27,15 +27,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Materials.unity
     guid: 09e56ee50ebd0494f83efe098e16a6d1
   - enabled: 1
-    path: Assets/Scenes/Missioni.unity
-    guid: 808417865b3cc814d8387281c59353b5
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 3b3c318bbfedc4749a5cd185e6f37589
+  - enabled: 1
+    path: Assets/Scenes/Missioni.unity
+    guid: 808417865b3cc814d8387281c59353b5
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 6dd3e51340a1b17488022493723151bc
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

@@ -21,7 +21,7 @@ namespace Scenes.MainMenu.Scripts
             {
                 case 0:
                     Debug.Log(index);
-                    SceneManager.LoadScene(1);
+                    SceneManager.LoadScene(0);
                     break;
                 case 1:
                     Debug.Log(index);
