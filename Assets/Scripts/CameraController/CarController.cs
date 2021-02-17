@@ -149,8 +149,11 @@ namespace CameraController
             }
 
             if (coll.gameObject.CompareTag("Palla"))
-            {   PlayerPrefs.SetInt("levelAt", currentScene);
-                SceneManager.LoadScene("Scenes/Missioni");
+            {
+                DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+                dialogueManager.endScene = true;
+                dialogueTrigger.TriggerDialogue();
+                //SceneManager.LoadScene("Scenes/Missioni");
                 Cursor.lockState = CursorLockMode.None;
             }
         }

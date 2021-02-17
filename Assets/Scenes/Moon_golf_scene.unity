@@ -1428,6 +1428,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: HistoricalHintDialog
       objectReference: {fileID: 0}
+    - target: {fileID: 5291706985186647263, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
+    - target: {fileID: 5291706985186647263, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706985227604217, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
+    - target: {fileID: 6110562773051731448, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
 --- !u!1 &218422672
@@ -2384,13 +2400,25 @@ PrefabInstance:
       value: Dialog
       objectReference: {fileID: 0}
     - target: {fileID: 5291706985186647263, guid: dd7f64d79ba59174080b761d77c10518, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
+    - target: {fileID: 5291706985186647263, guid: dd7f64d79ba59174080b761d77c10518, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5291706985227604217, guid: dd7f64d79ba59174080b761d77c10518, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
+    - target: {fileID: 5291706985227604217, guid: dd7f64d79ba59174080b761d77c10518, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6110562773051731448, guid: dd7f64d79ba59174080b761d77c10518, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
     - target: {fileID: 6356000416408388982, guid: dd7f64d79ba59174080b761d77c10518, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 296

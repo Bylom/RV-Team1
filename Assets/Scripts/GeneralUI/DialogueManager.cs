@@ -84,7 +84,7 @@ namespace GeneralUI
                 DisplayNextSentence();
             else if (_runningDialogue && Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("Ciao");
+                
                 DisplayNextHistoricSentence();
             }
         }

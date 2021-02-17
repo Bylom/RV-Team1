@@ -2653,7 +2653,7 @@ RectTransform:
   - {fileID: 100360693}
   - {fileID: 1472390907}
   m_Father: {fileID: 259155955}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3314,7 +3314,7 @@ RectTransform:
   - {fileID: 2054942020}
   - {fileID: 1577903095}
   m_Father: {fileID: 259155955}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3677,7 +3677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5291706984288349156, guid: dd7f64d79ba59174080b761d77c10518, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5291706984288349156, guid: dd7f64d79ba59174080b761d77c10518, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3755,6 +3755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialog
       objectReference: {fileID: 0}
+    - target: {fileID: 6110562773051731448, guid: dd7f64d79ba59174080b761d77c10518, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd7f64d79ba59174080b761d77c10518, type: 3}
 --- !u!1 &664308019
@@ -5168,6 +5172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 966129072}
   - component: {fileID: 966129070}
+  - component: {fileID: 966129073}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -5201,6 +5206,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &966129073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966129069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6788aa0eaf3b57c439ba52ba80dec20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences: []
 --- !u!1 &987891109
 GameObject:
   m_ObjectHideFlags: 0
@@ -6495,6 +6515,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1333790541}
   - component: {fileID: 1333790540}
+  - component: {fileID: 1333790542}
+  - component: {fileID: 1333790543}
   m_Layer: 0
   m_Name: finish
   m_TagString: Finish
@@ -6531,6 +6553,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1333790542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333790539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6788aa0eaf3b57c439ba52ba80dec20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences: []
+--- !u!114 &1333790543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333790539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e451c79164dc3478012e3ae1976139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1384774235
 GameObject:
   m_ObjectHideFlags: 0
@@ -6792,7 +6841,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 259155955}
-  m_RootOrder: 1
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1404751260
 MonoBehaviour:
@@ -6813,12 +6862,22 @@ MonoBehaviour:
   animator: {fileID: 1434469608}
   historicAnimator: {fileID: 1910571575}
   mouseNeeded: 0
-  pauseNeeded: 0
+  pauseNeeded: 1
   gameState: {fileID: 966129070}
   historicDialogue:
-    name: 
-    sentences: []
-  currentScene: 0
+    name: Historical Hint
+    sentences:
+    - "Apollo15 Lunar Landing: Feb. 5, 1971 \nWith the help of the first automotive
+      vehicle designed not only for off-road but for off-planet use,\r the astronauts
+      of Apollo 15 explored a more diverse region of the Moon than ever before and
+      brought nearly \r\nas much lunar rock and soil back to Earth as the previous
+      two Moon-landing missions combined.\r\nThey unfolded and deployed their lunar
+      rover the following day. Specially designed for operation at 1/6 Earth\u2019s
+      gravity,\r\n it could carry 180 pounds (82 kilograms) of astronauts, gear and
+      samples on the Moon (which would weigh 1,080 pounds or \r\n490 kilograms on
+      Earth), more than twice the rover\u2019s weight, but risked collapse if accidentally
+      sat upon while still on Earth. "
+  currentScene: 5
   endScene: 0
 --- !u!95 &1434469608 stripped
 Animator:
@@ -7934,7 +7993,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 259155955}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8767,7 +8826,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 259155955}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9007,7 +9066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
       propertyPath: m_AnchorMax.x
@@ -9085,6 +9144,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HistoricalHintDialog
       objectReference: {fileID: 0}
+    - target: {fileID: 5291706985186647263, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
+    - target: {fileID: 5291706985227604217, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
+    - target: {fileID: 6110562773051731448, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
 --- !u!114 &1910571573 stripped
