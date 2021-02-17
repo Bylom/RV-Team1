@@ -2568,7 +2568,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563195023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.846, z: 0.12}
+  m_LocalPosition: {x: 0.016, y: 1.731, z: 0.427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1172153215}
@@ -2607,7 +2607,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 51
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -9040,11 +9040,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 1247904997}
+  historicNameText: {fileID: 0}
   dialogueText: {fileID: 1247904996}
+  historicDialogueText: {fileID: 0}
   animator: {fileID: 1247904995}
+  historicAnimator: {fileID: 0}
   mouseNeeded: 1
   pauseNeeded: 1
   gameState: {fileID: 987436930}
+  historicDialogue:
+    name: 
+    sentences: []
   currentScene: 0
   endScene: 0
 --- !u!1 &1719805283
