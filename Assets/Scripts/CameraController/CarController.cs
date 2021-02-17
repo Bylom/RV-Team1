@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using General;
+using GeneralUI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -43,14 +44,21 @@ namespace CameraController
 
         [SerializeField] private int currentScene;
         public Image BlackIm;
-
+        [SerializeField] private DialogueTrigger dialogueTrigger;
+        private bool _firstDialogueCall = true;
 
         private void Start()
         {
             FindObjectOfType<AudioManager>().Play("Crater");
         }
+
         private void FixedUpdate()
         {
+            if(_firstDialogueCall)
+            {
+                _firstDialogueCall = false;
+                dialogueTrigger.TriggerDialogue();
+            }
             GetInput();
             HandleMotor();
             HandleSteering();
@@ -68,7 +76,6 @@ namespace CameraController
 
         private void HandleMotor()
         {
-
             if (speed < 5)
             {
                 motorForce = prima;
@@ -85,7 +92,6 @@ namespace CameraController
             }
 
 
-
             frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
             frontRightWheelCollider.motorTorque = verticalInput * motorForce;
             currentbreakForce = isBreaking ? breakForce : 0f;
@@ -100,9 +106,6 @@ namespace CameraController
                 BlackIm.CrossFadeAlpha(1, 3, false);
                 StartCoroutine(Reload());
             }
-
-
-
         }
 
         private void ApplyBreaking()
@@ -132,7 +135,8 @@ namespace CameraController
         {
             Vector3 pos;
             Quaternion rot
-                ; wheelCollider.GetWorldPose(out pos, out rot);
+                ;
+            wheelCollider.GetWorldPose(out pos, out rot);
             wheelTransform.rotation = rot;
             wheelTransform.position = pos;
         }
@@ -144,25 +148,17 @@ namespace CameraController
                 motorForce = 0;
             }
 
-                if (coll.gameObject.CompareTag("Palla"))
-                {
-                    int levelAt = PlayerPrefs.GetInt("levelAt", 0);
-                    if (levelAt < currentScene)
-                    {
-                        PlayerPrefs.SetInt("levelAt", currentScene);
-                    }
-                    SceneManager.LoadScene("Scenes/Missioni");
-                    Cursor.lockState = CursorLockMode.None;
-                } 
+            if (coll.gameObject.CompareTag("Palla"))
+            {   PlayerPrefs.SetInt("levelAt", currentScene);
+                SceneManager.LoadScene("Scenes/Missioni");
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
 
         IEnumerator Reload()
         {
             yield return new WaitForSeconds(4);
-            SceneManager.LoadScene(6);
-
+            SceneManager.LoadScene(currentScene);
         }
-
     }
-
 }

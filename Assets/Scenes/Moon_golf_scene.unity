@@ -1961,7 +1961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4516938037157561091, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4516938037207654903, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
       propertyPath: m_Texture
@@ -5838,7 +5838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: {fileID: 1195505454}
   dialogueTrigger: {fileID: 1195505457}
-  limit: 3
+  limit: 1
 --- !u!114 &1195505457
 MonoBehaviour:
   m_ObjectHideFlags: 0
