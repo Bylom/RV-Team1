@@ -43,6 +43,7 @@ public class FPController : MonoBehaviour
     private Vector3 m_Inertia;
     [SerializeField] private GameObject sasso;
     [SerializeField] private GameObject non_sasso;
+    [SerializeField] private bool canTake = true;
 
     public Inventory inventory;
     [FormerlySerializedAs("Hand")] public GameObject hand;
@@ -167,18 +168,13 @@ public class FPController : MonoBehaviour
             DropCurrentItem();
         }
     }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-            m_IsGrounded = true;
-    }
-
     void Update()
     {
         //Ground Check
-        //m_IsGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
+        var position = groundCheck.position;
+        var position1 = cameraT.position;
+        m_IsGrounded = Physics.Linecast(position1, position, groundMask);
+        Debug.DrawLine(position1, position, Color.red, 0, false);
         if (m_IsGrounded && m_Velocity.y < 0f)
         {
             m_Velocity.y = -2f;
@@ -222,8 +218,8 @@ public class FPController : MonoBehaviour
             m_InputSpeed = Mathf.Clamp(m_InputVector.magnitude, 0f, 1f);
         }
         
-        Debug.Log(Input.GetKey(KeyCode.Space) + " " +  m_IsGrounded  + " " + (!m_IsJumping));
-        if (Input.GetKey(KeyCode.Space) && m_IsGrounded && m_IsJumping == false)
+        // Debug.Log("Tasto : " + Input.GetKey(KeyCode.Space) + " Is grounded: " +  m_IsGrounded  + " Is Jumping:  " + (m_IsJumping));
+        if (Input.GetKey(KeyCode.Space) && m_IsGrounded && !m_IsJumping)
         {
             
             m_Velocity.y = jumpHeight;
@@ -250,7 +246,8 @@ public class FPController : MonoBehaviour
         m_Animator.SetFloat(Speed, !m_IsJumping ? m_InputSpeed : 0f);
         m_Animator.SetBool(Run, Input.GetKey(KeyCode.LeftShift) && !m_IsJumping && Math.Abs(m_InputSpeed) > 0.01f);
         m_Animator.SetBool(Jump, m_IsJumping);
-        m_Animator.SetBool(Take, m_isTaking);
+        if(canTake)
+            m_Animator.SetBool(Take, m_isTaking);
     }
 
 

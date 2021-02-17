@@ -1119,6 +1119,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9218164579287957301, guid: 3b7bd5678ca124543a4be15942a70e3a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218164579298532080, guid: 3b7bd5678ca124543a4be15942a70e3a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218164579300768838, guid: 3b7bd5678ca124543a4be15942a70e3a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218164579775135327, guid: 3b7bd5678ca124543a4be15942a70e3a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9218164579929122226, guid: 3b7bd5678ca124543a4be15942a70e3a, type: 3}
       propertyPath: m_Name
       value: Moon_Terrain
