@@ -6639,6 +6639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Inventory: {fileID: 405971923}
+  counter: 0
 --- !u!114 &660388870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6898,6 +6899,7 @@ MonoBehaviour:
   open: 0
   closed: 1
   Camera: {fileID: 35708498}
+  Counter: {fileID: 0}
   Hammer: {fileID: 0}
   Feather: {fileID: 0}
 --- !u!95 &677943816
@@ -9753,6 +9755,36 @@ MonoBehaviour:
   putFlag: 0
   bandiera: {fileID: 1031016675}
   Event_flag: {fileID: 919132148977970574}
+--- !u!114 &1453657448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453657442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6788aa0eaf3b57c439ba52ba80dec20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Die
+    sentences:
+    - You're running out of oxygen, be careful
+--- !u!114 &1453657449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453657442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3d1b2fc7ee3c642858b9804b79ffd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTime: 600
+  dialogueTrigger: {fileID: 1453657448}
 --- !u!1 &1480038693
 GameObject:
   m_ObjectHideFlags: 0
@@ -12091,6 +12123,7 @@ MonoBehaviour:
   NearInventory: 0
   InventoryPanelUI: {fileID: 103588337}
   press: {fileID: 2086666886}
+  error: {fileID: 0}
 --- !u!114 &2012018772
 MonoBehaviour:
   m_ObjectHideFlags: 0

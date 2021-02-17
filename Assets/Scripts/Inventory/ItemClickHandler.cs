@@ -7,7 +7,7 @@ public class ItemClickHandler : MonoBehaviour
 {
 
     public Inventory _Inventory;
-
+    public int counter = 0;
 
     public void OnItemClicked()
     {
@@ -17,10 +17,13 @@ public class ItemClickHandler : MonoBehaviour
 
         Debug.Log(item.Name);
 
+        transform.parent = null;
+
         _Inventory.UseItem(item);
 
         item.OnUse();
 
+        counter++;
     }
 
 }

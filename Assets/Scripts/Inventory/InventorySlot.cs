@@ -14,6 +14,7 @@ public class InventorySlot : MonoBehaviour
 
     public GameObject InventoryPanelUI;
     public Text press;
+    public Text error;
     // Update is called once per frame
 
     void Update()
@@ -30,12 +31,15 @@ public class InventorySlot : MonoBehaviour
             {
                 if (GameIsPaused)
                 {
-                    Resume();
+                    if (InventoryPanelUI.GetComponent<Counter>().go == true)
+                        Resume();
                 }
 
                 else
                 {
                     Pause();
+                    error.text = "Click with left mouse to pickup objects";
+                    error.gameObject.SetActive(true);
                 }
             }
         }

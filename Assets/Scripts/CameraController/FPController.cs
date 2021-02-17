@@ -134,11 +134,11 @@ public class FPController : MonoBehaviour
 
 
         var forward = transform.forward;
-        Palla.GetComponent<Palla>().Golf.AddForce(forward * 0.35f, ForceMode.Impulse);
+        Palla.GetComponent<Palla>().Golf.AddForce(forward * 0.30f, ForceMode.Impulse);
         Palla.GetComponent<Palla>().Golf.isKinematic = false;
         Palla.GetComponent<Palla>().coll_Golf.enabled = true;
         Palla.transform.parent = null;
-        Mazza.GetComponent<Mazza>().Mazza_Golf.AddForce(forward * 0.35f, ForceMode.Impulse);
+        Mazza.GetComponent<Mazza>().Mazza_Golf.AddForce(forward * 0.30f, ForceMode.Impulse);
         Mazza.GetComponent<Mazza>().Mazza_Golf.isKinematic = false;
         Mazza.GetComponent<Mazza>().coll_Mazza.enabled = true;
         Mazza.transform.parent = null;
@@ -162,7 +162,7 @@ public class FPController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (mCurrentItem != null && Input.GetKey(KeyCode.Mouse0))
+        if (mCurrentItem != null && Input.GetKey(KeyCode.Mouse1))
         {
             DropCurrentItem();
         }

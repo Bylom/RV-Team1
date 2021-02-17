@@ -15,6 +15,7 @@ public class Inventory_Opener : MonoBehaviour
     public bool closed = true;
 
     public GameObject Camera;
+    public GameObject Counter;
 
     public MeshRenderer Hammer;
     public MeshRenderer Feather;
@@ -43,13 +44,16 @@ public class Inventory_Opener : MonoBehaviour
             }
             if (open)
             {
-                
-                if (Input.GetKey(KeyCode.E))
+                if(Counter.GetComponent<Counter>().go == true)
                 {
-                    animator.SetBool("Open", false);
-                    StartCoroutine("WaitForSec2");
-                    Cursor.lockState = CursorLockMode.Locked;
+                    if (Input.GetKey(KeyCode.E))
+                    {
+                        animator.SetBool("Open", false);
+                        StartCoroutine("WaitForSec2");
+                        Cursor.lockState = CursorLockMode.Locked;
+                    }
                 }
+                
             }
         }
     }

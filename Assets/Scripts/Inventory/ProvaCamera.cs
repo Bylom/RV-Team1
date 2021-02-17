@@ -7,6 +7,7 @@ public class ProvaCamera : MonoBehaviour
     public Transform cameraTarget1;
     public Transform cameraTarget2;
     public Transform cameraTarget3;
+    public GameObject Counter;
     public float sSpeed = 1.0f;
     public Vector3 dist;
     public Transform lookTarget;
@@ -32,8 +33,11 @@ public class ProvaCamera : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                cam.enabled = true;
-                cameraTarget = cameraTarget2.transform;
+                if (Counter.GetComponent<Counter>().go == true)
+                {
+                    cam.enabled = true;
+                    cameraTarget = cameraTarget2.transform;
+                }
             }
         }
     }
