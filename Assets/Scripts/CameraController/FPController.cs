@@ -19,7 +19,7 @@ public class FPController : MonoBehaviour
 
     [SerializeField] private Transform groundCheck;
 
-    [SerializeField] private float groundDistance = 0.4f;
+    [SerializeField] private float groundDistance = 0.6f;
 
     [SerializeField] private LayerMask groundMask;
 
@@ -168,15 +168,21 @@ public class FPController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+            m_IsGrounded = true;
+    }
+
     void Update()
     {
         //Ground Check
-        m_IsGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        //m_IsGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (m_IsGrounded && m_Velocity.y < 0f)
         {
             m_Velocity.y = -2f;
-            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.LeftShift)) speed = 2f;
+            if (Input.GetKey(KeyCode.LeftShift)) speed = 2f;
             if (Input.GetKeyUp(KeyCode.LeftShift)) speed = 1f;
         }
 
@@ -215,9 +221,11 @@ public class FPController : MonoBehaviour
             m_InputVector = new Vector3(h, 0, v);
             m_InputSpeed = Mathf.Clamp(m_InputVector.magnitude, 0f, 1f);
         }
-
+        
+        Debug.Log(Input.GetKey(KeyCode.Space) + " " +  m_IsGrounded  + " " + (!m_IsJumping));
         if (Input.GetKey(KeyCode.Space) && m_IsGrounded && m_IsJumping == false)
         {
+            
             m_Velocity.y = jumpHeight;
             m_IsJumping = true;
         }

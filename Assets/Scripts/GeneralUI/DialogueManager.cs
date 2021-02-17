@@ -10,20 +10,20 @@ namespace GeneralUI
 {
     public class DialogueManager : MonoBehaviour
     {
-        public Text nameText;
-        public Text dialogueText;
+        public Text nameText, historicNameText;
+        public Text dialogueText, historicDialogueText;
 
-        public Animator animator;
+        public Animator animator, historicAnimator;
         [SerializeField] private bool mouseNeeded;
         [SerializeField] private bool pauseNeeded;
 
         [SerializeField] private GameState gameState;
 
+        [SerializeField] private Dialogue historicDialogue;
         [SerializeField] private int currentScene;
-
         private Queue<string> _sentences;
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
-        private bool _runningDialogue;
+        private bool _runningDialogue, _close;
 
         public bool endScene;
 
@@ -55,11 +55,38 @@ namespace GeneralUI
                 Cursor.lockState = CursorLockMode.None;
             DisplayNextSentence();
         }
+        
+        public void StartHistoricDialogue(Dialogue dialogue)
+        {
+            if (pauseNeeded)
+                gameState.SetPaused(true);
+            if (mouseNeeded)
+                gameState.SetMouseNeeded(true);
+            historicAnimator.SetBool(IsOpen, true);
+            historicNameText.text = dialogue.name;
+            _runningDialogue = true;
+
+            _sentences.Clear();
+
+            foreach (string sentence in historicDialogue.sentences)
+            {
+                _sentences.Enqueue(sentence);
+            }
+
+            if (mouseNeeded)
+                Cursor.lockState = CursorLockMode.None;
+            DisplayNextHistoricSentence();
+        }
 
         private void Update()
         {
-            if (_runningDialogue && Input.GetKeyDown(KeyCode.Space))
+            if (!_close && _runningDialogue && Input.GetKeyDown(KeyCode.Space))
                 DisplayNextSentence();
+            else if (_runningDialogue && Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("Ciao");
+                DisplayNextHistoricSentence();
+            }
         }
 
         public void DisplayNextSentence()
@@ -74,7 +101,31 @@ namespace GeneralUI
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
         }
+        
+        public void DisplayNextHistoricSentence()
+        {
+            if (_sentences.Count == 0)
+            {
+                EndDialogue();
+                return;
+            }
 
+            string sentence = _sentences.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeHistoricSentence(sentence));
+        }
+
+        
+        IEnumerator TypeHistoricSentence(string sentence)
+        {
+            historicDialogueText.text = "";
+            foreach (char letter in sentence)
+            {
+                historicDialogueText.text += letter;
+                yield return null;
+            }
+        }
+        
         IEnumerator TypeSentence(string sentence)
         {
             dialogueText.text = "";
@@ -89,6 +140,7 @@ namespace GeneralUI
         {
             _runningDialogue = false;
             animator.SetBool(IsOpen, false);
+            historicAnimator.SetBool(IsOpen, false);
             if (pauseNeeded)
                 gameState.SetPaused(false);
             if (mouseNeeded)
@@ -97,12 +149,20 @@ namespace GeneralUI
                     gameState.SetMouseNeeded(false);
                     Cursor.lockState = CursorLockMode.Locked;
                 }
+            
+            if (_close)
+            {
+                PlayerPrefs.SetInt("levelAt", currentScene);
+                
+                SceneManager.LoadScene("Scenes/Missioni");
+                Cursor.lockState = CursorLockMode.None;
+                return;
+            }
 
             if (endScene)
             {
-                PlayerPrefs.SetInt("levelAt", currentScene);
-                SceneManager.LoadScene("Scenes/Missioni");
-                Cursor.lockState = CursorLockMode.None;
+                _close = true;
+                StartHistoricDialogue(historicDialogue);
             }
         }
     }
