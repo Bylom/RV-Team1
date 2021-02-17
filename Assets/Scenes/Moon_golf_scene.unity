@@ -5866,7 +5866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: {fileID: 1195505454}
   dialogueTrigger: {fileID: 1195505457}
-  limit: 1
+  limit: 3
 --- !u!114 &1195505457
 MonoBehaviour:
   m_ObjectHideFlags: 0
