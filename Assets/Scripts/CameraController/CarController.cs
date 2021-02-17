@@ -54,11 +54,12 @@ namespace CameraController
 
         private void FixedUpdate()
         {
-            if(_firstDialogueCall)
+            if (_firstDialogueCall)
             {
                 _firstDialogueCall = false;
                 dialogueTrigger.TriggerDialogue();
             }
+
             GetInput();
             HandleMotor();
             HandleSteering();
@@ -152,6 +153,15 @@ namespace CameraController
             {
                 DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
                 dialogueManager.endScene = true;
+                dialogueTrigger.SetDialog(new Dialogue()
+                {
+                    name = "Mission control", sentences = new[]
+                    {
+                        "Good job, you reached the ball",
+                        "Those minerals look interesting, take some samples",
+                        "And don't forget the ball!"
+                    }
+                });
                 dialogueTrigger.TriggerDialogue();
                 //SceneManager.LoadScene("Scenes/Missioni");
                 Cursor.lockState = CursorLockMode.None;
