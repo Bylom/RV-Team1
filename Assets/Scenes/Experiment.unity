@@ -6118,7 +6118,7 @@ MonoBehaviour:
   dialogue:
     name: Mission
     sentences:
-    - Go to the inventory and take the objeckt
+    - Go to the inventory and take the objects
 --- !u!1 &1133121252
 GameObject:
   m_ObjectHideFlags: 0

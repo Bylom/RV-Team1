@@ -158,7 +158,7 @@ namespace CameraController
                     name = "Mission control", sentences = new[]
                     {
                         "Good job, you reached the ball",
-                        "Those minerals look interesting, take some samples",
+                        "Those minerals looks interesting, take some samples",
                         "And don't forget the ball!"
                     }
                 });
