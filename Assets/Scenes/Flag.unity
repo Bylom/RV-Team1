@@ -635,6 +635,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 67873c1f1a439a34c9da70beece333a8, type: 3}
     - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: sounds.Array.data[3].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
       propertyPath: sounds.Array.data[3].name
       value: Breathe
       objectReference: {fileID: 0}
@@ -651,16 +655,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 0.73
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
       propertyPath: sounds.Array.data[2].volume
-      value: 0.73
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
       propertyPath: sounds.Array.data[3].volume
-      value: 0.73
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 36080958474512702, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
       propertyPath: m_Name
@@ -7469,7 +7477,6 @@ MonoBehaviour:
   NearInvent: 0
   open: 0
   closed: 1
-  Camera: {fileID: 35708498}
   Counter: {fileID: 0}
   Hammer: {fileID: 0}
   Feather: {fileID: 0}

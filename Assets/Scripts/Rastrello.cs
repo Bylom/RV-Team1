@@ -16,6 +16,7 @@ public class Rastrello : MonoBehaviour
 
     public void Start()
     {
+        FindObjectOfType<AudioManager>().Play("Materials");
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 

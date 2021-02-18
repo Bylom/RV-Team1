@@ -23,7 +23,7 @@ public class CheckRibaltato : MonoBehaviour
     {
         if (collision.GetComponent<Terrain>() != null)
         {
-            Debug.Log("ribaltato");
+            FindObjectOfType<AudioManager>().Play("GameOver");
             image.CrossFadeAlpha(1, 2, false);
             StartCoroutine(Reload());
         }
@@ -31,8 +31,8 @@ public class CheckRibaltato : MonoBehaviour
 
     IEnumerator Reload()
     {
-        yield return new WaitForSeconds(4);
-        SceneManager.LoadScene(6);
+        yield return new WaitForSeconds(6);
+        SceneManager.LoadScene(5);
         
     }
 

@@ -12,6 +12,7 @@ public class BorderCollision : MonoBehaviour
             if (other.gameObject.CompareTag("Rover"))
             {
                 dialogueTrigger.TriggerDialogue();
+                FindObjectOfType<AudioManager>().Play("Where");
             }
         }
     }

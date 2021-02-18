@@ -8,7 +8,6 @@ using System.Collections.Generic;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-
     public static AudioManager instance;
 
     // Start is called before the first frame update
@@ -22,7 +21,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
 
         foreach (Sound s in sounds)
         {

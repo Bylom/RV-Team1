@@ -69,6 +69,9 @@ namespace Golf
                 };
                 dialogueTrigger.SetDialog(dialogue);
                 dialogueTrigger.TriggerDialogue();
+
+                FindObjectOfType<AudioManager>().Play("GoodShot");
+        
             }
         }
     }
