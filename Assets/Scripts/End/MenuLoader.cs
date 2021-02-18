@@ -12,7 +12,7 @@ public class MenuLoader : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            SceneManager.LoadScene(9);
+            SceneManager.LoadScene(0);
         }
     }
 }
