@@ -2090,8 +2090,8 @@ MonoBehaviour:
   dialogue:
     name: Border
     sentences:
-    - Attention please! Do not go so far, you could finish your oxygen. Follow the
-      right way on the selenographic compass.
+    - Attention please! Do not go so far, you could finish your oxygen. Follow the 
+      path of lights.
 --- !u!65 &364320510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5506,7 +5506,7 @@ MonoBehaviour:
   dialogue:
     name: Border
     sentences:
-    - The golf ball is in the opposite way. It is at N selenographic.
+    - 'The golf ball is in the opposite way. '
 --- !u!65 &1078055086
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6305,7 +6305,7 @@ MonoBehaviour:
     name: Border
     sentences:
     - Attention please! Do not go so far, you could finish your oxygen. Follow the
-      right way on the selenographic compass.
+      path of lights
 --- !u!65 &1295331141
 BoxCollider:
   m_ObjectHideFlags: 0
