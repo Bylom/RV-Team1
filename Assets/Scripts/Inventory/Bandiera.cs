@@ -66,10 +66,15 @@ public class Bandiera : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Player");
-            FindObjectOfType<AudioManager>().Play("Plant_Flag");
+            //FindObjectOfType<AudioManager>().Play("Plant_Flag");
             //press.text = "Press E to interact";
             //press.gameObject.SetActive(true);
             NearFlag = true;
+        }
+
+        if (other.gameObject.tag == "Flag")
+        {
+            FindObjectOfType<AudioManager>().Play("Plant_Flag");
         }
     }
     

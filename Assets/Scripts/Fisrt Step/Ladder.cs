@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using GeneralUI;
+using UnityEngine.SceneManagement;
 
 public class Ladder : MonoBehaviour
 {
@@ -20,7 +21,6 @@ public class Ladder : MonoBehaviour
     [SerializeField] private float mouseSensitivity = 120f;
     [SerializeField] private GameObject GroundCheck;
 
-
     private Animator m_Animator;
     private CharacterController m_CharacterController;
 
@@ -32,6 +32,8 @@ public class Ladder : MonoBehaviour
     private static readonly int Step = Animator.StringToHash("step");
 
     public Dialogue dialogue;
+
+    public DialogueTrigger dialogueTrigger;
 
     // Start is called before the first frame update
     void Start()
@@ -74,8 +76,7 @@ public class Ladder : MonoBehaviour
 
         if (m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Ladder_down") && (m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f))
         {
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-            UpdateAnimations();
+          //  FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
 
 
@@ -85,10 +86,10 @@ public class Ladder : MonoBehaviour
            
             StartCoroutine(MakeFirstStep());
             FindObjectOfType<AudioManager>().Play("FirstStep");
-        }
-
+        }  
 
     }
+    
 
     private void UpdateAnimations()
     {
@@ -96,13 +97,34 @@ public class Ladder : MonoBehaviour
         m_Animator.SetBool(Down, m_Down);
         m_Animator.SetBool(Step, m_Step);
     }
+    
+
 
     IEnumerator MakeFirstStep()
     {
         yield return new WaitForSeconds(1);
         m_Step = true;
-        yield return new WaitForSeconds(2);
+        UpdateAnimations();
+        DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+        dialogueManager.endScene = true;
+        dialogueTrigger.SetDialog(new Dialogue()
+        {
+            name = "Mission control",
+            sentences = new[]
+            {
+                        "Good job, you reached the ball",
+                        "Those minerals look interesting, take some samples",
+                        "And don't forget the ball!"
+                    }
+        });
+
+        dialogueTrigger.TriggerDialogue();
+        //SceneManager.LoadScene("Scenes/Missioni");
+        Cursor.lockState = CursorLockMode.None;
+
+        yield return new WaitForSeconds(3);
         BlackIm.CrossFadeAlpha(1, 2, false);
+        
     }
         
 

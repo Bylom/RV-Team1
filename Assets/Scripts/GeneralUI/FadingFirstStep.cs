@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using GeneralUI;
 
-public class FadeToBlack : MonoBehaviour
-{ 
+public class FadingFirstStep : MonoBehaviour
+{
     public Image BlackIm;
+    public Dialogue dialogue;
 
     void Start()
     {
         StartCoroutine(Attendi());
-        
+        FindObjectOfType<AudioManager>().Play("Landed");
+
     }
 
     void FadeIn()
@@ -21,8 +23,12 @@ public class FadeToBlack : MonoBehaviour
 
     IEnumerator Attendi()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(5);
         BlackIm.CrossFadeAlpha(0, 1, false);
+
+        yield return new WaitForSeconds(3);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<AudioManager>().Play("Proceed");
     }
 
 }

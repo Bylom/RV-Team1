@@ -519,6 +519,7 @@ MonoBehaviour:
   canvas: {fileID: 2012018768}
   firstUse: 0
   Slot1: 0
+  throw_obj: 0
   press: {fileID: 0}
   Palla: {fileID: 0}
   Mazza: {fileID: 0}
@@ -626,12 +627,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
       propertyPath: sounds.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
       propertyPath: sounds.Array.data[0].clip
       value: 
       objectReference: {fileID: 8300000, guid: 4e36e1909f301a0468dff1ad3ea0541c, type: 3}
+    - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: sounds.Array.data[0].loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
       propertyPath: sounds.Array.data[1].clip
       value: 
@@ -651,10 +656,10 @@ PrefabInstance:
     - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
       propertyPath: sounds.Array.data[3].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 4e36e1909f301a0468dff1ad3ea0541c, type: 3}
+      objectReference: {fileID: 8300000, guid: 67873c1f1a439a34c9da70beece333a8, type: 3}
     - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
       propertyPath: sounds.Array.data[3].name
-      value: Ambient
+      value: Breathe
       objectReference: {fileID: 0}
     - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
       propertyPath: sounds.Array.data[1].pitch
@@ -5592,9 +5597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlackIm: {fileID: 422165932}
-  dialogue:
-    name: 
-    sentences: []
 --- !u!114 &422165932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6999,6 +7001,9 @@ MonoBehaviour:
   Counter: {fileID: 0}
   Hammer: {fileID: 0}
   Feather: {fileID: 0}
+  canvas: {fileID: 0}
+  Sphere: {fileID: 0}
+  dialogueTrigger: {fileID: 0}
 --- !u!95 &677943816
 Animator:
   serializedVersion: 3
@@ -10219,7 +10224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.92
+      value: 18.64
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10227,7 +10232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.15
+      value: -9.95
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10401,6 +10406,7 @@ MonoBehaviour:
   canvas: {fileID: 2012018768}
   firstUse: 0
   Slot1: 0
+  throw_obj: 0
   press: {fileID: 2086666886}
   Palla: {fileID: 949609325}
   Mazza: {fileID: 949609325}
@@ -13445,7 +13451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999224531}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.6, y: 14.792644, z: 4.1}
+  m_LocalPosition: {x: 25.83, y: 14.792644, z: -28.93}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 808886061}
@@ -14475,31 +14481,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7409571305211889031, guid: cd1216d1027a1b940a29b3895bbe4959, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.688382
+      value: 0.7745869
       objectReference: {fileID: 0}
     - target: {fileID: 7409571305211889031, guid: cd1216d1027a1b940a29b3895bbe4959, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14357351
+      value: 0.13245887
       objectReference: {fileID: 0}
     - target: {fileID: 7409571305211889031, guid: cd1216d1027a1b940a29b3895bbe4959, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.69237757
+      value: -0.5908129
       objectReference: {fileID: 0}
     - target: {fileID: 7409571305211889031, guid: cd1216d1027a1b940a29b3895bbe4959, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.16164862
+      value: 0.18278393
       objectReference: {fileID: 0}
     - target: {fileID: 7409571305211889031, guid: cd1216d1027a1b940a29b3895bbe4959, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 24.93
+      value: 24.909
       objectReference: {fileID: 0}
     - target: {fileID: 7409571305211889031, guid: cd1216d1027a1b940a29b3895bbe4959, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: -72.893
       objectReference: {fileID: 0}
     - target: {fileID: 7409571305211889031, guid: cd1216d1027a1b940a29b3895bbe4959, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 1.5
+      value: 8.027
       objectReference: {fileID: 0}
     - target: {fileID: 7899249376317759293, guid: cd1216d1027a1b940a29b3895bbe4959, type: 3}
       propertyPath: m_Name
