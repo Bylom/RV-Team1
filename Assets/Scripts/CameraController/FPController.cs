@@ -107,14 +107,14 @@ public class FPController : MonoBehaviour
             if (Slot1 == true)
             {
                 goItem.SetActive(true);
-                goItem.transform.parent = hand.transform;
+                goItem.transform.parent = leftHand.transform;
                 //mCurrentItem1 = e.Item;
             }
 
             if (Slot1 == false)
             {
                 goItem.SetActive(true);
-                goItem.transform.parent = leftHand.transform;
+                goItem.transform.parent = hand.transform;
                 //mCurrentItem = e.Item;
                 Slot1 = true;
             }
@@ -140,11 +140,11 @@ public class FPController : MonoBehaviour
 
 
         var forward = transform.forward;
-        Palla.GetComponent<Palla>().Golf.AddForce(forward * 0.30f, ForceMode.Impulse);
+        Palla.GetComponent<Palla>().Golf.AddForce(forward * 0.35f, ForceMode.Impulse);
         Palla.GetComponent<Palla>().Golf.isKinematic = false;
         Palla.GetComponent<Palla>().coll_Golf.enabled = true;
         Palla.transform.parent = null;
-        Mazza.GetComponent<Mazza>().Mazza_Golf.AddForce(forward * 0.30f, ForceMode.Impulse);
+        Mazza.GetComponent<Mazza>().Mazza_Golf.AddForce(forward * 0.35f, ForceMode.Impulse);
         Mazza.GetComponent<Mazza>().Mazza_Golf.isKinematic = false;
         Mazza.GetComponent<Mazza>().coll_Mazza.enabled = true;
         Mazza.transform.parent = null;

@@ -17,7 +17,7 @@ public class ItemClickHandler : MonoBehaviour
 
         Debug.Log(item.Name);
 
-        transform.parent = null;
+        transform.Find("Image").gameObject.SetActive(false);
 
         _Inventory.UseItem(item);
 
