@@ -11,7 +11,7 @@ public class GameMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(9);
     }
 
     public void ExitGame()

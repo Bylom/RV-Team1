@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Introduzione.unity
-    guid: ac8502f0920fb854b8483de0c68b2170
+    path: Assets/Scenes/MainMenu.unity
+    guid: 6dd3e51340a1b17488022493723151bc
   - enabled: 1
     path: Assets/Scenes/First_Step.unity
     guid: 3cc94f3afcf658f49ba9d8694fe6b6ef
@@ -33,8 +33,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Missioni.unity
     guid: 808417865b3cc814d8387281c59353b5
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 6dd3e51340a1b17488022493723151bc
+    path: Assets/Scenes/Introduzione.unity
+    guid: ac8502f0920fb854b8483de0c68b2170
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
