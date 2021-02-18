@@ -25,7 +25,10 @@ public class FadeToBlack : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         BlackIm.CrossFadeAlpha(0, 1, false);
+        
+        yield return new WaitForSeconds(3);
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<AudioManager>().Play("Proceed");
     }
 
 }

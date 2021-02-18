@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using GeneralUI;
 
 public class Ladder : MonoBehaviour
 {
-   
-    public float smoothFactor = 100f;
+    public GameObject armature;
+    public Image BlackIm;
 
     private float horizontalInput;
     private float verticalInput;
@@ -19,19 +20,14 @@ public class Ladder : MonoBehaviour
     [SerializeField] private float mouseSensitivity = 120f;
     [SerializeField] private GameObject GroundCheck;
 
-    public Vector3 targetPosition;
 
     private Animator m_Animator;
     private CharacterController m_CharacterController;
-    public GameObject astronaut;
 
     private bool m_Down;
     private bool m_Step;
     private bool m_Wait;
-    private bool shouldMove;
-    private bool lookDown;
-    private int controllo;
-
+    private bool change;
     private static readonly int Down = Animator.StringToHash("down");
     private static readonly int Step = Animator.StringToHash("step");
 
@@ -42,7 +38,6 @@ public class Ladder : MonoBehaviour
     {
         m_CharacterController = GetComponent<CharacterController>();
         m_Animator = GetComponent<Animator>();
-        shouldMove = true;
     }
 
     void Update()
@@ -54,108 +49,64 @@ public class Ladder : MonoBehaviour
         m_CameraXRotation -= mouseY;
         m_CameraYRotation += mouseX;
 
-        if (lookDown)
-        {
-            camera2.enabled = true;
-            camera1.enabled = false;
-        }
-        else
+        m_CameraXRotation = Mathf.Clamp(m_CameraXRotation, -30, 40);
+        m_CameraYRotation = Mathf.Clamp(m_CameraYRotation, -60, 60);
+        cameraT.localRotation = Quaternion.Euler(m_CameraXRotation, m_CameraYRotation, 0f);
+
+        if (!change)
         {
             camera1.enabled = true;
             camera2.enabled = false;
         }
-
-        m_CameraXRotation = Mathf.Clamp(m_CameraXRotation, -30, 40);
-        m_CameraYRotation = Mathf.Clamp(m_CameraYRotation, 15, 125);
-        cameraT.localRotation = Quaternion.Euler(m_CameraXRotation, m_CameraYRotation, 0f);
-
-        //Movement
-        if (shouldMove)
+        else
         {
-            float translation = Input.GetAxis("Vertical");
-            translation *= Time.deltaTime / 2;
-            transform.Translate(0, translation, 0);
+            camera2.enabled = true;
+            camera1.enabled = false;
         }
 
+
         //Animation
-        if (shouldMove && Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             m_Down = true;
             UpdateAnimations();
         }
 
+        if (m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Ladder_down") && (m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f))
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            UpdateAnimations();
+        }
+
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            change = true;
+           
+            StartCoroutine(MakeFirstStep());
+            FindObjectOfType<AudioManager>().Play("FirstStep");
+        }
+
+
     }
 
     private void UpdateAnimations()
     {
+        camera1.transform.parent = armature.transform;
         m_Animator.SetBool(Down, m_Down);
         m_Animator.SetBool(Step, m_Step);
     }
 
-    private void OnTriggerStay(Collider coll)
+    IEnumerator MakeFirstStep()
     {
-
-        if (coll.gameObject.CompareTag("Check"))
-        {
-            m_Down = false;
-            transform.Translate(0, 0, 0);
-            m_Animator.gameObject.GetComponent<Animator>().enabled = false;
-            shouldMove = false;
-            MakeFirstStep(coll);
-        }
+        yield return new WaitForSeconds(1);
+        m_Step = true;
+        yield return new WaitForSeconds(2);
+        BlackIm.CrossFadeAlpha(1, 2, false);
     }
-
-    private void MakeFirstStep(Collider coll)
-    {
-        if (controllo < 500)
-        {
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-            controllo++;
-        }
-       
-        //audio manager: surface
+        
 
 
 
-        if (Input.GetKey(KeyCode.E) && !Input.GetKey(KeyCode.S))
-        {
-            //camera switch
-            lookDown = true;
-        }
 
-        if (lookDown && Input.GetKey(KeyCode.S))
-        {
-            coll.gameObject.SetActive(false);
-            m_Step = true;
-            UpdateAnimations();
-            Attendi();
-            //audio: one step for a man
-            //END
-        }
-
-    }
-
-    private void OnCollisionEnter(Collision ground)
-    {
-        if (ground.gameObject.CompareTag("Ground"))
-        {
-            m_Down = false;
-            transform.Translate(0, 0, 0);
-            shouldMove = false;
-            
-        }
-    }
-
-    private void Attendi()
-    {
-        shouldMove = true;
-        Debug.Log("hellooooo");
-        float translation = Input.GetAxis("Vertical");
-        translation *= Time.deltaTime * 1000;
-        Debug.Log(translation);
-        transform.Translate(0, translation, 0);
-    }
-
-
-  
 }
