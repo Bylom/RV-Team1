@@ -2510,6 +2510,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4516938037873608904, guid: fcbbac6d17cfb414ca8e7bd6746cdd47, type: 3}
   m_PrefabInstance: {fileID: 259155954}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &429887221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429887220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3d1b2fc7ee3c642858b9804b79ffd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTime: 600
+  dialogueTrigger: {fileID: 429887222}
+--- !u!114 &429887222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429887220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6788aa0eaf3b57c439ba52ba80dec20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Die
+    sentences:
+    - You're running out of oxygen, be careful
 --- !u!114 &429887224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8013,6 +8043,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlackIm: {fileID: 1604618617}
+  dialogue:
+    name: 
+    sentences: []
 --- !u!114 &1604618617
 MonoBehaviour:
   m_ObjectHideFlags: 0

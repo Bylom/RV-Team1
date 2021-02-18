@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Serialization;
+using GeneralUI;
 
 public class Inventory_Opener : MonoBehaviour
 {
@@ -19,6 +21,11 @@ public class Inventory_Opener : MonoBehaviour
 
     public MeshRenderer Hammer;
     public MeshRenderer Feather;
+
+    public GameObject canvas;
+    public GameObject Sphere;
+
+    [SerializeField] private DialogueTrigger dialogueTrigger;
 
     private void Start()
     {
@@ -40,6 +47,7 @@ public class Inventory_Opener : MonoBehaviour
                     Cursor.visible = true;
                     Hammer.enabled = true;
                     Feather.enabled = true;
+                    canvas.GetComponent<DialogueManager>().DisplayNextSentence();
                 }
             }
             if (open)
@@ -57,6 +65,8 @@ public class Inventory_Opener : MonoBehaviour
             }
         }
     }
+
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -89,6 +99,8 @@ public class Inventory_Opener : MonoBehaviour
         yield return new WaitForSeconds(3);
         open = false;
         closed = true;
+        dialogueTrigger.TriggerDialogue();
+        Sphere.SetActive(true);
     }
 
     IEnumerator WaitForSec3()

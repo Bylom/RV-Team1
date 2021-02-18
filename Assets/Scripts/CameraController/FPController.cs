@@ -52,6 +52,7 @@ public class FPController : MonoBehaviour
     [FormerlySerializedAs("Canvas")] public GameObject canvas;
     public bool firstUse = false;
     public bool Slot1 = false;
+    public bool throw_obj = false;
     public Text press;
     private static readonly int Speed = Animator.StringToHash("speed");
     private static readonly int Run = Animator.StringToHash("run");
@@ -163,7 +164,7 @@ public class FPController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (mCurrentItem != null && Input.GetKey(KeyCode.Mouse1))
+        if (mCurrentItem != null && Input.GetKey(KeyCode.Mouse1) && throw_obj == true)
         {
             DropCurrentItem();
         }
@@ -260,6 +261,10 @@ public class FPController : MonoBehaviour
                 inventoryVar.NearInventory = true;
         }
 
+        if (collision.gameObject.CompareTag("Sphere"))
+        {
+            throw_obj = true;
+        }
     }
 
     void OnTriggerExit(Collider collision)
@@ -271,6 +276,10 @@ public class FPController : MonoBehaviour
             var inventoryVar = canvas.GetComponent<InventorySlot>();
             if(!(inventoryVar is null))
                 inventoryVar.NearInventory = false;
+        }
+        if (collision.gameObject.CompareTag("Sphere"))
+        {
+            throw_obj = false;
         }
     }
 

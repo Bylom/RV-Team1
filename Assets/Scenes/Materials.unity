@@ -9724,6 +9724,7 @@ MonoBehaviour:
   maxX: 80
   sasso: {fileID: 1955921374}
   non_sasso: {fileID: 2057096100}
+  canTake: 1
   inventory: {fileID: 1083944903}
   hand: {fileID: 2127896413}
   leftHand: {fileID: 0}
@@ -9731,9 +9732,24 @@ MonoBehaviour:
   canvas: {fileID: 446059857}
   firstUse: 0
   Slot1: 0
+  throw_obj: 0
   press: {fileID: 0}
   Palla: {fileID: 0}
   Mazza: {fileID: 0}
+--- !u!114 &2027001622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027001619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3d1b2fc7ee3c642858b9804b79ffd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTime: 600
+  dialogueTrigger: {fileID: 2027001625}
 --- !u!143 &2027001623
 CharacterController:
   m_ObjectHideFlags: 0
@@ -9765,6 +9781,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.47, y: 0.23, z: 0.46}
   m_Center: {x: 0.12, y: 0.13, z: 0.7}
+--- !u!114 &2027001625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027001619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6788aa0eaf3b57c439ba52ba80dec20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Die
+    sentences:
+    - You're running out of oxygen, be careful
 --- !u!1 &2030859601
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using GeneralUI;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -24,6 +27,10 @@ public class Bandiera : MonoBehaviour
     public Vector3 PickPosition;
     public Vector3 PickRotation;
 
+
+    [SerializeField] private DialogueTrigger dialogueTrigger;
+    private bool _firstDialogueCall = true;
+
     public void Start()
     {
         Band = GetComponent<Rigidbody>();
@@ -44,8 +51,17 @@ public class Bandiera : MonoBehaviour
             }
         }
     }
-    
-    private void OnTriggerEnter(Collider other)
+
+    private void FixedUpdate()
+    {
+        if (_firstDialogueCall)
+        {
+            _firstDialogueCall = false;
+            dialogueTrigger.TriggerDialogue();
+        }
+    }
+
+        private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {

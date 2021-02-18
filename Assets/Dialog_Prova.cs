@@ -9,7 +9,6 @@ public class Dialog_Prova : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Dialogo");
             dialogueTrigger.TriggerDialogue();
         }
     }

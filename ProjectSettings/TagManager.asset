@@ -11,6 +11,9 @@ TagManager:
   - Ground
   - Rock
   - Check
+  - Rover
+  - Border
+  - Sphere
   layers:
   - Default
   - TransparentFX
