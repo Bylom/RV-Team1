@@ -47,7 +47,6 @@ public class HUD : MonoBehaviour
         foreach (Transform slot in inventorySlot)
         {
             //index++;
-
             Transform imageTransform = slot.GetChild(0).GetChild(0);
             Image image = imageTransform.GetComponent<Image>();
             ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();

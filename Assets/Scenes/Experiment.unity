@@ -2792,6 +2792,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557165967}
   m_CullTransparentMesh: 0
+--- !u!114 &558038159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5291706985186647263, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+  m_PrefabInstance: {fileID: 290327099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &560467842
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,6 +3017,17 @@ MonoBehaviour:
   lookTarget: {fileID: 942388803}
   mov: {fileID: 1941795921}
   cam: {fileID: 1172153219}
+--- !u!114 &575508089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5291706985227604217, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+  m_PrefabInstance: {fileID: 290327099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &590600870
 GameObject:
   m_ObjectHideFlags: 0
@@ -6184,7 +6206,8 @@ MonoBehaviour:
   maxX: 30
   sasso: {fileID: 465120827}
   non_sasso: {fileID: 465120827}
-  canTake: 1
+  canTake: 0
+  finalDialogue: {fileID: 1710546838}
   inventory: {fileID: 1030958479}
   hand: {fileID: 1172153216}
   leftHand: {fileID: 130711717}
@@ -9312,6 +9335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1710546836}
   - component: {fileID: 1710546837}
+  - component: {fileID: 1710546838}
   m_Layer: 5
   m_Name: DialogManager
   m_TagString: Untagged
@@ -9351,19 +9375,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 1247904997}
-  historicNameText: {fileID: 1247904997}
+  historicNameText: {fileID: 575508089}
   dialogueText: {fileID: 1247904996}
-  historicDialogueText: {fileID: 1247904996}
+  historicDialogueText: {fileID: 558038159}
   animator: {fileID: 1247904995}
   historicAnimator: {fileID: 290327100}
   mouseNeeded: 0
   pauseNeeded: 1
   gameState: {fileID: 987436930}
   historicDialogue:
-    name: 
-    sentences: []
-  currentScene: 0
+    name: Historic hint
+    sentences:
+    - "Apollo15 Lunar Landing: Feb. 5, 1971 \r\nAt the end of the final EVA, Scott
+      performed a televised sequel to the experiment Galileo is purported to have
+      conducted at the Tower of Pisa. \r\nHe dropped a hammer and a feather together
+      in the lunar vacuum and observed that they struck the ground at the same time."
   endScene: 0
+--- !u!114 &1710546838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710546835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6788aa0eaf3b57c439ba52ba80dec20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Mission control
+    sentences:
+    - That proves that Mr. Galileo was correct in his findings.
 --- !u!1 &1768221386
 GameObject:
   m_ObjectHideFlags: 0

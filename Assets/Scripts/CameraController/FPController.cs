@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using System.Collections;
+using GeneralUI;
 using UnityEngine.SceneManagement;
 
 public class FPController : MonoBehaviour
@@ -44,7 +45,8 @@ public class FPController : MonoBehaviour
     [SerializeField] private GameObject sasso;
     [SerializeField] private GameObject non_sasso;
     [SerializeField] private bool canTake = true;
-
+    [SerializeField] private DialogueTrigger finalDialogue;
+    
     public Inventory inventory;
     [FormerlySerializedAs("Hand")] public GameObject hand;
     [FormerlySerializedAs("leftHand")] public GameObject leftHand;
@@ -58,7 +60,7 @@ public class FPController : MonoBehaviour
     private static readonly int Run = Animator.StringToHash("run");
     private static readonly int Jump = Animator.StringToHash("jump");
     private static readonly int Take = Animator.StringToHash("take");
-
+    
     public GameObject Palla;
     public GameObject Mazza;
 
@@ -152,8 +154,10 @@ public class FPController : MonoBehaviour
 
     IEnumerator WaitForSec()
     {
-        yield return new WaitForSeconds(10);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        yield return new WaitForSeconds(3);
+        FindObjectOfType<DialogueManager>().endScene = true;
+        finalDialogue.TriggerDialogue();
+        
     }
 
     public void DoDropItem()
@@ -164,7 +168,7 @@ public class FPController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (mCurrentItem != null && Input.GetKey(KeyCode.Mouse1) && throw_obj == true)
+        if (mCurrentItem != null && Input.GetKey(KeyCode.Mouse1) && throw_obj)
         {
             DropCurrentItem();
         }

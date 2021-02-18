@@ -414,6 +414,7 @@ MonoBehaviour:
   sasso: {fileID: 0}
   non_sasso: {fileID: 0}
   canTake: 0
+  finalDialogue: {fileID: 0}
   inventory: {fileID: 405971923}
   hand: {fileID: 0}
   leftHand: {fileID: 0}
@@ -10564,6 +10565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1298573779}
   - component: {fileID: 1298573780}
+  - component: {fileID: 1298573781}
   m_Layer: 5
   m_Name: DialogManager
   m_TagString: Untagged
@@ -10603,19 +10605,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 611157263}
-  historicNameText: {fileID: 611157263}
+  historicNameText: {fileID: 1692624440}
   dialogueText: {fileID: 611157262}
-  historicDialogueText: {fileID: 611157262}
+  historicDialogueText: {fileID: 1692624441}
   animator: {fileID: 611157261}
-  historicAnimator: {fileID: 1314941937}
+  historicAnimator: {fileID: 1692624442}
   mouseNeeded: 0
   pauseNeeded: 0
   gameState: {fileID: 1242401825}
   historicDialogue:
-    name: 
-    sentences: []
-  currentScene: 0
+    name: Historic hint
+    sentences:
+    - "Minutes after landing on the moon on July 21, 1969, US astronauts Neil Armstrong
+      and Buzz Aldrin of the Apollo 11 mission planted the United States flag on
+      the lunar surface in what became\r\none of the most famous moments of space
+      exploration. The one used by the astronauts was the first of six flags designed
+      and produced by a team of experts specifically for that and \r\nsubsequent
+      NASA missions to the Moon.\r\nifty years ago this week, Apollo 11 astronauts
+      Neil Armstrong and Buzz Aldrin took their first steps on the Moon and raised
+      an American flag at the landing site. \r\nEvery Apollo crew after them followed
+      suit. But the story of the flags on the Moon, starting with Apollo 11, is a
+      complicated mix of engineering, politics, and symbolism\r"
   endScene: 0
+--- !u!114 &1298573781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298573778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6788aa0eaf3b57c439ba52ba80dec20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Mission control
+    sentences:
+    - This is a great day for Politecnico!
 --- !u!1001 &1314941936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10729,11 +10756,6 @@ PrefabInstance:
       objectReference: {fileID: 12800000, guid: da5fd59e68e304580baa04004012a28f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
---- !u!95 &1314941937 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5291706984288349177, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
-  m_PrefabInstance: {fileID: 1314941936}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1379849850
 GameObject:
   m_ObjectHideFlags: 0
@@ -11171,6 +11193,7 @@ MonoBehaviour:
   sasso: {fileID: 1480038693}
   non_sasso: {fileID: 1480038693}
   canTake: 0
+  finalDialogue: {fileID: 1298573781}
   inventory: {fileID: 405971923}
   hand: {fileID: 1453657441}
   leftHand: {fileID: 1453657441}
@@ -11238,6 +11261,7 @@ MonoBehaviour:
   putFlag: 0
   bandiera: {fileID: 1031016675}
   Event_flag: {fileID: 919132148977970574}
+  finalTrigger: {fileID: 1298573781}
 --- !u!114 &1453657448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12400,6 +12424,130 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679772963}
   m_CullTransparentMesh: 0
+--- !u!1001 &1692624439
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2012018764}
+    m_Modifications:
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1402.7028
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 835.2329
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -62
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291706984288349157, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+      propertyPath: m_Name
+      value: HistoricalHintDialog (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+--- !u!114 &1692624440 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5291706985227604217, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+  m_PrefabInstance: {fileID: 1692624439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1692624441 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5291706985186647263, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+  m_PrefabInstance: {fileID: 1692624439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1692624442 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5291706984288349177, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
+  m_PrefabInstance: {fileID: 1692624439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1697679492
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using General;
@@ -20,7 +19,6 @@ namespace GeneralUI
         [SerializeField] private GameState gameState;
 
         [SerializeField] private Dialogue historicDialogue;
-        [SerializeField] private int currentScene;
         private Queue<string> _sentences;
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
         private bool _runningDialogue, _close;
@@ -152,7 +150,7 @@ namespace GeneralUI
             
             if (_close)
             {
-                PlayerPrefs.SetInt("levelAt", currentScene);
+                PlayerPrefs.SetInt("levelAt", SceneManager.GetActiveScene().buildIndex);
                 
                 SceneManager.LoadScene("Scenes/Missioni");
                 Cursor.lockState = CursorLockMode.None;

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using GeneralUI;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,8 @@ public class Flag : MonoBehaviour
     public Rigidbody bandiera;
     public GameObject Event_flag;
     float m_ScaleX, m_ScaleY, m_ScaleZ;
+    [SerializeField] private DialogueTrigger finalTrigger;
+    private static readonly int Flag1 = Animator.StringToHash("Flag");
 
     void Start()
     {
@@ -28,7 +31,7 @@ public class Flag : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                animator.SetBool("Flag", true);
+                animator.SetBool(Flag1, true);
                 isFlag = false;
                 //testo.gameObject.SetActive(false);
                 Event_flag.GetComponent<Bandiera>().coll.size = new Vector3(m_ScaleX, m_ScaleY, m_ScaleZ);
@@ -40,7 +43,7 @@ public class Flag : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Flag")
+        if (collision.gameObject.CompareTag("Flag"))
         {
             //testo.text = "Press E per piantare la bandiera";
             //testo.gameObject.SetActive(true);
@@ -51,7 +54,7 @@ public class Flag : MonoBehaviour
 
     void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.tag == "Flag")
+        if (collision.gameObject.CompareTag("Flag"))
         {
             testo.gameObject.SetActive(false);
         }
@@ -70,9 +73,8 @@ public class Flag : MonoBehaviour
     }
     IEnumerator WaitForSec2()
     {
-        yield return new WaitForSeconds(10);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //Event_flag.GetComponent<Bandiera>().coll.enabled = true;
-        //Event_flag.GetComponent<Bandiera>().coll.isTrigger = false;
+        yield return new WaitForSeconds(3);
+        FindObjectOfType<DialogueManager>().endScene = true;
+        finalTrigger.TriggerDialogue();
     }
 }
