@@ -135,7 +135,7 @@ namespace GeneralUI
             }
         }
 
-        void EndDialogue()
+        public void EndDialogue()
         {
             _runningDialogue = false;
             animator.SetBool(IsOpen, false);

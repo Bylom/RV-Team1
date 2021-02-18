@@ -15,9 +15,8 @@ public class RockCount : MonoBehaviour
     public GameObject[] inseriti;
     public Dialogue dialogue;
     public Dialogue dialogueBall;
-    public Dialogue dialogueFinish;
 
-    public DialogueTrigger dialogueTrigger;
+    public DialogueTrigger dialogueTrigger, dialogueFinish;
 
     private static readonly int Open = Animator.StringToHash("Open");
 
@@ -36,17 +35,11 @@ public class RockCount : MonoBehaviour
         opening = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerStay(Collider rock)
     {
         if (rock!= null && rock.gameObject.CompareTag("Rock"))
         {
-            opening.SetBool("Open", true);
+            opening.SetBool(Open, true);
 
             if (Input.GetKey(KeyCode.E))
             {
@@ -55,7 +48,9 @@ public class RockCount : MonoBehaviour
                 rockCount++;
                 if (rockCount == 1) 
                 {
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    dialogueTrigger.SetDialog(dialogue);
+                    dialogueTrigger.TriggerDialogue();
+                    // FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                 }
             }
         }
@@ -63,14 +58,15 @@ public class RockCount : MonoBehaviour
         if (rock!= null && rock.gameObject.CompareTag("Palla"))
         {
            
-            opening.SetBool("Open", true);
+            opening.SetBool(Open, true);
 
             if (Input.GetKey(KeyCode.E))
             {
                 rock.gameObject.SetActive(false);
                 inseriti[5].SetActive(true);
                 ballCount++;
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogueBall);
+                dialogueTrigger.SetDialog(dialogueBall);
+                dialogueTrigger.TriggerDialogue();
             }
         }
 
@@ -78,7 +74,7 @@ public class RockCount : MonoBehaviour
         {
             var dialogueManager = FindObjectOfType<DialogueManager>();
             dialogueManager.endScene = true;
-            dialogueManager.StartHistoricDialogue(dialogueFinish);
+            dialogueFinish.TriggerDialogue();
             ballCount++;
         }
 

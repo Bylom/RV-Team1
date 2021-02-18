@@ -4105,8 +4105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 
-    sentences: []
+    name: Mission control
+    sentences:
+    - 
 --- !u!114 &886035416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4136,10 +4137,8 @@ MonoBehaviour:
     name: Mission Control
     sentences:
     - Great! Let's try not to leave waste here too...
-  dialogueFinish:
-    name: 
-    sentences: []
   dialogueTrigger: {fileID: 886035415}
+  dialogueFinish: {fileID: 1474117840}
 --- !u!65 &886035417
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6774,6 +6773,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470622236}
   m_CullTransparentMesh: 0
+--- !u!1 &1474117839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5423928868525626810, guid: 513bf740134da654f8812b5eae2e4d16, type: 3}
+  m_PrefabInstance: {fileID: 1813973169}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1474117840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474117839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6788aa0eaf3b57c439ba52ba80dec20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Mission control
+    sentences:
+    - Excellent! Our mission is complete!
 --- !u!1 &1509067357
 GameObject:
   m_ObjectHideFlags: 0
@@ -8608,22 +8628,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8896012425622142803, guid: 513bf740134da654f8812b5eae2e4d16, type: 3}
       propertyPath: historicDialogue.sentences.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8896012425622142803, guid: 513bf740134da654f8812b5eae2e4d16, type: 3}
       propertyPath: historicDialogue.sentences.Array.data[0]
-      value: Excellent! Our mission is comlete!
+      value: "apollo 15 Lunar Landing: Feb. 5, 1971 \r\nAmong the rocks they collected,
+        there was one that was later dubbed the \u201CGenesis Rock.\u201D It was
+        a very pure specimen of anorthosite, a type of rock believed to have floated
+        like icebergs in the magma oceans that constituted the Moon\u2019s outer
+        layers early in its history. It was found to be more than 4 billion years
+        old and was the most ancient whole rock recovered from the lunar surface
+        to that point. The prospect of finding such rocks was one reason the landing
+        site had been selected.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8896012425622142803, guid: 513bf740134da654f8812b5eae2e4d16, type: 3}
       propertyPath: historicDialogue.sentences.Array.data[1]
-      value: "aterials apollo 15 Lunar Landing: Feb. 5, 1971 \r\nAmong the rocks
-        they collected, there was one that was later dubbed the \u201CGenesis Rock.\u201D
-        It was a very pure specimen of anorthosite, a type of rock believed to have
-        floated like icebergs in the magma oceans that constituted the Moon\u2019s
-        outer layers early in its history. It was found to be more than 4 billion
-        years old and was the most ancient whole rock recovered from the lunar surface
-        to that point. The prospect of finding such rocks was one reason the landing
-        site had been selected.\r\n"
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 513bf740134da654f8812b5eae2e4d16, type: 3}
