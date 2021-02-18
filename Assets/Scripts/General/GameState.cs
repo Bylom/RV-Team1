@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace General
 {
@@ -31,6 +33,18 @@ namespace General
                 _mouseNeeded += 1;
             else if (_mouseNeeded > 0)
                 _mouseNeeded -= 1;
+        }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.F5))
+            {
+                PlayerPrefs.SetInt("levelAt", SceneManager.GetActiveScene().buildIndex);
+                
+                SceneManager.LoadScene("Scenes/Missioni");
+                Cursor.lockState = CursorLockMode.None;
+                return;
+            }
         }
     }
 }
