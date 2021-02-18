@@ -73,7 +73,7 @@ public class Flag : MonoBehaviour
     }
     IEnumerator WaitForSec2()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(7);
         FindObjectOfType<DialogueManager>().endScene = true;
         finalTrigger.TriggerDialogue();
     }

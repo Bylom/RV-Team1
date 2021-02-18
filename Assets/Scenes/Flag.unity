@@ -6106,7 +6106,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429948465}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -11229,7 +11229,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -11255,7 +11255,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1453657447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14320,6 +14320,18 @@ PrefabInstance:
       propertyPath: dialogueTrigger
       value: 
       objectReference: {fileID: 919132148977970575}
+    - target: {fileID: 7016235095495828055, guid: cd1216d1027a1b940a29b3895bbe4959, type: 3}
+      propertyPath: m_Center.x
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7016235095495828055, guid: cd1216d1027a1b940a29b3895bbe4959, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7016235095495828055, guid: cd1216d1027a1b940a29b3895bbe4959, type: 3}
+      propertyPath: m_Center.z
+      value: -0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7409571305211889031, guid: cd1216d1027a1b940a29b3895bbe4959, type: 3}
       propertyPath: m_RootOrder
       value: 5
