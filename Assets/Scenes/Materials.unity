@@ -9414,9 +9414,11 @@ MonoBehaviour:
   jumpHeight: 2
   minX: 0
   maxX: 80
+  gameState: {fileID: 793512446}
   sasso: {fileID: 1955921374}
   non_sasso: {fileID: 2057096100}
   canTake: 1
+  finalDialogue: {fileID: 0}
   inventory: {fileID: 1083944903}
   hand: {fileID: 2127896413}
   leftHand: {fileID: 0}
@@ -9428,6 +9430,7 @@ MonoBehaviour:
   press: {fileID: 0}
   Palla: {fileID: 0}
   Mazza: {fileID: 0}
+  canJump: 1
 --- !u!114 &2027001622
 MonoBehaviour:
   m_ObjectHideFlags: 0
