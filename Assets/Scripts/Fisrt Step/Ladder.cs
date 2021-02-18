@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using General;
 using UnityEngine;
 using UnityEngine.UI;
 using GeneralUI;
@@ -19,7 +20,7 @@ public class Ladder : MonoBehaviour
     [SerializeField] public Camera camera1;
     [SerializeField] public Camera camera2;
     [SerializeField] private float mouseSensitivity = 120f;
-    [SerializeField] private GameObject GroundCheck;
+    [SerializeField] private GameState gameState;
 
     private Animator m_Animator;
     private CharacterController m_CharacterController;
@@ -42,6 +43,7 @@ public class Ladder : MonoBehaviour
     {
         m_CharacterController = GetComponent<CharacterController>();
         m_Animator = GetComponent<Animator>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -56,6 +58,7 @@ public class Ladder : MonoBehaviour
         m_CameraXRotation = Mathf.Clamp(m_CameraXRotation, -30, 40);
         m_CameraYRotation = Mathf.Clamp(m_CameraYRotation, -60, 60);
         cameraT.localRotation = Quaternion.Euler(m_CameraXRotation, m_CameraYRotation, 0f);
+        if (gameState.GetPaused()) return;
 
         if (!change)
         {

@@ -16,7 +16,6 @@ public class Inventory_Opener : MonoBehaviour
     public bool open = false;
     public bool closed = true;
 
-    public GameObject Camera;
     public GameObject Counter;
 
     public MeshRenderer Hammer;
@@ -26,6 +25,10 @@ public class Inventory_Opener : MonoBehaviour
     public GameObject Sphere;
 
     [SerializeField] private DialogueTrigger dialogueTrigger;
+    [SerializeField] private Animator playerAnimator;
+    private static readonly int Open = Animator.StringToHash("Open");
+    private static readonly int Speed = Animator.StringToHash("speed");
+    private static readonly int Run = Animator.StringToHash("run");
 
     private void Start()
     {
@@ -41,22 +44,23 @@ public class Inventory_Opener : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.E))
                 {
-                    animator.SetBool("Open", true);
+                    playerAnimator.SetFloat(Speed, 0);
+                    playerAnimator.SetBool(Run, false);
+                    animator.SetBool(Open, true);
                     StartCoroutine("WaitForSec");
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
                     Hammer.enabled = true;
                     Feather.enabled = true;
-                    canvas.GetComponent<DialogueManager>().DisplayNextSentence();
                 }
             }
             if (open)
             {
-                if(Counter.GetComponent<Counter>().go == true)
+                if(Counter.GetComponent<Counter>().go)
                 {
                     if (Input.GetKey(KeyCode.E))
                     {
-                        animator.SetBool("Open", false);
+                        animator.SetBool(Open, false);
                         StartCoroutine("WaitForSec2");
                         Cursor.lockState = CursorLockMode.Locked;
                     }
@@ -70,7 +74,7 @@ public class Inventory_Opener : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             //testo.text = "Press I to interact";
             //testo.gameObject.SetActive(true);
@@ -79,7 +83,7 @@ public class Inventory_Opener : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             //testo.gameObject.SetActive(false);
             NearInvent = false;

@@ -705,7 +705,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1258309426}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1958,7 +1958,7 @@ MonoBehaviour:
   camera1: {fileID: 1843285414}
   camera2: {fileID: 1421410085}
   mouseSensitivity: 90
-  GroundCheck: {fileID: 366864790}
+  gameState: {fileID: 2080755688}
   dialogue:
     name: Mission Control
     sentences:
@@ -6104,13 +6104,10 @@ MonoBehaviour:
 
       The mission, leaded by Neil
       Armstrong, conducted the first crewed landing on the Moon, took photographs,
-      collected samples and returned the crew safely back home.
-
-      Firsts'
+      collected samples and returned the crew safely back home.'
     - "The first words spoken from the surface of another world: \"Houston, Tranquility
       Base here. The Eagle has landed.\" \nAnd then, the famous quote: \"One small
-      step for a man, one gian leap for mankind\"\n\n\n\n\n"
-  currentScene: 1
+      step for a man, one gian leap for mankind\"\n"
   endScene: 0
 --- !u!1 &1630372313
 GameObject:
@@ -6785,7 +6782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5291706984288349156, guid: 18fff880febc17e4c97e354389b133ab, type: 3}
       propertyPath: m_AnchorMax.x

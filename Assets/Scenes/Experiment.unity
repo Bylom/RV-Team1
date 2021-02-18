@@ -5504,7 +5504,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!23 &1077704942 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 6877476350376008592, guid: b4d8874c606b141978b4390d8e28d0f8, type: 3}
@@ -5921,7 +5921,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!23 &1140784118 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2720331696120627517, guid: 7bd4eea22b7a247bc923cb6ab52ac934, type: 3}
@@ -6204,6 +6204,7 @@ MonoBehaviour:
   jumpHeight: 3
   minX: -60
   maxX: 30
+  gameState: {fileID: 987436930}
   sasso: {fileID: 465120827}
   non_sasso: {fileID: 465120827}
   canTake: 0
@@ -6219,6 +6220,7 @@ MonoBehaviour:
   press: {fileID: 2108381714}
   Palla: {fileID: 1077704938}
   Mazza: {fileID: 1140784114}
+  canJump: 0
 --- !u!143 &1172153220
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6267,6 +6269,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTime: 600
   dialogueTrigger: {fileID: 1172153221}
+--- !u!95 &1172153223 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
+  m_PrefabInstance: {fileID: 1172153214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1181996228
 GameObject:
   m_ObjectHideFlags: 0
@@ -9992,13 +9999,13 @@ MonoBehaviour:
   NearInvent: 0
   open: 0
   closed: 1
-  Camera: {fileID: 563195023}
   Counter: {fileID: 560467842}
   Hammer: {fileID: 1140784118}
   Feather: {fileID: 1077704942}
   canvas: {fileID: 1710546835}
   Sphere: {fileID: 1647679177}
   dialogueTrigger: {fileID: 1941795923}
+  playerAnimator: {fileID: 1172153223}
 --- !u!95 &1941795922
 Animator:
   serializedVersion: 3

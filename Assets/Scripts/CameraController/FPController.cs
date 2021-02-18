@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using System.Collections;
+using General;
 using GeneralUI;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,7 @@ public class FPController : MonoBehaviour
 {
     public GameObject player;
 
-    [SerializeField] private Transform cameraT; 
+    [SerializeField] private Transform cameraT;
 
     [SerializeField] private float speed = 1f;
 
@@ -29,6 +30,8 @@ public class FPController : MonoBehaviour
     [SerializeField] private float minX = -60f;
     [SerializeField] private float maxX = 30f;
 
+    [SerializeField] private GameState gameState;
+
     private Animator m_Animator;
     private CharacterController m_CharacterController;
 
@@ -46,7 +49,7 @@ public class FPController : MonoBehaviour
     [SerializeField] private GameObject non_sasso;
     [SerializeField] private bool canTake = true;
     [SerializeField] private DialogueTrigger finalDialogue;
-    
+
     public Inventory inventory;
     [FormerlySerializedAs("Hand")] public GameObject hand;
     [FormerlySerializedAs("leftHand")] public GameObject leftHand;
@@ -60,10 +63,10 @@ public class FPController : MonoBehaviour
     private static readonly int Run = Animator.StringToHash("run");
     private static readonly int Jump = Animator.StringToHash("jump");
     private static readonly int Take = Animator.StringToHash("take");
-    
+
     public GameObject Palla;
     public GameObject Mazza;
-
+    [SerializeField] private bool canJump = true;
 
 
     void Start()
@@ -73,9 +76,9 @@ public class FPController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         inventory.ItemUsed += Inventory_ItemUsed;
         inventory.ItemRemoved += Inventory_ItemRemoved;
-        if(!(sasso is null))
+        if (!(sasso is null))
             sasso.SetActive(false);
-        if(!(non_sasso is null))
+        if (!(non_sasso is null))
             non_sasso.SetActive(false);
     }
 
@@ -118,7 +121,6 @@ public class FPController : MonoBehaviour
         }
 
         mCurrentItem = e.Item;
-
     }
 
     private IInventoryItem mCurrentItem = null;
@@ -157,7 +159,6 @@ public class FPController : MonoBehaviour
         yield return new WaitForSeconds(3);
         FindObjectOfType<DialogueManager>().endScene = true;
         finalDialogue.TriggerDialogue();
-        
     }
 
     public void DoDropItem()
@@ -173,6 +174,7 @@ public class FPController : MonoBehaviour
             DropCurrentItem();
         }
     }
+
     void Update()
     {
         //Ground Check
@@ -195,6 +197,13 @@ public class FPController : MonoBehaviour
         m_CameraXRotation -= mouseY;
         m_CameraXRotation = Mathf.Clamp(m_CameraXRotation, minX, maxX);
         cameraT.localRotation = Quaternion.Euler(m_CameraXRotation, 0f, 0f);
+        if (gameState.GetPaused())
+        {
+            m_Animator.SetBool(Run, false);
+            m_Animator.SetBool(Jump, false);
+            m_Animator.SetFloat(Speed, 0);
+            return;
+        }
 
         if (m_IsGrounded)
         {
@@ -222,11 +231,9 @@ public class FPController : MonoBehaviour
             m_InputVector = new Vector3(h, 0, v);
             m_InputSpeed = Mathf.Clamp(m_InputVector.magnitude, 0f, 1f);
         }
-        
-        // Debug.Log("Tasto : " + Input.GetKey(KeyCode.Space) + " Is grounded: " +  m_IsGrounded  + " Is Jumping:  " + (m_IsJumping));
-        if (Input.GetKey(KeyCode.Space) && m_IsGrounded && !m_IsJumping)
+
+        if (Input.GetKeyDown(KeyCode.Space) && m_IsGrounded && !m_IsJumping && canJump && !gameState.GetPaused())
         {
-            
             m_Velocity.y = jumpHeight;
             m_IsJumping = true;
         }
@@ -242,8 +249,6 @@ public class FPController : MonoBehaviour
         m_CharacterController.Move(m_Velocity * Time.deltaTime);
 
         UpdateAnimations();
-
-        
     }
 
     private void UpdateAnimations()
@@ -251,7 +256,7 @@ public class FPController : MonoBehaviour
         m_Animator.SetFloat(Speed, !m_IsJumping ? m_InputSpeed : 0f);
         m_Animator.SetBool(Run, Input.GetKey(KeyCode.LeftShift) && !m_IsJumping && Math.Abs(m_InputSpeed) > 0.01f);
         m_Animator.SetBool(Jump, m_IsJumping);
-        if(canTake)
+        if (canTake)
             m_Animator.SetBool(Take, m_isTaking);
     }
 
@@ -261,7 +266,7 @@ public class FPController : MonoBehaviour
         if (collision.gameObject.CompareTag("Box"))
         {
             var inventoryVar = canvas.GetComponent<InventorySlot>();
-            if(!(inventoryVar is null))
+            if (!(inventoryVar is null))
                 inventoryVar.NearInventory = true;
         }
 
@@ -276,11 +281,12 @@ public class FPController : MonoBehaviour
         if (collision.gameObject.CompareTag("Box"))
         {
             nearObject = false;
-            
+
             var inventoryVar = canvas.GetComponent<InventorySlot>();
-            if(!(inventoryVar is null))
+            if (!(inventoryVar is null))
                 inventoryVar.NearInventory = false;
         }
+
         if (collision.gameObject.CompareTag("Sphere"))
         {
             throw_obj = false;
@@ -293,7 +299,7 @@ public class FPController : MonoBehaviour
             return;
 
         IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
-        if(item != null)
+        if (item != null)
         {
             nearObject = true;
             inventory.AddItem(item);
@@ -314,8 +320,6 @@ public class FPController : MonoBehaviour
             else
                 m_isTaking = false;
         }
-
-
     }
 
     IEnumerator ExampleCoroutine(Collider rock)
@@ -332,8 +336,4 @@ public class FPController : MonoBehaviour
             sasso.SetActive(true);
         }
     }
-
-
-
-
 }

@@ -411,6 +411,7 @@ MonoBehaviour:
   jumpHeight: 2
   minX: -60
   maxX: 30
+  gameState: {fileID: 0}
   sasso: {fileID: 0}
   non_sasso: {fileID: 0}
   canTake: 0
@@ -426,6 +427,7 @@ MonoBehaviour:
   press: {fileID: 0}
   Palla: {fileID: 0}
   Mazza: {fileID: 0}
+  canJump: 1
 --- !u!81 &35708501
 AudioListener:
   m_ObjectHideFlags: 0
@@ -7474,6 +7476,7 @@ MonoBehaviour:
   canvas: {fileID: 0}
   Sphere: {fileID: 0}
   dialogueTrigger: {fileID: 0}
+  playerAnimator: {fileID: 1453657450}
 --- !u!95 &677943816
 Animator:
   serializedVersion: 3
@@ -10611,7 +10614,7 @@ MonoBehaviour:
   animator: {fileID: 611157261}
   historicAnimator: {fileID: 1692624442}
   mouseNeeded: 0
-  pauseNeeded: 0
+  pauseNeeded: 1
   gameState: {fileID: 1242401825}
   historicDialogue:
     name: Historic hint
@@ -11190,6 +11193,7 @@ MonoBehaviour:
   jumpHeight: 2
   minX: -60
   maxX: 60
+  gameState: {fileID: 1242401825}
   sasso: {fileID: 1480038693}
   non_sasso: {fileID: 1480038693}
   canTake: 0
@@ -11205,6 +11209,7 @@ MonoBehaviour:
   press: {fileID: 2086666886}
   Palla: {fileID: 949609325}
   Mazza: {fileID: 949609325}
+  canJump: 0
 --- !u!143 &1453657444
 CharacterController:
   m_ObjectHideFlags: 0
@@ -11292,6 +11297,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTime: 600
   dialogueTrigger: {fileID: 1453657448}
+--- !u!95 &1453657450 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
+  m_PrefabInstance: {fileID: 1453657439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1480038693
 GameObject:
   m_ObjectHideFlags: 0
