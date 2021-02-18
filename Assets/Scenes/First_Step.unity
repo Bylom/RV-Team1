@@ -4429,19 +4429,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7b6bb51d3591754185e690d1802d969, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0641183
+      value: -0.08581966
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7b6bb51d3591754185e690d1802d969, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.02451857
+      value: -0.026715504
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7b6bb51d3591754185e690d1802d969, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9925481
+      value: 0.9909076
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7b6bb51d3591754185e690d1802d969, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.10067789
+      value: -0.10011732
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7b6bb51d3591754185e690d1802d969, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4449,7 +4449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7b6bb51d3591754185e690d1802d969, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 187.178
+      value: 189.685
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7b6bb51d3591754185e690d1802d969, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -6983,7 +6983,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843285411}
   m_LocalRotation: {x: 0.029141326, y: -0.59069794, z: 0.03048622, w: -0.8057899}
-  m_LocalPosition: {x: 0.083000146, y: 2.8019993, z: -0.032999713}
+  m_LocalPosition: {x: 0.077, y: 2.83, z: -0.004}
   m_LocalScale: {x: 0.4999997, y: 0.49999994, z: 0.11458993}
   m_Children: []
   m_Father: {fileID: 615073943}
@@ -7020,7 +7020,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.55
+  near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 0
