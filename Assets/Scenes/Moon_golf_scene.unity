@@ -472,12 +472,15 @@ MonoBehaviour:
   historicDialogue:
     name: Historic hint
     sentences:
-    - 'At the end of the second moonwalk, Shepard hit two golf balls with the head
-      of a six-iron attached to the handle of a sample-collection tool.
+    - 'Apollo 14: 5 Feb, 1971
 
-      One
-      of the balls was found in a crater, making this the first extraterrestrial
-      hole in one. In a lesser known but no less significant sports milestone'
+      At the end of the second moonwalk, Shepard hit
+      two golf balls with the head of a six-iron attached to the handle of a sample-collection
+      tool.
+
+      One of the balls was found in a crater, making this the first
+      extraterrestrial hole in one. In a lesser known but no less significant sports
+      milestone'
   currentScene: 4
   endScene: 0
 --- !u!1 &58399575
