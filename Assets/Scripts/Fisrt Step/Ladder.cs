@@ -55,8 +55,8 @@ public class Ladder : MonoBehaviour
         m_CameraXRotation -= mouseY;
         m_CameraYRotation += mouseX;
 
-        m_CameraXRotation = Mathf.Clamp(m_CameraXRotation, -30, 40);
-        m_CameraYRotation = Mathf.Clamp(m_CameraYRotation, -60, 60);
+        m_CameraXRotation = Mathf.Clamp(m_CameraXRotation, -30, 30);
+        m_CameraYRotation = Mathf.Clamp(m_CameraYRotation, -50, 50);
         cameraT.localRotation = Quaternion.Euler(m_CameraXRotation, m_CameraYRotation, 0f);
         if (gameState.GetPaused()) return;
 
