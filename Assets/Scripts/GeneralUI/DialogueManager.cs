@@ -56,6 +56,7 @@ namespace GeneralUI
         
         public void StartHistoricDialogue(Dialogue dialogue)
         {
+            _close = true;
             if (pauseNeeded)
                 gameState.SetPaused(true);
             if (mouseNeeded)
@@ -159,7 +160,6 @@ namespace GeneralUI
 
             if (endScene)
             {
-                _close = true;
                 StartHistoricDialogue(historicDialogue);
             }
         }

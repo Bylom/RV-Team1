@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GeneralUI;
+using UnityEngine.SceneManagement;
 
 public class RockCount : MonoBehaviour
 {
@@ -11,6 +13,11 @@ public class RockCount : MonoBehaviour
 
     private int numSassi = 6;
     public GameObject[] inseriti;
+    public Dialogue dialogue;
+    public Dialogue dialogueBall;
+    public Dialogue dialogueFinish;
+
+    public DialogueTrigger dialogueTrigger;
 
     private static readonly int Open = Animator.StringToHash("Open");
 
@@ -46,6 +53,10 @@ public class RockCount : MonoBehaviour
                 rock.gameObject.SetActive(false);
                 inseriti[rockCount].SetActive(true);
                 rockCount++;
+                if (rockCount == 1) 
+                {
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                }
             }
         }
 
@@ -59,7 +70,18 @@ public class RockCount : MonoBehaviour
                 rock.gameObject.SetActive(false);
                 inseriti[5].SetActive(true);
                 ballCount++;
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogueBall);
             }
         }
+
+        if(rockCount == 3 && ballCount == 1)
+        {
+            var dialogueManager = FindObjectOfType<DialogueManager>();
+            dialogueManager.endScene = true;
+            dialogueManager.StartHistoricDialogue(dialogueFinish);
+            ballCount++;
+        }
+
     }
+
 }
