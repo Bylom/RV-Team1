@@ -6975,16 +6975,24 @@ MonoBehaviour:
   historicDialogue:
     name: Historical Hint
     sentences:
-    - "Apollo15 Lunar Landing: Feb. 5, 1971 \r\nWith the help of the first automotive
-      vehicle designed not only for off-road but for off-planet use,\r\n the astronauts
-      of Apollo 15 explored a more diverse region of the Moon than ever before and
-      brought nearly \r\nas much lunar rock and soil back to Earth as the previous
-      two Moon-landing missions combined.\r\nThey unfolded and deployed their lunar
-      rover the following day. Specially designed for operation at 1/6 Earth\u2019s
-      gravity,\r\n it could carry 180 pounds (82 kilograms) of astronauts, gear and
-      samples on the Moon (which would weight 1,080 pounds or \r\n490 kilograms on
-      Earth), more than twice the rover\u2019s weight, but risked collapse if accidentally
-      sat upon while still on Earth. "
+    - 'Apollo 11
+
+      16 july 1969
+
+      The goal of Apollo 11 was, as John
+      F. Kennedy had pronounced less than a decade earlier, to land astronauts on
+      the Moon and return them safely to Earth.
+
+      
+
+      The mission, leaded
+      by Neil Armstrong, conducted the first crewed landing on the Moon, took photographs,
+      collected samples and returned the crew safely back home.
+
+      Firsts'
+    - "The first words spoken from the surface of another world: \"Houston, Tranquility
+      Base here. The Eagle has landed.\" \nAnd then, the famous quote: \"One small
+      step for a man, one gian leap for mankind\"\n\n\n\n\n"
   currentScene: 1
   endScene: 0
 --- !u!1 &1631060173
@@ -7909,7 +7917,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.5
+  near clip plane: 0.55
   far clip plane: 1000
   field of view: 60
   orthographic: 0

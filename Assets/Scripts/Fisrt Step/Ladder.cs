@@ -28,6 +28,8 @@ public class Ladder : MonoBehaviour
     private bool m_Step;
     private bool m_Wait;
     private bool change;
+    private int controllo; 
+
     private static readonly int Down = Animator.StringToHash("down");
     private static readonly int Step = Animator.StringToHash("step");
 
@@ -76,7 +78,12 @@ public class Ladder : MonoBehaviour
 
         if (m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Ladder_down") && (m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f))
         {
-          //  FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            if (controllo == 0)
+            {
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                controllo++;
+            }
+            
         }
 
 
@@ -112,17 +119,15 @@ public class Ladder : MonoBehaviour
             name = "Mission control",
             sentences = new[]
             {
-                        "Good job, you reached the ball",
-                        "Those minerals look interesting, take some samples",
-                        "And don't forget the ball!"
-                    }
+                 "Congrats! You just made the first step on the Moon"
+            }
         });
 
         dialogueTrigger.TriggerDialogue();
         //SceneManager.LoadScene("Scenes/Missioni");
         Cursor.lockState = CursorLockMode.None;
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(10);
         BlackIm.CrossFadeAlpha(1, 2, false);
         
     }
