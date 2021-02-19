@@ -42,6 +42,8 @@ namespace GeneralUI
             nameText.text = dialogue.name;
             _runningDialogue = true;
 
+            if (_sentences is null)
+                _sentences = new Queue<string>();
             _sentences.Clear();
 
             foreach (string sentence in dialogue.sentences)
