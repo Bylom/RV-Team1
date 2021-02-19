@@ -30,6 +30,7 @@ public class Bandiera : MonoBehaviour
 
     [SerializeField] private DialogueTrigger dialogueTrigger;
     private bool _firstDialogueCall = true;
+    private bool _firstFlag = true, _firstTake = true;
 
     public void Start()
     {
@@ -63,7 +64,7 @@ public class Bandiera : MonoBehaviour
 
         private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player");
             //FindObjectOfType<AudioManager>().Play("Plant_Flag");
@@ -72,8 +73,9 @@ public class Bandiera : MonoBehaviour
             NearFlag = true;
         }
 
-        if (other.gameObject.tag == "Flag")
+        if (other.gameObject.CompareTag("Flag") && _firstFlag)
         {
+            _firstFlag = false;
             FindObjectOfType<AudioManager>().Play("Plant_Flag");
         }
     }
@@ -81,7 +83,7 @@ public class Bandiera : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             NearFlag = false;
             //press.gameObject.SetActive(false);
@@ -91,6 +93,8 @@ public class Bandiera : MonoBehaviour
     IEnumerator WaitForSec()
     {
         yield return new WaitForSeconds(3);
-        FindObjectOfType<AudioManager>().Play("Take_Flag");
+        if(_firstTake)
+            FindObjectOfType<AudioManager>().Play("Take_Flag");
+        _firstTake = false;
     }
 }
