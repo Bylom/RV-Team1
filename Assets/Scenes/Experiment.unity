@@ -3550,6 +3550,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
+      propertyPath: MyMixer
+      value: 
+      objectReference: {fileID: 24300002, guid: b096069975abab340a21edf7f7d7df5f, type: 2}
+    - target: {fileID: 36080958474512697, guid: 58597746cff0c654e8a39cc768683b99, type: 3}
       propertyPath: sounds.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -5680,22 +5684,22 @@ MonoBehaviour:
   m_FillRect: {fileID: 1777113233}
   m_HandleRect: {fileID: 1444972705}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 0.73
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 608041737}
         m_TargetAssemblyTypeName: MasterVolumeControl, Assembly-CSharp
         m_MethodName: SetVolume
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.73
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
