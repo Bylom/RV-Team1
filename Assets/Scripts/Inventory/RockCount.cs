@@ -70,7 +70,7 @@ public class RockCount : MonoBehaviour
             }
         }
 
-        if(rockCount == 3 && ballCount == 1)
+        if(rockCount >= 3 && ballCount >= 1)
         {
             var dialogueManager = FindObjectOfType<DialogueManager>();
             dialogueManager.endScene = true;
