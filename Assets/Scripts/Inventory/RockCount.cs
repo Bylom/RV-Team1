@@ -18,6 +18,10 @@ public class RockCount : MonoBehaviour
 
     public DialogueTrigger dialogueTrigger, dialogueFinish;
 
+    public GameObject Box;
+    public GameObject Box1;
+    public GameObject Box2;
+
     private static readonly int Open = Animator.StringToHash("Open");
 
 
@@ -40,6 +44,8 @@ public class RockCount : MonoBehaviour
         if (rock!= null && rock.gameObject.CompareTag("Rock"))
         {
             opening.SetBool(Open, true);
+            StartCoroutine("WaitForSec");
+            
 
             if (Input.GetKey(KeyCode.E))
             {
@@ -80,4 +86,20 @@ public class RockCount : MonoBehaviour
 
     }
 
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(2);
+        Box.SetActive(false);
+        Box1.SetActive(false);
+        Box2.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Eccomi qua");
+            Debug.Log(collision.name);
+        }
+    }
 }

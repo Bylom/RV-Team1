@@ -38,6 +38,9 @@ public class Ladder : MonoBehaviour
 
     public DialogueTrigger dialogueTrigger;
 
+    public GameObject Astronaut;
+    public GameObject Astronaut1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,6 +99,9 @@ public class Ladder : MonoBehaviour
            
             StartCoroutine(MakeFirstStep());
             FindObjectOfType<AudioManager>().Play("FirstStep");
+            Astronaut.SetActive(false);
+            Astronaut1.SetActive(true);
+            camera2.enabled = true;
         }  
 
     }

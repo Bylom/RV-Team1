@@ -10,6 +10,7 @@ public class Rastrello : MonoBehaviour
     [FormerlySerializedAs("Hand")] public GameObject hand;
     public GameObject rastr;
     public Dialogue dialogue;
+    public GameObject Palla;
 
     public Vector3 PickPosition;
     public Vector3 PickRotation;
@@ -25,6 +26,8 @@ public class Rastrello : MonoBehaviour
                 rastr.transform.parent = hand.transform;
                 rastr.transform.localPosition = PickPosition;
                 rastr.transform.localEulerAngles = PickRotation;
+
+        Debug.Log(Palla.transform.position);
     }
 
 
