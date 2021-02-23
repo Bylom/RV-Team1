@@ -21,7 +21,6 @@ public class Inventory_Opener : MonoBehaviour
     public MeshRenderer Hammer;
     public MeshRenderer Feather;
 
-    public GameObject canvas;
     public GameObject Sphere;
 
     [SerializeField] private DialogueTrigger dialogueTrigger;

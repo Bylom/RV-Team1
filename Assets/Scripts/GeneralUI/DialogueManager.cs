@@ -79,7 +79,7 @@ namespace GeneralUI
             DisplayNextHistoricSentence();
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (!_close && _runningDialogue && Input.GetKeyDown(KeyCode.Space))
                 DisplayNextSentence();

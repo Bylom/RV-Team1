@@ -7638,7 +7638,6 @@ MonoBehaviour:
   Counter: {fileID: 0}
   Hammer: {fileID: 0}
   Feather: {fileID: 0}
-  canvas: {fileID: 0}
   Sphere: {fileID: 0}
   dialogueTrigger: {fileID: 0}
   playerAnimator: {fileID: 1453657450}
@@ -11250,7 +11249,7 @@ MonoBehaviour:
   press: {fileID: 2086666886}
   Palla: {fileID: 949609325}
   Mazza: {fileID: 949609325}
-  canJump: 0
+  canJump: 1
 --- !u!143 &1453657444
 CharacterController:
   m_ObjectHideFlags: 0
