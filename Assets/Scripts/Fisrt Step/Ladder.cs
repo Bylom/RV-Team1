@@ -101,6 +101,7 @@ public class Ladder : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("FirstStep");
             Astronaut.SetActive(false);
             Astronaut1.SetActive(true);
+            Astronaut1.GetComponent<End_First_Scene>().active_A = true;
             camera2.enabled = true;
         }  
 
@@ -119,6 +120,7 @@ public class Ladder : MonoBehaviour
     IEnumerator MakeFirstStep()
     {
         yield return new WaitForSeconds(1);
+        Debug.Log("End Scene");
         m_Step = true;
         UpdateAnimations();
         DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();

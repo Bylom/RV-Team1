@@ -6024,7 +6024,6 @@ MonoBehaviour:
   press: {fileID: 0}
   Palla: {fileID: 0}
   Mazza: {fileID: 0}
-  rastrello: {fileID: 0}
   canJump: 1
 --- !u!81 &1590704102
 AudioListener:
@@ -8120,7 +8119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.25
+      value: 10.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c4274bfdbab5e4029887043258636a4e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8302,6 +8301,24 @@ MonoBehaviour:
     name: Mission control
     sentences:
     - You're running out of oxygen, be careful
+--- !u!114 &2014887129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014887123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43423f93ea35f0e4f8c2558bbe2ca84a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active_A: 0
+  dialogue:
+    name: 
+    sentences: []
+  dialogueTrigger: {fileID: 2027377811}
+  BlackIm: {fileID: 220360090}
 --- !u!114 &2014887130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8332,7 +8349,7 @@ MonoBehaviour:
   non_sasso: {fileID: 0}
   canTake: 0
   finalDialogue: {fileID: 0}
-  inventory: {fileID: 0}
+  inventory: {fileID: 1494098469}
   hand: {fileID: 2014887124}
   leftHand: {fileID: 2014887124}
   nearObject: 0
@@ -8343,7 +8360,6 @@ MonoBehaviour:
   press: {fileID: 0}
   Palla: {fileID: 0}
   Mazza: {fileID: 0}
-  rastrello: {fileID: 0}
   canJump: 0
 --- !u!143 &2014887131
 CharacterController:
@@ -8451,6 +8467,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015848925}
   m_CullTransparentMesh: 0
+--- !u!1 &2027377810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2027377812}
+  - component: {fileID: 2027377811}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2027377811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027377810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6788aa0eaf3b57c439ba52ba80dec20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences: []
+--- !u!4 &2027377812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027377810}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 211.11736, y: 24.733639, z: 149.17297}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2048398075
 GameObject:
   m_ObjectHideFlags: 0

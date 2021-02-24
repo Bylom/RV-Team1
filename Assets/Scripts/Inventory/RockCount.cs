@@ -22,6 +22,8 @@ public class RockCount : MonoBehaviour
     public GameObject Box1;
     public GameObject Box2;
 
+    public GameObject Palla;
+
     private static readonly int Open = Animator.StringToHash("Open");
 
 
@@ -50,7 +52,15 @@ public class RockCount : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 rock.gameObject.SetActive(false);
+
+                Debug.Log(Palla.transform.position.x);
+                Debug.Log(Palla.transform.position.z);
+                Debug.Log(Palla.transform.position.y);
+
+                Vector3 temp = new Vector3(Palla.transform.position.x, Palla.transform.position.y, Palla.transform.position.z);
+
                 inseriti[rockCount].SetActive(true);
+                inseriti[rockCount].transform.position = temp;
                 rockCount++;
                 if (rockCount == 1) 
                 {
@@ -68,8 +78,11 @@ public class RockCount : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E))
             {
+
+                Vector3 temp = new Vector3(Palla.transform.position.x, Palla.transform.position.y, Palla.transform.position.z);
                 rock.gameObject.SetActive(false);
                 inseriti[5].SetActive(true);
+                inseriti[5].transform.position = temp;
                 ballCount++;
                 dialogueTrigger.SetDialog(dialogueBall);
                 dialogueTrigger.TriggerDialogue();
