@@ -27,7 +27,7 @@ namespace CameraController
             _mCameraXRotation -= mouseY;
             _mCameraYRotation += mouseX;
             _mCameraXRotation = Mathf.Clamp(_mCameraXRotation, -60f, 30f);
-            _mCameraYRotation = Mathf.Clamp(_mCameraYRotation, -60f, 60f);
+            _mCameraYRotation = Mathf.Clamp(_mCameraYRotation, -27f, 27f);
             cameraT.localRotation = Quaternion.Euler(_mCameraXRotation, _mCameraYRotation, 0f);
         }
     }
