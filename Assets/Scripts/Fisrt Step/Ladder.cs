@@ -101,6 +101,7 @@ public class Ladder : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("FirstStep");
             Astronaut.SetActive(false);
             Astronaut1.SetActive(true);
+            Astronaut1.GetComponent<Animator>().SetTrigger("Down");
             Astronaut1.GetComponent<End_First_Scene>().active_A = true;
             camera2.enabled = true;
         }  
