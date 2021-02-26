@@ -5329,6 +5329,7 @@ GameObject:
   - component: {fileID: 1421410086}
   - component: {fileID: 1421410085}
   - component: {fileID: 1421410084}
+  - component: {fileID: 1421410087}
   m_Layer: 0
   m_Name: foot
   m_TagString: Untagged
@@ -5424,6 +5425,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 105, z: 0}
+--- !u!81 &1421410087
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421410083}
+  m_Enabled: 1
 --- !u!1 &1445333717
 GameObject:
   m_ObjectHideFlags: 0
