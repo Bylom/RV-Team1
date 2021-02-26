@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8873252799577257925
+--- !u!114 &-2123561346771706198
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16,29 +16,29 @@ MonoBehaviour:
   m_AdvancedMode: 0
   postExposure:
     m_OverrideState: 1
-    m_Value: 1.05
+    m_Value: 1.56
   contrast:
     m_OverrideState: 1
-    m_Value: -0.4
+    m_Value: 13.2
     min: -100
     max: 100
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0.9339623, g: 0.5749497, b: 0.4801976, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   hueShift:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 7
     min: -180
     max: 180
   saturation:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: -67.3
     min: -100
     max: 100
---- !u!114 &-5297601859548572173
+--- !u!114 &-1696813884333695782
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,16 +53,16 @@ MonoBehaviour:
   active: 1
   m_AdvancedMode: 0
   threshold:
-    m_OverrideState: 1
-    m_Value: 1.4
+    m_OverrideState: 0
+    m_Value: 0.9
     min: 0
   intensity:
-    m_OverrideState: 1
-    m_Value: 3.88
+    m_OverrideState: 0
+    m_Value: 0
     min: 0
   scatter:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.842
     min: 0
     max: 1
   clamp:
@@ -85,12 +85,28 @@ MonoBehaviour:
     max: 16
   dirtTexture:
     m_OverrideState: 1
-    m_Value: {fileID: 2800000, guid: 01fdfb22b41688b419f8957b0c41f9cb, type: 3}
+    m_Value: {fileID: 2800000, guid: 1421be567b971ef4b81f33c357d3b70e, type: 3}
   dirtIntensity:
     m_OverrideState: 1
-    m_Value: 200
+    m_Value: 100
     min: 0
---- !u!114 &-2874718132804453233
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: Ext camera
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: -2123561346771706198}
+  - {fileID: -1696813884333695782}
+  - {fileID: 8163597973292253120}
+--- !u!114 &8163597973292253120
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,58 +122,17 @@ MonoBehaviour:
   m_AdvancedMode: 0
   type:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 8
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
     min: 0
     max: 1
   response:
-    m_OverrideState: 0
-    m_Value: 0.8
+    m_OverrideState: 1
+    m_Value: 1
     min: 0
     max: 1
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Global Volume Profile
-  m_EditorClassIdentifier: 
-  components:
-  - {fileID: -5297601859548572173}
-  - {fileID: -8873252799577257925}
-  - {fileID: 3840292573094790251}
-  - {fileID: -2874718132804453233}
---- !u!114 &3840292573094790251
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb60a22f311433c4c962b888d1393f88, type: 3}
-  m_Name: PaniniProjection
-  m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
-  distance:
-    m_OverrideState: 1
-    m_Value: 0
-    min: 0
-    max: 1
-  cropToFit:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-    max: 1
